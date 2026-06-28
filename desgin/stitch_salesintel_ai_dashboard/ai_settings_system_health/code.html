@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SalesAI Admin - AI Settings &amp; System Monitoring</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-geist { font-family: 'Geist', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(248, 249, 255, 0.8);
+            border: 1px solid #e2e8f0;
+        }
+        .chart-container {
+            height: 120px;
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+        }
+        .chart-bar {
+            width: 100%;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            transition: height 0.6s ease-in-out;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#fffbff",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "secondary-container": "#8455ef",
+                        "on-surface-variant": "#464554",
+                        "surface-variant": "#d3e4fe",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f8f9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "primary-fixed": "#e1e0ff",
+                        "surface-dim": "#cbdbf5",
+                        "error-container": "#ffdad6",
+                        "primary": "#4648d4",
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "on-secondary-fixed": "#23005c",
+                        "on-primary-fixed": "#07006c",
+                        "surface-container-low": "#eff4ff",
+                        "surface-tint": "#494bd6",
+                        "outline": "#767586",
+                        "on-tertiary-container": "#fcfcff",
+                        "surface-container-high": "#dce9ff",
+                        "on-tertiary-fixed": "#001e2f",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "surface-container": "#e5eeff",
+                        "on-background": "#0b1c30",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-bright": "#f8f9ff",
+                        "secondary": "#6b38d4",
+                        "secondary-fixed": "#e9ddff",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "tertiary-fixed-dim": "#89ceff",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#00628d",
+                        "tertiary-container": "#007cb1",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "tertiary-fixed": "#c9e6ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "inverse-primary": "#c0c1ff",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "primary-container": "#6063ee",
+                        "outline-variant": "#c7c4d7",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-primary-container": "#fffbff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "base": "4px",
+                        "sm": "12px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "margin-page": "40px",
+                        "md": "16px",
+                        "gutter": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 flex flex-col border-r border-outline-variant bg-surface-container-low z-40">
+<div class="p-lg">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">SalesAI Admin</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-70">Enterprise Suite</p>
+</div>
+<nav class="flex-1 px-md py-sm space-y-1">
+<a class="flex items-center gap-xs text-on-surface-variant hover:text-on-surface px-md py-xs hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-xs text-on-surface-variant hover:text-on-surface px-md py-xs hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">User Management</span>
+</a>
+<a class="flex items-center gap-xs text-on-surface-variant hover:text-on-surface px-md py-xs hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-md text-label-md">Security</span>
+</a>
+<!-- Active Tab: AI Settings -->
+<a class="flex items-center gap-xs bg-secondary-container text-on-secondary-container rounded-lg px-md py-xs font-semibold active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-md text-label-md">AI Settings</span>
+</a>
+<a class="flex items-center gap-xs text-on-surface-variant hover:text-on-surface px-md py-xs hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Billing</span>
+</a>
+<a class="flex items-center gap-xs text-on-surface-variant hover:text-on-surface px-md py-xs hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-md text-label-md">System Monitoring</span>
+</a>
+</nav>
+<div class="p-lg border-t border-outline-variant">
+<button class="w-full py-xs px-md bg-primary text-on-primary rounded-lg font-label-md text-label-md font-semibold transition-all hover:opacity-90">
+                Upgrade Plan
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-16 flex justify-between items-center px-lg bg-surface/80 backdrop-blur-md border-b border-outline-variant z-30">
+<div class="flex items-center gap-lg flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Search system logs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-xs mr-md text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined">workspaces</span>
+<span>Workspace</span>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">settings</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">apps</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-surface-variant ml-xs">
+<img class="w-full h-full object-cover" data-alt="A professional corporate headshot of a female technology executive with a friendly yet authoritative expression. She is in a brightly lit, modern office environment with subtle architectural glass reflections and a soft blue and white color palette. The lighting is crisp and high-end, evoking a sense of modern SaaS professionalism and enterprise leadership." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANbvRO5mcqKVlIc6Hh_EDvDlRi8ZY2O19Li_Ut8IIrGtGOL_ixHZlroIojjmDIlvtDHd-HCslLv23z5So3bICDIjLlbc8IkwgNGj_UwRKP87TgAnSw36Dg66VFjX9sGLUP7hGcev0MAp3_iicx6M3sEMrKThQOkskQKSbxKgO5bGEbSlY5b_c-g14AYTG0V7q8vMIxThutYVc8J1VqMJCyJqMs4OQV2RxFbEBTBBHUzow_fWetGg0iQ3qMq16HbBdHA-iv6K29bMTv"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 mt-16 p-margin-page">
+<div class="max-w-[1200px] mx-auto">
+<!-- Page Header -->
+<header class="mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-background">AI Engine &amp; Governance</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Configure enterprise-grade AI models and monitor real-time system performance.</p>
+</header>
+<div class="grid grid-cols-12 gap-lg">
+<!-- AI Feature Flags / Settings (Bento Grid Style) -->
+<section class="col-span-12 lg:col-span-7 space-y-lg">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg">
+<div class="flex justify-between items-center mb-lg">
+<div>
+<h3 class="font-headline-md text-headline-md">Feature Orchestration</h3>
+<p class="text-on-surface-variant text-sm">Control AI capabilities across the organization</p>
+</div>
+<span class="px-md py-1 bg-tertiary-container/10 text-tertiary rounded-full font-label-sm text-label-sm">3 Active Toggles</span>
+</div>
+<div class="space-y-md">
+<!-- Toggle 1 -->
+<div class="flex items-center justify-between p-md bg-surface border border-outline-variant rounded-lg hover:border-primary/30 transition-colors">
+<div class="flex gap-md items-start">
+<div class="p-base bg-primary/10 text-primary rounded-lg mt-1">
+<span class="material-symbols-outlined">summarize</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold">Auto-Summarization</h4>
+<p class="text-xs text-on-surface-variant max-w-sm">Automatically generate concise summaries for every sales call and meeting transcript.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Toggle 2 -->
+<div class="flex items-center justify-between p-md bg-surface border border-outline-variant rounded-lg hover:border-primary/30 transition-colors">
+<div class="flex gap-md items-start">
+<div class="p-base bg-secondary/10 text-secondary rounded-lg mt-1">
+<span class="material-symbols-outlined">mood</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold">Sentiment Analysis Engine</h4>
+<p class="text-xs text-on-surface-variant max-w-sm">Analyze vocal tone and keyword intent to categorize lead heat and sentiment levels.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Toggle 3 -->
+<div class="flex items-center justify-between p-md bg-surface border border-outline-variant rounded-lg hover:border-primary/30 transition-colors">
+<div class="flex gap-md items-start">
+<div class="p-base bg-tertiary/10 text-tertiary rounded-lg mt-1">
+<span class="material-symbols-outlined">track_changes</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold">Competitor Tracking</h4>
+<p class="text-xs text-on-surface-variant max-w-sm">Flag mentions of competitor pricing and features during conversations for battlecard updates.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Usage Analytics Cards -->
+<div class="grid grid-cols-2 gap-lg">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-lg opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl">generating_tokens</span>
+</div>
+<h4 class="font-label-sm text-label-sm text-on-surface-variant mb-xs">AI TOKENS CONSUMED</h4>
+<div class="flex items-baseline gap-xs mb-md">
+<span class="text-3xl font-bold font-geist">1.2M</span>
+<span class="text-on-surface-variant text-sm">/ 2M</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 60%"></div>
+</div>
+<p class="text-xs mt-sm text-on-surface-variant">60% of monthly quota used. <span class="text-primary font-bold">Resets in 12 days.</span></p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-lg opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl">forum</span>
+</div>
+<h4 class="font-label-sm text-label-sm text-on-surface-variant mb-xs">MEETING HOURS PROCESSED</h4>
+<div class="flex items-baseline gap-xs mb-md">
+<span class="text-3xl font-bold font-geist">482</span>
+<span class="text-on-surface-variant text-sm">/ 500</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 96%"></div>
+</div>
+<p class="text-xs mt-sm text-on-surface-variant">Warning: <span class="text-error font-bold">96% of capacity reached.</span></p>
+</div>
+</div>
+</section>
+<!-- System Health (Real-time charts) -->
+<section class="col-span-12 lg:col-span-5 space-y-lg">
+<div class="bg-inverse-surface text-inverse-on-surface rounded-xl p-lg h-full border border-outline">
+<div class="flex items-center gap-sm mb-lg">
+<span class="flex h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
+<h3 class="font-headline-md text-headline-md">System Health</h3>
+</div>
+<div class="space-y-xl">
+<!-- API Latency Chart -->
+<div class="space-y-md">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-xs font-label-sm opacity-70">API LATENCY</p>
+<p class="text-xl font-bold font-geist">24ms <span class="text-xs font-normal text-green-400">Stable</span></p>
+</div>
+<div class="text-right">
+<p class="text-xs opacity-50">99th percentile</p>
+</div>
+</div>
+<div class="chart-container" id="latency-chart">
+<!-- Dynamic bars via JS -->
+</div>
+</div>
+<!-- Model Throughput Chart -->
+<div class="space-y-md">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-xs font-label-sm opacity-70">MODEL THROUGHPUT</p>
+<p class="text-xl font-bold font-geist">4.8k <span class="text-xs font-normal opacity-70">req/min</span></p>
+</div>
+<div class="text-right">
+<p class="text-xs text-secondary-fixed-dim">Peak: 5.2k</p>
+</div>
+</div>
+<div class="chart-container" id="throughput-chart">
+<!-- Dynamic bars via JS -->
+</div>
+</div>
+<!-- Real-time Log Stream (Atmospheric micro-interaction) -->
+<div class="pt-lg border-t border-outline/30">
+<p class="text-xs font-label-sm opacity-50 mb-sm uppercase tracking-widest">Live Engine Stream</p>
+<div class="bg-black/20 rounded-lg p-sm font-mono text-[10px] text-green-400/80 h-32 overflow-hidden relative">
+<div class="space-y-1" id="log-stream">
+<div>[14:21:03] AUTH_REQ_SUCCESS: User_8829</div>
+<div>[14:21:04] MODEL_INFERENCE_START: Summary_v4</div>
+<div>[14:21:05] DATA_LAKE_STORAGE_ACK: Partition_0x92</div>
+<div>[14:21:06] API_RESPONSE_COMPLETED (22ms)</div>
+<div>[14:21:07] SENTIMENT_SCORE: 0.89 (Positive)</div>
+</div>
+<div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/40 to-transparent"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Bento Section -->
+<div class="col-span-12 grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="bg-surface-container-low p-lg rounded-xl border border-outline-variant flex items-center gap-lg">
+<div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">hub</span>
+</div>
+<div>
+<p class="text-xs opacity-70">NODE CLUSTERS</p>
+<p class="text-xl font-bold font-geist">12 Active</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-lg rounded-xl border border-outline-variant flex items-center gap-lg">
+<div class="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div>
+<p class="text-xs opacity-70">SECURITY PROTOCOL</p>
+<p class="text-xl font-bold font-geist">AES-256-GCM</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-lg rounded-xl border border-outline-variant flex items-center gap-lg">
+<div class="w-12 h-12 bg-surface-container-highest text-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">history</span>
+</div>
+<div>
+<p class="text-xs opacity-70">LAST DEPLOYMENT</p>
+<p class="text-xl font-bold font-geist">4h 12m ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Micro-interactions for charts
+        function initCharts() {
+            const latencyChart = document.getElementById('latency-chart');
+            const throughputChart = document.getElementById('throughput-chart');
+            
+            function createBars(container, colorClass, count = 30) {
+                for (let i = 0; i < count; i++) {
+                    const bar = document.createElement('div');
+                    bar.className = `chart-bar ${colorClass}`;
+                    const randomHeight = Math.floor(Math.random() * 80) + 20;
+                    bar.style.height = `${randomHeight}%`;
+                    container.appendChild(bar);
+                }
+            }
+
+            createBars(latencyChart, 'bg-green-400/60');
+            createBars(throughputChart, 'bg-secondary-fixed-dim/60');
+
+            // Animate bars occasionally
+            setInterval(() => {
+                const containers = [latencyChart, throughputChart];
+                containers.forEach(container => {
+                    const bars = container.querySelectorAll('.chart-bar');
+                    const randomIndex = Math.floor(Math.random() * bars.length);
+                    const newHeight = Math.floor(Math.random() * 80) + 20;
+                    bars[randomIndex].style.height = `${newHeight}%`;
+                });
+            }, 300);
+        }
+
+        // Fake live log streaming
+        function initLogStream() {
+            const stream = document.getElementById('log-stream');
+            const logs = [
+                "MODEL_CONTEXT_UPDATE: Context window expanded",
+                "AUTH_TOKENS_REFRESHED: Global service mesh",
+                "SENTIMENT_VAL: High_Purchase_Intent flagged",
+                "VECTOR_DB_SEARCH: Latency 8ms",
+                "BILLING_QUOTA_CHECK: User_329 passing",
+                "NODE_HEALTH: Cluster_A4 operating optimal",
+                "LOG_AGGREGATOR_PUSH: 104 events sent"
+            ];
+
+            setInterval(() => {
+                const log = document.createElement('div');
+                const time = new Date().toLocaleTimeString('en-GB', { hour12: false });
+                log.innerText = `[${time}] ${logs[Math.floor(Math.random() * logs.length)]}`;
+                stream.prepend(log);
+                if (stream.children.length > 8) {
+                    stream.removeChild(stream.lastChild);
+                }
+            }, 2000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initCharts();
+            initLogStream();
+        });
+    </script>
+</body></html>

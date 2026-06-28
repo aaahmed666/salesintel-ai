@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Meeting Details | Sales Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d3e4fe;
+            border-radius: 10px;
+        }
+        .transcript-bubble:hover .timestamp {
+            opacity: 1;
+        }
+        @keyframes subtle-float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-4px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: subtle-float 4s ease-in-out infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#8455ef",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#6b38d4",
+                        "on-secondary-fixed": "#23005c",
+                        "on-surface": "#0b1c30",
+                        "background": "#f8f9ff",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "inverse-primary": "#c0c1ff",
+                        "outline": "#767586",
+                        "tertiary-container": "#007cb1",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-surface-variant": "#464554",
+                        "primary-fixed": "#e1e0ff",
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary-container": "#fffbff",
+                        "secondary-fixed": "#e9ddff",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-variant": "#d3e4fe",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "on-tertiary-fixed": "#001e2f",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#494bd6",
+                        "surface-container": "#e5eeff",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "inverse-surface": "#213145",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c7c4d7",
+                        "on-background": "#0b1c30",
+                        "primary-container": "#6063ee",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#fcfcff",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#00628d",
+                        "tertiary-fixed": "#c9e6ff",
+                        "primary": "#4648d4",
+                        "on-secondary-container": "#fffbff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#89ceff",
+                        "error": "#ba1a1a",
+                        "surface": "#f8f9ff",
+                        "on-primary-fixed": "#07006c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "gutter": "20px",
+                        "sm": "12px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "xs": "8px",
+                        "base": "4px",
+                        "margin-page": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Geist"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Geist"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "label-md": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed-dim selection:text-on-primary-fixed min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-xl h-16 sticky top-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-outline-variant">
+<div class="flex items-center gap-xl">
+<span class="font-headline-md text-headline-md font-black text-on-surface">Sales Intelligence</span>
+<nav class="hidden md:flex gap-lg items-center h-full">
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-all" href="#">Dashboard</a>
+<a class="text-primary font-label-md border-b-2 border-primary pb-1" href="#">Reports</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-all" href="#">Forecasts</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border border-outline-variant rounded-full text-body-sm w-64 focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="Search insights..." type="text"/>
+</div>
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container rounded-full">notifications</button>
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container rounded-full">history</button>
+<div class="h-8 w-8 rounded-full bg-primary-container overflow-hidden border border-outline-variant ml-2">
+<img class="w-full h-full object-cover" data-alt="A professional corporate headshot of a female executive with a friendly smile, shot in high-key soft studio lighting with a clean minimalist background. The style is modern, professional, and high-quality, fitting an enterprise SaaS environment with a bright, light-mode aesthetic and sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4bmEoxmfu6fyOZ_S1ySVyv-7owQ9RNdlZzYDG0TLPsFKMxk9XvTBroHPPY84flfFv2TyZVCMhWTCkBRIRDY491t8rc21LM6KEoPhjBxkERuALYGeb8IKlRASg-xvR5WOXUE6y0mPqap5w1pow3aKfu8z7sWuqiOR0Sb7oyAU1RFrmxSNOpRcSRMzqHN9n5cAbpVEbklmwL-Ah6V3jo3Uly1BwEjuE3xPwPsekbelWuPdKIpt6FfKoBTxuGIAw45FRwgWYhE1ofMy3"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 h-[calc(100vh-64px)] overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-full w-64 border-r border-outline-variant bg-surface-container-low py-lg">
+<div class="px-md mb-xl">
+<div class="flex items-center gap-3 px-4 py-3 bg-surface-container-highest rounded-xl mb-base">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span>
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface font-bold">Acme Corp HQ</span>
+<span class="font-label-sm text-on-surface-variant">Enterprise Tier</span>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1 px-sm">
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-md">Intelligence</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-label-md">Leads</span>
+</a>
+<a class="text-primary font-bold flex items-center gap-3 px-4 py-2 bg-primary/10 rounded-lg scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_tree</span>
+<span class="font-label-md">Pipelines</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">reorder</span>
+<span class="font-label-md">Activity</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md">Analytics</span>
+</a>
+</nav>
+<div class="mt-auto px-sm space-y-1">
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md">Help</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col md:flex-row overflow-hidden">
+<!-- Left Panel: AI Insights & Transcript -->
+<section class="flex-1 flex flex-col overflow-y-auto custom-scrollbar bg-background">
+<!-- Header Info -->
+<div class="px-xl py-lg bg-surface-container-lowest border-b border-outline-variant">
+<nav class="flex items-center gap-2 text-on-surface-variant font-label-sm mb-sm">
+<span>Meetings</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-medium">Q3 Discovery - Global Expansion</span>
+</nav>
+<div class="flex justify-between items-start">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Q3 Discovery - Global Expansion</h1>
+<p class="text-on-surface-variant font-body-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span> Oct 12, 2023 • 2:00 PM (45 min)
+                            </p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-2 border border-outline-variant rounded-lg font-label-md hover:bg-surface-container transition-colors">Export</button>
+<button class="px-md py-2 bg-primary text-on-primary rounded-lg font-label-md shadow-sm hover:opacity-90 transition-all">Share Insight</button>
+</div>
+</div>
+</div>
+<div class="p-xl space-y-xl">
+<!-- Bento Grid: Top Insights -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- AI Summary -->
+<div class="lg:col-span-2 p-lg bg-white border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-2 mb-md">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h2 class="font-headline-md text-on-surface text-[20px]">AI Executive Summary</h2>
+</div>
+<p class="text-on-surface-variant font-body-md leading-relaxed">
+                                The meeting centered on Acme Corp's multi-region infrastructure requirements. The client expressed high interest in <span class="bg-primary/10 text-primary font-medium px-1 rounded">Data Residency Compliance</span> and scalability for the EMEA market. Sentiment remained consistently positive, though slight friction was detected regarding implementation timelines during the second quarter of the discussion.
+                            </p>
+<div class="mt-lg flex flex-wrap gap-xs">
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-label-sm text-on-surface-variant">#expansion</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-label-sm text-on-surface-variant">#compliance</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-label-sm text-on-surface-variant">#technical-debt</span>
+</div>
+</div>
+<!-- Deal Health Card -->
+<div class="p-lg bg-surface-container-high border border-outline-variant rounded-xl flex flex-col items-center justify-center text-center">
+<div class="relative w-32 h-32 flex items-center justify-center mb-md">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-outline-variant" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary transition-all duration-1000 ease-out" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="65.6" stroke-width="8"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="text-[32px] font-black text-on-surface">82</span>
+<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Score</span>
+</div>
+</div>
+<h3 class="font-label-md font-bold text-on-surface">High Propensity</h3>
+<p class="text-body-sm text-on-surface-variant">Deal momentum increased by +12% since last call.</p>
+</div>
+</div>
+<!-- Sentiment Timeline -->
+<div class="p-lg bg-white border border-outline-variant rounded-xl">
+<div class="flex justify-between items-center mb-xl">
+<h2 class="font-headline-md text-[18px]">Sentiment Timeline</h2>
+<div class="flex gap-md">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="font-label-sm">Positive</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="font-label-sm">Friction</span>
+</div>
+</div>
+</div>
+<div class="h-32 w-full flex items-end gap-1 px-2 overflow-hidden">
+<!-- Visualizing sentiment bars -->
+<div class="flex-1 bg-primary/20 hover:bg-primary h-[40%] rounded-t-sm transition-all cursor-help" title="0:00 - 4:00: Warm greeting"></div>
+<div class="flex-1 bg-primary/30 hover:bg-primary h-[55%] rounded-t-sm transition-all"></div>
+<div class="flex-1 bg-primary/40 hover:bg-primary h-[70%] rounded-t-sm transition-all"></div>
+<div class="flex-1 bg-primary/60 hover:bg-primary h-[85%] rounded-t-sm transition-all"></div>
+<div class="flex-1 bg-error/40 hover:bg-error h-[60%] rounded-t-sm transition-all" title="Price objection"></div>
+<div class="flex-1 bg-error/20 hover:bg-error h-[30%] rounded-t-sm transition-all"></div>
+<div class="flex-1 bg-primary/30 hover:bg-primary h-[50%] rounded-t-sm transition-all"></div>
+<div class="flex-1 bg-primary/50 hover:bg-primary h-[75%] rounded-t-sm transition-all"></div>
+<div class="flex-1 bg-primary/70 hover:bg-primary h-[90%] rounded-t-sm transition-all"></div>
+<div class="flex-1 bg-primary/40 hover:bg-primary h-[60%] rounded-t-sm transition-all"></div>
+<div class="flex-1 bg-primary/80 hover:bg-primary h-[95%] rounded-t-sm transition-all"></div>
+</div>
+<div class="flex justify-between mt-xs px-2 text-on-surface-variant font-label-sm">
+<span>0:00</span>
+<span>15:00</span>
+<span>30:00</span>
+<span>45:00</span>
+</div>
+</div>
+<!-- Competitor Mentions -->
+<div class="p-lg bg-white border border-outline-variant rounded-xl">
+<h2 class="font-headline-md text-[18px] mb-lg">Competitor Intelligence</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="p-md bg-error-container/30 border border-error/10 rounded-lg flex gap-md">
+<div class="w-10 h-10 flex items-center justify-center rounded bg-white font-bold text-error">SF</div>
+<div>
+<h4 class="font-label-md text-on-error-container">Salesforce</h4>
+<p class="text-body-sm text-on-surface-variant">Mentioned twice regarding "Integration Speed". Client feels our workflow is cleaner.</p>
+</div>
+</div>
+<div class="p-md bg-secondary-container/10 border border-secondary/10 rounded-lg flex gap-md">
+<div class="w-10 h-10 flex items-center justify-center rounded bg-white font-bold text-secondary">HU</div>
+<div>
+<h4 class="font-label-md text-on-secondary-fixed-variant">HubSpot</h4>
+<p class="text-body-sm text-on-surface-variant">Mentioned once regarding "Simplicity". Comparison was favorable for our UI.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Transcript Viewer -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center bg-surface-container-lowest">
+<h2 class="font-headline-md text-[18px]">Meeting Transcript</h2>
+<div class="flex items-center gap-md">
+<button class="flex items-center gap-2 text-primary font-label-sm">
+<span class="material-symbols-outlined text-[18px]">download</span> Download PDF
+                                </button>
+<span class="h-4 w-px bg-outline-variant"></span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="border-none bg-transparent focus:ring-0 text-body-sm" placeholder="Find in transcript..." type="text"/>
+</div>
+</div>
+</div>
+<div class="h-[500px] overflow-y-auto p-lg space-y-lg custom-scrollbar">
+<!-- Speaker Bubble -->
+<div class="flex gap-lg transcript-bubble">
+<div class="w-10 h-10 shrink-0 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-primary">JD</div>
+<div class="flex-1">
+<div class="flex items-center gap-md mb-1">
+<span class="font-label-md font-bold text-on-surface">John Doe (Acme Corp)</span>
+<span class="text-label-sm text-on-surface-variant timestamp opacity-0 transition-opacity">0:45</span>
+</div>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                                        Thanks for jumping on the call. We're looking to scale our sales intelligence capabilities globally. Specifically, we need to know how you handle GDPR compliance in Germany compared to the US.
+                                    </p>
+</div>
+</div>
+<div class="flex gap-lg transcript-bubble">
+<div class="w-10 h-10 shrink-0 rounded-full bg-tertiary-fixed flex items-center justify-center font-bold text-tertiary">SA</div>
+<div class="flex-1">
+<div class="flex items-center gap-md mb-1">
+<span class="font-label-md font-bold text-on-surface">Sarah Adams (Me)</span>
+<span class="text-label-sm text-on-surface-variant timestamp opacity-0 transition-opacity">1:12</span>
+</div>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                                        Absolutely. Our architecture is region-sharded. For your European data, everything is stored on Frankfurt servers with local encryption keys. We treat GDPR as the baseline, not the exception.
+                                    </p>
+</div>
+</div>
+<div class="flex gap-lg transcript-bubble p-md bg-primary-container/5 rounded-xl">
+<div class="w-10 h-10 shrink-0 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-primary">JD</div>
+<div class="flex-1">
+<div class="flex items-center gap-md mb-1">
+<span class="font-label-md font-bold text-on-surface">John Doe (Acme Corp)</span>
+<span class="text-label-sm text-on-surface-variant timestamp opacity-0 transition-opacity">3:55</span>
+</div>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                                        That's a relief to hear. We've had some issues with Salesforce in the past where data synchronization was lagging across time zones. How do you handle real-time updates?
+                                    </p>
+<div class="mt-base flex items-center gap-2">
+<span class="px-2 py-0.5 bg-error-container/30 text-error text-[10px] uppercase font-bold rounded">Competitor Mention</span>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] uppercase font-bold rounded">Pain Point</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: Metadata & CRM Sync -->
+<aside class="w-full md:w-80 border-l border-outline-variant bg-surface-container-low p-lg flex flex-col gap-xl overflow-y-auto custom-scrollbar">
+<!-- Metadata Section -->
+<div class="space-y-lg">
+<h3 class="font-label-sm text-on-surface-variant uppercase tracking-widest">Metadata</h3>
+<div class="space-y-md">
+<div class="flex justify-between items-center py-sm border-b border-outline-variant/30">
+<span class="text-on-surface-variant font-label-md">Status</span>
+<span class="px-3 py-1 bg-primary text-on-primary text-[11px] font-bold rounded-full">Discovery Call</span>
+</div>
+<div class="flex justify-between items-center py-sm border-b border-outline-variant/30">
+<span class="text-on-surface-variant font-label-md">Recording</span>
+<span class="flex items-center gap-2 font-label-md text-on-surface">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span> Available
+                            </span>
+</div>
+<div class="flex justify-between items-center py-sm border-b border-outline-variant/30">
+<span class="text-on-surface-variant font-label-md">Participants</span>
+<span class="text-on-surface font-label-md">4 Members</span>
+</div>
+<div class="flex justify-between items-center py-sm border-b border-outline-variant/30">
+<span class="text-on-surface-variant font-label-md">Deal Size</span>
+<span class="text-on-surface font-label-md font-bold">$125,000</span>
+</div>
+</div>
+</div>
+<!-- Next Steps (AI Suggested) -->
+<div class="p-md bg-white border border-outline-variant rounded-xl space-y-md shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">task_alt</span>
+<h3 class="font-label-md font-bold text-on-surface">AI Next Steps</h3>
+</div>
+<ul class="space-y-sm">
+<li class="flex gap-xs items-start">
+<input checked="" class="mt-1 rounded text-primary border-outline-variant focus:ring-primary" type="checkbox"/>
+<span class="text-body-sm text-on-surface">Send GDPR technical whitepaper</span>
+</li>
+<li class="flex gap-xs items-start">
+<input class="mt-1 rounded text-primary border-outline-variant focus:ring-primary" type="checkbox"/>
+<span class="text-body-sm text-on-surface">Draft EMEA deployment timeline</span>
+</li>
+<li class="flex gap-xs items-start">
+<input class="mt-1 rounded text-primary border-outline-variant focus:ring-primary" type="checkbox"/>
+<span class="text-body-sm text-on-surface">Schedule technical deep-dive</span>
+</li>
+</ul>
+<button class="w-full py-2 bg-surface-container-highest text-primary font-label-md rounded-lg hover:bg-primary/5 transition-colors">Create Tasks in CRM</button>
+</div>
+<!-- Relationship Map -->
+<div class="space-y-md">
+<h3 class="font-label-sm text-on-surface-variant uppercase tracking-widest">Stakeholders</h3>
+<div class="space-y-sm">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a male business professional in a light blue shirt, looking confident and attentive. High-end SaaS corporate photography style, bright office environment background with soft bokeh, light-mode palette, sharp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkaHBCy9UZVc7bKCwZ-J0MbtvwCnegPUHw89DAwQ3aM-qOpLQYh3ePx-Cold0Hx-Y6vs8CiPCT07HNYNi_dx6b1JH2kunveAsxj9aP7ru3SSDHDTZgVkP9zDlp1rKgt9dnbW8T2aZR_8JePFYStjP30RvD70HpILCX0fUW5WaanxzsPngzyxKKVFjoeXebW5hmgSk3v8Y0r0oqSiJjMdXdQzyOEU16wPJS9_0YE9UW6dxbE1gKaX0uzjnwzkvrQGW0l5qpJK2ZSKp1"/>
+</div>
+<div class="flex-1">
+<p class="text-label-md font-bold text-on-surface">John Doe</p>
+<p class="text-label-sm text-on-surface-variant">CTO, Decision Maker</p>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a female professional wearing a charcoal blazer and a white shirt. Modern executive headshot, clean studio lighting, light-mode aesthetic, corporate minimalist style, friendly professional expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzkyHiKfMux4kATGyC4t90UP8uOyQzKAzIWLxsjLKBjyClpzo-XQQjYsLNf0eCw-N6XYJoq4JRb2FpZhZgJPwlhLVF2H3c44MvT-Qu4hPJOKy1P3jzUNevCwexgAFctgJLJ9tMAm-jj8X6DUjkn7s2QprD3p9v4UpH2iW6-Gn55UNAzmrvOr0n00DKBPwM2NZrOngx8sNWx4Y8wTOZ69dTXyPf3OQ3TjWzd_N0T6pIaJiARlA_Z2PGg8nWwtc3a2_vuLpXIkA0oQPL"/>
+</div>
+<div class="flex-1">
+<p class="text-label-md font-bold text-on-surface">Emily Chen</p>
+<p class="text-label-sm text-on-surface-variant">Legal Counsel, Blocker</p>
+</div>
+<span class="material-symbols-outlined text-error">warning</span>
+</div>
+</div>
+</div>
+<!-- Integration Status -->
+<div class="mt-auto p-md rounded-xl bg-surface-container-high border border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded flex items-center justify-center bg-white border border-outline-variant">
+<span class="material-symbols-outlined text-[16px] text-[#00A1E0]">cloud</span>
+</div>
+<span class="text-label-sm font-medium">Synced with SFDC</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">refresh</span>
+</div>
+</aside>
+</main>
+</div>
+<!-- Floating Action for Mobile / Quick Action -->
+<button class="fixed bottom-lg right-lg w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg shadow-primary/20 flex items-center justify-center hover:scale-110 transition-all z-50 md:hidden">
+<span class="material-symbols-outlined">edit_note</span>
+</button>
+<script>
+        // Simple micro-interaction for transcript scrolling sync
+        const transcriptContainer = document.querySelector('.custom-scrollbar');
+        transcriptContainer.addEventListener('scroll', () => {
+            // Potential for syncing with a video/audio player if added
+        });
+
+        // Toggle dark mode for testing (demo purpose)
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+    </script>
+</body></html>

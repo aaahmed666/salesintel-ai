@@ -1,0 +1,1192 @@
+{
+  "common": {
+    "appName": "سيلز فورس الذكاء الاصطناعي",
+    "tagline": "منصة ذكاء المبيعات للمؤسسات",
+    "loading": "جارٍ التحميل…",
+    "submit": "إرسال",
+    "cancel": "إلغاء",
+    "back": "رجوع",
+    "continue": "متابعة",
+    "or": "أو",
+    "orContinueWith": "أو تابع باستخدام",
+    "language": "اللغة",
+    "english": "English",
+    "arabic": "العربية",
+    "search": "ابحث في المحادثات والرؤى...",
+    "viewAll": "عرض الكل",
+    "retry": "إعادة المحاولة",
+    "close": "إغلاق",
+    "save": "حفظ التغييرات",
+    "comingSoon": "شاشات الأعمال قادمة قريبًا."
+  },
+  "auth": {
+    "badges": {
+      "soc2": "متوافق مع SOC2",
+      "encryption": "تشفير AES-256"
+    },
+    "login": {
+      "title": "سيلز فورس الذكاء الاصطناعي",
+      "subtitle": "منصة ذكاء المبيعات للمؤسسات",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "name@company.com",
+      "passwordLabel": "كلمة المرور",
+      "forgotPassword": "نسيت كلمة المرور؟",
+      "submit": "تسجيل الدخول إلى لوحة التحكم",
+      "submitting": "جارٍ تسجيل الدخول…",
+      "google": "تسجيل الدخول عبر Google",
+      "noAccount": "ليس لديك حساب بعد؟",
+      "startTrial": "ابدأ تجربة مجانية لمدة 14 يومًا",
+      "success": "مرحبًا بعودتك!"
+    },
+    "register": {
+      "title": "أنشئ حسابك",
+      "subtitle": "مكّن فريق مبيعاتك بذكاء اصطناعي على مستوى المؤسسات.",
+      "fullNameLabel": "الاسم الكامل",
+      "fullNamePlaceholder": "محمد أحمد",
+      "emailLabel": "البريد الإلكتروني للعمل",
+      "emailPlaceholder": "name@company.com",
+      "passwordLabel": "كلمة المرور",
+      "passwordHint": "يجب ألا تقل عن 12 حرفًا.",
+      "submit": "إنشاء حساب",
+      "submitting": "جارٍ إنشاء الحساب…",
+      "google": "التسجيل عبر Google",
+      "haveAccount": "لديك حساب بالفعل؟",
+      "login": "تسجيل الدخول",
+      "agree": "بالنقر على إنشاء حساب، فإنك توافق على",
+      "terms": "شروط الخدمة",
+      "and": "و",
+      "privacy": "سياسة الخصوصية",
+      "success": "تم إنشاء الحساب. تحقق من بريدك لتأكيد عنوانك.",
+      "features": {
+        "predictive": {
+          "title": "ذكاء تنبؤي",
+          "desc": "حدّد العملاء المحتملين ذوي النية العالية قبل أن يتواصلوا معك."
+        },
+        "workflows": {
+          "title": "سير عمل آلي",
+          "desc": "وسّع نطاق تواصلك برسائل مخصصة من الذكاء الاصطناعي."
+        },
+        "analytics": {
+          "title": "تحليلات فورية",
+          "desc": "تعمّق في مقاييس التحويل عبر لوحات معلومات حية."
+        }
+      },
+      "footer": {
+        "helpCenter": "مركز المساعدة",
+        "documentation": "التوثيق",
+        "systemStatus": "حالة النظام",
+        "rights": "جميع الحقوق محفوظة."
+      }
+    },
+    "forgotPassword": {
+      "title": "ذكاء المبيعات",
+      "subtitle": "أدخل بريدك الإلكتروني لتلقي رابط استرداد حسابك.",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "name@company.com",
+      "submit": "إرسال رابط إعادة التعيين",
+      "submitting": "جارٍ الإرسال…",
+      "backToLogin": "العودة لتسجيل الدخول",
+      "privacy": "سياسة الخصوصية",
+      "terms": "شروط الخدمة",
+      "success": "إذا كان هناك حساب بهذا البريد، فإن رابط الاسترداد في طريقه إليك."
+    },
+    "resetPassword": {
+      "title": "تعيين كلمة مرور جديدة",
+      "subtitle": "اختر كلمة مرور قوية لم تستخدمها من قبل.",
+      "passwordLabel": "كلمة المرور الجديدة",
+      "passwordPlaceholder": "أدخل كلمة المرور الجديدة",
+      "confirmLabel": "تأكيد كلمة المرور",
+      "confirmPlaceholder": "أعد إدخال كلمة المرور الجديدة",
+      "submit": "إعادة تعيين كلمة المرور",
+      "submitting": "جارٍ إعادة التعيين…",
+      "backToLogin": "العودة لتسجيل الدخول",
+      "success": "تمت إعادة تعيين كلمة المرور. يمكنك الآن تسجيل الدخول.",
+      "invalidToken": "رابط إعادة التعيين غير صالح أو منتهي الصلاحية."
+    },
+    "verifyEmail": {
+      "title": "تحقق من بريدك الإلكتروني",
+      "subtitle": "أرسلنا رابط تحقق إلى بريدك. أكّده لتفعيل حسابك.",
+      "verifying": "جارٍ التحقق من بريدك…",
+      "submit": "تحقق من البريد",
+      "resend": "إعادة إرسال رسالة التحقق",
+      "backToLogin": "العودة لتسجيل الدخول",
+      "success": "تم التحقق من بريدك. أهلًا بك!",
+      "invalidToken": "رابط التحقق غير صالح أو منتهي الصلاحية."
+    },
+    "twoFactor": {
+      "title": "تحقق من هويتك",
+      "subtitle": "أرسلنا رمز تحقق مكوّنًا من 6 أرقام إلى",
+      "submit": "تحقق من الرمز",
+      "submitting": "جارٍ التحقق…",
+      "noCode": "لم تستلم الرمز؟",
+      "resend": "إعادة إرسال الرمز",
+      "resendIn": "إعادة الإرسال خلال {seconds} ثانية",
+      "resent": "تم إرسال رمز جديد.",
+      "support": "مركز الدعم",
+      "cancel": "إلغاء تسجيل الدخول",
+      "success": "تم التحقق من الهوية."
+    },
+    "logout": {
+      "success": "تم تسجيل خروجك."
+    }
+  },
+  "validation": {
+    "email": {
+      "required": "البريد الإلكتروني مطلوب.",
+      "invalid": "أدخل بريدًا إلكترونيًا صالحًا."
+    },
+    "password": {
+      "required": "كلمة المرور مطلوبة.",
+      "min": "يجب ألا تقل كلمة المرور عن 12 حرفًا.",
+      "max": "كلمة المرور طويلة جدًا.",
+      "lowercase": "أضف حرفًا صغيرًا واحدًا على الأقل.",
+      "uppercase": "أضف حرفًا كبيرًا واحدًا على الأقل.",
+      "number": "أضف رقمًا واحدًا على الأقل."
+    },
+    "fullName": {
+      "min": "يرجى إدخال اسمك الكامل.",
+      "max": "الاسم طويل جدًا."
+    },
+    "confirmPassword": {
+      "required": "يرجى تأكيد كلمة المرور.",
+      "mismatch": "كلمتا المرور غير متطابقتين."
+    },
+    "token": {
+      "required": "رمز صالح مطلوب."
+    },
+    "code": {
+      "length": "أدخل الرمز المكوّن من 6 أرقام.",
+      "digits": "يجب أن يحتوي الرمز على أرقام فقط."
+    },
+    "file": {
+      "required": "يرجى اختيار ملف للرفع.",
+      "unsupported": "نوع ملف غير مدعوم. استخدم MP3 أو WAV أو MP4 أو WEBM أو M4A.",
+      "tooLarge": "يتجاوز الملف الحد الأقصى البالغ 500 ميجابايت.",
+      "empty": "يبدو أن هذا الملف فارغ."
+    }
+  },
+  "errors": {
+    "network": "خطأ في الشبكة. يرجى التحقق من اتصالك والمحاولة مرة أخرى.",
+    "unknown": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+    "emailTaken": "يوجد حساب بهذا البريد الإلكتروني بالفعل.",
+    "emailNotFound": "لم نتمكن من العثور على حساب بهذا البريد.",
+    "invalidToken": "هذا الرابط غير صالح أو منتهي الصلاحية.",
+    "expiredToken": "انتهت صلاحية هذه الجلسة. يرجى البدء من جديد.",
+    "invalid2faCode": "الرمز غير صحيح. يرجى المحاولة مرة أخرى.",
+    "rateLimited": "محاولات كثيرة جدًا. يرجى الانتظار والمحاولة لاحقًا."
+  },
+  "roles": {
+    "representative": "مندوب مبيعات",
+    "manager": "مدير مبيعات",
+    "admin": "مسؤول"
+  },
+  "nav": {
+    "intelligence": "الذكاء",
+    "leads": "العملاء المحتملون",
+    "pipelines": "مسارات البيع",
+    "companies": "الشركات",
+    "contacts": "جهات الاتصال",
+    "activity": "النشاط",
+    "analytics": "التحليلات",
+    "settings": "الإعدادات",
+    "meetings": "التقارير",
+    "upload": "رفع",
+    "integrations": "التكاملات",
+    "developer": "إعدادات المطور",
+    "aiSettings": "إعدادات الذكاء الاصطناعي",
+    "users": "المستخدمون والأدوار",
+    "billing": "الاشتراك والفوترة",
+    "auditLogs": "سجلات الأمان",
+    "adminSettings": "إعدادات المسؤول",
+    "workflows": "مسارات العمل"
+  },
+  "shell": {
+    "tier": "الباقة المؤسسية",
+    "upgrade": "ترقية الخطة",
+    "help": "المساعدة",
+    "logout": "تسجيل الخروج",
+    "accessDenied": {
+      "title": "الوصول مقيّد",
+      "description": "لا يملك دورك صلاحية عرض هذه الصفحة. جارٍ إعادتك إلى لوحة التحكم."
+    },
+    "createLead": "إنشاء عميل محتمل",
+    "export": "تصدير",
+    "search": "ابحث في المحادثات والرؤى...",
+    "toggleSidebar": "تبديل القائمة",
+    "userMenu": {
+      "profile": "الملف الشخصي",
+      "settings": "إعدادات الحساب",
+      "billing": "الفوترة",
+      "signOut": "تسجيل الخروج"
+    },
+    "notifications": {
+      "title": "الإشعارات",
+      "markAllRead": "تعليم الكل كمقروء",
+      "empty": "لقد اطلعت على كل شيء.",
+      "unread": "{count, plural, =0 {لا جديد} one {# جديد} other {# جديدة}}",
+      "viewActivity": "عرض كل النشاط"
+    },
+    "org": {
+      "switch": "تبديل المؤسسة",
+      "current": "المؤسسة الحالية",
+      "plan": {
+        "starter": "المبتدئة",
+        "growth": "النمو",
+        "enterprise": "المؤسسية"
+      }
+    },
+    "breadcrumbs": {
+      "home": "الرئيسية"
+    }
+  },
+  "meetings": {
+    "upload": {
+      "title": "الرفع والمعالجة",
+      "subtitle": "حلّل تسجيلات المبيعات لاستخراج ذكاء الصفقات والمشاعر.",
+      "linkGoogle": "ربط تقويم Google",
+      "linkOutlook": "ربط Outlook",
+      "dropTitle": "أفلِت ملفات الاجتماع هنا",
+      "dropSubtitle": "يدعم صيغ MP3 و WAV و MP4 و WEBM و M4A.",
+      "dropHint": "اسحب الملفات مباشرةً من جهازك أو المتصفح.",
+      "browse": "تصفّح الملفات",
+      "importZoom": "استيراد من Zoom",
+      "highFidelity": "تفريغ صوتي عالي الدقة",
+      "gdpr": "متوافق مع GDPR",
+      "maxSize": "الحد الأقصى لحجم الملف {size} ميجابايت",
+      "dropActive": "أفلِت للإضافة إلى القائمة",
+      "newFeature": "جديد: كشف المنافسين",
+      "newFeatureDesc": "يحدد الذكاء الاصطناعي تلقائيًا عندما يذكر العملاء المنافسين ويحلل سياق الإشارة."
+    },
+    "queue": {
+      "title": "قائمة المعالجة",
+      "active": "{count} نشطة",
+      "empty": "لا عمليات رفع نشطة. أفلِت ملفًا للبدء.",
+      "estLeft": "يتبقى ~{minutes} د",
+      "viewInsights": "عرض الرؤى",
+      "processedAgo": "تمت المعالجة • {time}",
+      "tokens": "رموز الذكاء الاصطناعي المتبقية اليوم:",
+      "retry": "إعادة الرفع",
+      "remove": "إزالة",
+      "cancel": "إلغاء"
+    },
+    "history": {
+      "title": "سجل الرفع",
+      "empty": "لم يتم رفع أي شيء بعد.",
+      "columnName": "الاجتماع",
+      "columnSize": "الحجم",
+      "columnStatus": "الحالة",
+      "columnDate": "تاريخ الرفع",
+      "columnScore": "الدرجة"
+    },
+    "status": {
+      "uploaded": "تم الرفع",
+      "processing": "قيد المعالجة",
+      "transcribing": "جارٍ التفريغ",
+      "analyzing": "تحليل المشاعر",
+      "scoring": "احتساب الدرجة",
+      "completed": "مكتمل",
+      "failed": "فشل"
+    },
+    "directory": {
+      "title": "دليل الاجتماعات",
+      "pageTitle": "تحليل الاجتماعات",
+      "pageSubtitle": "راجع المحادثات التي تم تحليلها والمشاعر ورؤى الصفقات بالذكاء الاصطناعي.",
+      "filter": "تصفية",
+      "allStatuses": "كل الحالات",
+      "export": "تصدير",
+      "createLead": "إنشاء عميل محتمل",
+      "searchPlaceholder": "ابحث عن الاجتماعات أو الشركات أو المندوبين...",
+      "previous": "السابق",
+      "next": "التالي",
+      "showing": "عرض {count} من {total} اجتماع",
+      "error": "تعذّر تحميل الاجتماعات. حاول مرة أخرى.",
+      "retry": "إعادة المحاولة",
+      "columns": {
+        "name": "اسم الاجتماع",
+        "company": "الشركة",
+        "date": "التاريخ والوقت",
+        "rep": "المندوب",
+        "dealValue": "قيمة الصفقة",
+        "duration": "المدة",
+        "status": "الحالة",
+        "sentiment": "المشاعر",
+        "insights": "رؤى الذكاء الاصطناعي"
+      },
+      "empty": {
+        "title": "لا توجد اجتماعات",
+        "subtitle": "حاول تعديل البحث أو عوامل التصفية للعثور على ما تبحث عنه."
+      },
+      "stats": {
+        "volume": "إجمالي حجم المكالمات",
+        "volumeDelta": "+12.5% هذا الشهر",
+        "sentiment": "متوسط المشاعر",
+        "competitor": "أبرز منافس مذكور",
+        "competitorMeta": "ذُكر في 18% من المكالمات"
+      }
+    },
+    "sentiment": {
+      "very_positive": "إيجابي جداً",
+      "positive": "إيجابي",
+      "neutral": "محايد",
+      "critical": "حرج"
+    },
+    "details": {
+      "pageTitle": "تفاصيل الاجتماع",
+      "breadcrumb": "الاجتماعات",
+      "export": "تصدير",
+      "shareInsight": "مشاركة الرؤية",
+      "tabsLabel": "أقسام تفاصيل الاجتماع",
+      "tabs": {
+        "overview": "نظرة عامة",
+        "transcript": "النص",
+        "analysis": "التحليل",
+        "score": "النتيجة"
+      },
+      "aiSummary": "ملخص تنفيذي بالذكاء الاصطناعي",
+      "score": "النتيجة",
+      "scorePending": "ستظهر النتيجة بعد اكتمال التحليل.",
+      "momentum": "ارتفع زخم الصفقة بنسبة +12% منذ المكالمة الأخيرة.",
+      "sentimentTimeline": "المخطط الزمني للمشاعر",
+      "positive": "إيجابي",
+      "friction": "احتكاك",
+      "competitorIntel": "معلومات المنافسين",
+      "keyHighlights": "أبرز النقاط",
+      "transcript": "نص الاجتماع",
+      "downloadPdf": "تنزيل PDF",
+      "findInTranscript": "ابحث في النص...",
+      "noTranscriptMatch": "لا توجد أسطر مطابقة لبحثك.",
+      "metadata": "البيانات الوصفية",
+      "status": "الحالة",
+      "discoveryCall": "مكالمة استكشافية",
+      "recording": "التسجيل",
+      "available": "متاح",
+      "unavailable": "غير متاح",
+      "participants": "المشاركون",
+      "members": "{count} أعضاء",
+      "dealSize": "حجم الصفقة",
+      "nextSteps": "الخطوات التالية المقترحة",
+      "createTasks": "إنشاء مهام في CRM",
+      "stakeholders": "أصحاب المصلحة",
+      "syncedWith": "متزامن مع {provider}",
+      "error": "تعذّر تحميل هذا الاجتماع. حاول مرة أخرى.",
+      "retry": "إعادة المحاولة",
+      "openTranscript": "فتح النص وأبرز رؤى الذكاء الاصطناعي",
+      "openDeepDive": "فتح التحليل المعمّق"
+    },
+    "transcript": {
+      "pageTitle": "النص الكامل وأبرز رؤى الذكاء الاصطناعي",
+      "breadcrumb": "النص الكامل",
+      "backToMeeting": "العودة إلى الاجتماع",
+      "duration": "المدة",
+      "dealValue": "قيمة الصفقة",
+      "exportInsights": "تصدير الرؤى",
+      "participantsMore": "+{count}",
+      "urgency": {
+        "high": "أولوية عالية",
+        "medium": "أولوية متوسطة",
+        "low": "أولوية منخفضة"
+      },
+      "search": {
+        "placeholder": "ابحث في النص...",
+        "matches": "{current} من {total}",
+        "noMatches": "لا توجد نتائج",
+        "previous": "النتيجة السابقة",
+        "next": "النتيجة التالية",
+        "clear": "مسح البحث"
+      },
+      "timeline": {
+        "label": "الخط الزمني للنص",
+        "jumpTo": "الانتقال إلى {time}"
+      },
+      "jumpToTimestamp": "الانتقال إلى {time}",
+      "highlight": {
+        "objection": "تم رصد اعتراض",
+        "upsell": "فرصة بيع إضافي",
+        "buying-signal": "إشارة نية شرائية",
+        "objectionPricing": "تم رصد اعتراض على التسعير",
+        "upsellOpportunity": "فرصة بيع إضافي",
+        "buyingIntentSignal": "إشارة نية شرائية"
+      },
+      "panel": {
+        "buyingIntent": "نية الشراء",
+        "competitors": "المنافسون المذكورون",
+        "keywordAnalysis": "تحليل الكلمات المفتاحية",
+        "aiConfidence": "ثقة الذكاء الاصطناعي",
+        "reliable": "موثوق",
+        "threat": "تهديد",
+        "neutral": "محايد",
+        "favorable": "إيجابي"
+      },
+      "empty": "لا يوجد نص متاح لهذا الاجتماع بعد.",
+      "error": "تعذّر تحميل النص. يرجى المحاولة مرة أخرى.",
+      "retry": "إعادة المحاولة",
+      "loading": "جارٍ تحميل النص..."
+    },
+    "deepDive": {
+      "pageTitle": "تحليل معمّق بالذكاء الاصطناعي",
+      "closeWon": "احتمالية الإغلاق بالفوز: {value}%",
+      "export": "تصدير",
+      "createLead": "إنشاء عميل محتمل",
+      "contextHighlights": "أبرز رؤى السياق",
+      "keyIntent": "النية الأساسية",
+      "sectionNav": "أقسام التحليل",
+      "dealHealth": "مؤشر صحة الصفقة",
+      "nextBestAction": "الإجراء التالي الأفضل",
+      "loading": "جارٍ تحليل الاجتماع...",
+      "error": "تعذّر تحميل التحليل. يرجى المحاولة مرة أخرى.",
+      "retry": "إعادة المحاولة",
+      "sentiment": {
+        "title": "تحليل المشاعر",
+        "breakdown": "توزيع المشاعر",
+        "positive": "إيجابي",
+        "neutral": "محايد",
+        "negative": "سلبي",
+        "talkRatio": "نسبة التحدث",
+        "you": "أنت",
+        "prospect": "العميل المحتمل",
+        "healthyBalance": "توازن صحي (المعيار الذهبي)",
+        "qualityScore": "درجة الجودة"
+      },
+      "competitor": {
+        "title": "تحليل المنافسين",
+        "mentionShare": "حصة الإشارات",
+        "favorable": "إيجابي",
+        "threat": "تهديد",
+        "mentions": "{count, plural, zero {# إشارة} one {إشارة واحدة} two {إشارتان} few {# إشارات} many {# إشارة} other {# إشارة}}",
+        "empty": "لم يُذكر أي منافس في هذه المحادثة."
+      },
+      "industry": {
+        "title": "سياق الصناعة",
+        "benchmarks": "أنت مقابل معيار القطاع",
+        "thisDeal": "هذه الصفقة",
+        "sectorAvg": "متوسط القطاع",
+        "trends": "اتجاهات الصناعة"
+      },
+      "keyword": {
+        "title": "اكتشاف الكلمات المفتاحية",
+        "empty": "لم يتم اكتشاف أي كلمات مفتاحية بعد.",
+        "categories": {
+          "product": "المنتج",
+          "pricing": "التسعير",
+          "competitor": "المنافس",
+          "risk": "المخاطر",
+          "process": "العملية"
+        }
+      },
+      "buyingSignals": {
+        "title": "إشارات الشراء",
+        "intent": "النية"
+      },
+      "objection": {
+        "title": "تحليل الاعتراضات",
+        "count": "{count, plural, zero {# اعتراض} one {اعتراض واحد} two {اعتراضان} few {# اعتراضات} many {# اعتراضاً} other {# اعتراض}}",
+        "recommendation": "التوصية",
+        "empty": "لم يتم رصد أي اعتراضات — محادثة سلسة.",
+        "severity": {
+          "high": "عالية",
+          "medium": "متوسطة",
+          "low": "منخفضة"
+        },
+        "status": {
+          "open": "مفتوح",
+          "addressed": "تمت المعالجة"
+        }
+      }
+    },
+    "scoring": {
+      "pageTitle": "تقييم المبيعات",
+      "breadcrumb": "التقييم",
+      "tabs": {
+        "overview": "نظرة عامة على التقييم",
+        "breakdown": "تفاصيل التقييم",
+        "coaching": "توصيات التدريب"
+      },
+      "overallScore": "التقييم الإجمالي",
+      "previousScore": "مقارنةً بالاجتماع السابق",
+      "scoreDelta": "{delta} مقارنةً بالاجتماع السابق",
+      "scoreUp": "↑ +{delta}",
+      "scoreDown": "↓ {delta}",
+      "noChange": "لا تغيير",
+      "grade": "الدرجة",
+      "gradeLabel": {
+        "A+": "استثنائي",
+        "A": "ممتاز",
+        "B": "جيد",
+        "C": "يحتاج تحسين",
+        "D": "دون المعيار"
+      },
+      "metrics": {
+        "talkRatio": "نسبة التحدث",
+        "discovery": "الاستكشاف",
+        "objectionHandling": "معالجة الاعتراضات",
+        "commitment": "الالتزام",
+        "nextSteps": "الخطوات التالية"
+      },
+      "benchmark": "المعيار المرجعي",
+      "yourScore": "تقييمك",
+      "industryAvg": "متوسط القطاع",
+      "aboveBenchmark": "أعلى من المعيار",
+      "belowBenchmark": "أقل من المعيار",
+      "strengths": "نقاط القوة",
+      "improvements": "مجالات التحسين",
+      "talkRatioBreakdown": "تفاصيل نسبة التحدث",
+      "you": "أنت",
+      "prospect": "العميل المحتمل",
+      "silence": "الصمت",
+      "idealRange": "النطاق المثالي",
+      "gongStandard": "المعيار الذهبي",
+      "scoreTrend": "اتجاه التقييم",
+      "recentMeetings": "الاجتماعات الأخيرة",
+      "coaching": {
+        "title": "توصيات تدريب الذكاء الاصطناعي",
+        "subtitle": "خطوات عملية مخصصة لتحسين محادثة المبيعات القادمة.",
+        "priority": "الأولوية",
+        "high": "أولوية عالية",
+        "medium": "أولوية متوسطة",
+        "low": "أولوية منخفضة",
+        "targetMetric": "المقياس المستهدف",
+        "steps": "خطوات العمل",
+        "estimatedImpact": "التأثير المتوقع",
+        "stepsCount": "{count} خطوة عملية"
+      },
+      "metricSummary": "ملخص الأداء",
+      "metricDetail": "تحليل مفصّل",
+      "error": "تعذّر تحميل بيانات التقييم. يرجى المحاولة مرة أخرى.",
+      "retry": "إعادة المحاولة",
+      "loading": "جارٍ حساب التقييمات..."
+    }
+  },
+  "pipeline": {
+    "pageTitle": "مسار المبيعات",
+    "boardTitle": "لوحة المسار",
+    "subtitle": "تتبع وإدارة الصفقات عبر مسار المبيعات.",
+    "breadcrumb": "المسارات",
+    "pipelineLabel": "المسار",
+    "activeDeals": "{count} صفقة نشطة قيد الإدارة",
+    "tabs": {
+      "table": "عرض الجدول",
+      "board": "عرض اللوحة"
+    },
+    "stages": {
+      "lead": "عميل محتمل",
+      "qualified": "مؤهل",
+      "proposal": "عرض سعر",
+      "negotiation": "تفاوض",
+      "won": "فاز",
+      "lost": "خسر"
+    },
+    "temperature": {
+      "hot": "ساخن",
+      "warm": "دافئ",
+      "cold": "بارد"
+    },
+    "kpis": {
+      "totalDeals": "إجمالي الصفقات",
+      "pipelineValue": "قيمة المسار",
+      "avgDealSize": "متوسط حجم الصفقة",
+      "winRate": "معدل الفوز",
+      "avgCycle": "متوسط الدورة",
+      "weightedPipeline": "المسار الموزون",
+      "days": "أيام"
+    },
+    "columns": {
+      "company": "الشركة",
+      "title": "عنوان الصفقة",
+      "value": "قيمة الصفقة",
+      "stage": "المرحلة",
+      "temperature": "الحرارة",
+      "closeDate": "تاريخ الإغلاق",
+      "rep": "المندوب",
+      "lastActivity": "آخر نشاط",
+      "probability": "احتمالية الفوز"
+    },
+    "toolbar": {
+      "filterByRep": "تصفية بالمندوب",
+      "filters": "تصفية",
+      "sort": "ترتيب",
+      "export": "تصدير",
+      "viewKanban": "عرض اللوحة",
+      "viewTable": "عرض الجدول",
+      "search": "ابحث في المسار..."
+    },
+    "filters": {
+      "title": "التصفية",
+      "stage": "المرحلة",
+      "temperature": "الحرارة",
+      "valueRange": "نطاق قيمة الصفقة",
+      "minValue": "الحد الأدنى",
+      "maxValue": "الحد الأقصى",
+      "rep": "المندوب",
+      "clearAll": "مسح الكل",
+      "apply": "تطبيق التصفية"
+    },
+    "deal": {
+      "addDeal": "+ إضافة صفقة",
+      "closingNextWeek": "الإغلاق الأسبوع القادم",
+      "competitor": "منافس",
+      "noBudget": "لا ميزانية",
+      "timing": "التوقيت"
+    },
+    "empty": {
+      "title": "لا توجد صفقات",
+      "subtitle": "حاول تعديل البحث أو عوامل التصفية للعثور على ما تبحث عنه."
+    },
+    "error": "تعذّر تحميل المسار. يرجى المحاولة مرة أخرى.",
+    "retry": "إعادة المحاولة",
+    "loading": "جارٍ تحميل المسار..."
+  },
+  "dealProfile": {
+    "tabs": {
+      "overview": "نظرة عامة",
+      "stakeholders": "أصحاب المصلحة",
+      "activities": "الأنشطة",
+      "documents": "المستندات",
+      "aiInsights": "رؤى الذكاء الاصطناعي"
+    },
+    "overview": {
+      "dealValue": "قيمة الصفقة",
+      "closeDate": "تاريخ الإغلاق",
+      "winProbability": "احتمالية الفوز",
+      "healthScore": "مؤشر صحة الصفقة",
+      "healthScoreStatus": {
+        "good": "سليمة",
+        "fair": "متوسطة",
+        "risk": "في خطر"
+      },
+      "revenue": {
+        "title": "تتبع الإيرادات",
+        "margin": "الهامش",
+        "expectedValue": "القيمة المتوقعة"
+      },
+      "nextActions": "الإجراء الأمثل القادم",
+      "nextActionsSubtitle": "مؤشرات الإغلاق والتوصيات المؤتمتة",
+      "editDeal": "تعديل الصفقة",
+      "closeDeal": "إغلاق الصفقة",
+      "lastActivity": "آخر نشاط منذ {time}"
+    },
+    "company": {
+      "title": "معلومات الشركة",
+      "website": "الموقع الإلكتروني",
+      "industry": "مجال العمل",
+      "employees": "عدد الموظفين",
+      "revenue": "الإيرادات السنوية",
+      "headquarters": "المقر الرئيسي"
+    },
+    "contacts": {
+      "title": "جهات الاتصال",
+      "champion": "الداعم الرئيسي"
+    },
+    "stakeholders": {
+      "title": "أصحاب المصلحة",
+      "add": "إضافة صاحب مصلحة",
+      "categories": {
+        "champion": "الداعم (Champion)",
+        "buyer": "المشتري الفعلي (CFO)",
+        "blocker": "المعطل (Blocker)",
+        "influencer": "المؤثر (Influencer)"
+      }
+    },
+    "activities": {
+      "title": "سجل الأنشطة",
+      "fullHistory": "عرض السجل الكامل",
+      "transcript": "نسخة الحوار بالذكاء الاصطناعي متوفرة"
+    },
+    "tasks": {
+      "title": "المهام القادمة",
+      "add": "إضافة مهمة",
+      "newTask": "مهمة جديدة",
+      "due": "تاريخ الاستحقاق",
+      "dueTomorrow": "تستحق غداً",
+      "placeholder": "أدخل عنوان المهمة...",
+      "priority": "الأولوية",
+      "high": "عالية",
+      "medium": "متوسطة",
+      "low": "منخفضة"
+    },
+    "notes": {
+      "title": "الملاحظات",
+      "add": "إضافة ملاحظة",
+      "placeholder": "اكتب ملاحظة...",
+      "save": "حفظ الملاحظة"
+    },
+    "documents": {
+      "title": "المستندات ذات الصلة",
+      "uploadDate": "تم الرفع في {date}"
+    },
+    "aiInsights": {
+      "title": "ذكاء الصفقة الاصطناعي",
+      "nextAction": "الإجراء الأمثل التالي",
+      "riskFactors": "عوامل الخطر",
+      "healthScore": "مؤشر الصحة",
+      "signals": "إشارات الإغلاق"
+    },
+    "loading": "جارٍ تحميل ملف الصفقة...",
+    "error": "تعذّر تحميل ملف الصفقة. يرجى المحاولة مرة أخرى."
+  },
+  "risks": {
+    "pageTitle": "التحكم في المخاطر والتصعيد",
+    "subtitle": "مراقبة مباشرة لثغرات الصفقات ذات القيمة العالية وتفعيل إجراءات الاستجابة المؤتمتة.",
+    "criticalCount": "{count} مخاطر حرجة",
+    "queueTitle": "قائمة الصفقات عالية الخطورة",
+    "rootCauses": "أسباب المخاطر الرئيسية",
+    "aiForecast": "توقعات الذكاء الاصطناعي",
+    "generatePlan": "إنشاء خطة العمل",
+    "rulesTitle": "قواعد التصعيد والأتمتة",
+    "condition": "الشرط",
+    "newTrigger": "تعريف محفز تصعيد جديد",
+    "exposure": "مستوى التعرض للمخاطر",
+    "aggregateStatus": "الحالة العامة",
+    "severities": {
+      "low": "منخفضة",
+      "medium": "متوسطة",
+      "high": "عالية",
+      "critical": "حرجة"
+    },
+    "statuses": {
+      "detected": "مكتشف",
+      "under_review": "قيد المراجعة",
+      "escalated": "تم التصعيد",
+      "resolved": "تم الحل"
+    },
+    "causes": {
+      "sentiment_drift": "تغير انطباع العميل",
+      "stagnancy": "الركود (>10 أيام)",
+      "budget_reprioritization": "إعادة ترتيب أولويات الميزانية",
+      "competitor_mentioned": "ذكر المنافسين"
+    },
+    "tabs": {
+      "all": "الكل",
+      "detected": "مكتشف",
+      "under_review": "قيد المراجعة",
+      "escalated": "مصعد",
+      "resolved": "محلول"
+    },
+    "actions": {
+      "escalate": "تصعيد إلى المدير",
+      "resolve": "تحديد كمحلول",
+      "underReview": "بدء المراجعة",
+      "submit": "إرسال التحديث",
+      "commentPlaceholder": "اشرح سبب الحل أو التصعيد..."
+    },
+    "sidebar": {
+      "title": "تفاصيل التصعيد",
+      "dealInfo": "معلومات الصفقة",
+      "assignedTo": "المندوب المسؤول",
+      "escalatedTo": "المحلل المسؤول",
+      "ruleTriggers": "تفاصيل المحفز",
+      "resolutionWorkflow": "مسار مراجعة الإدارة",
+      "timeline": "سجل التصعيد المباشر",
+      "statusLabel": "الحالة",
+      "severityLabel": "الخطورة"
+    },
+    "loading": "جارٍ تحميل لوحة المخاطر...",
+    "error": "تعذّر تحميل تحليل المخاطر. يرجى المحاولة مرة أخرى."
+  },
+  "dashboards": {
+    "pageTitle": "جناح ذكاء الأعمال",
+    "subtitle": "لوحات معلومات مخصصة حسب الأدوار الوظيفية لاستعراض مؤشرات الأداء ومسارات الأرباح.",
+    "rep": {
+      "console": "مساحة عمل المندوب",
+      "totalInteractions": "إجمالي التفاعلات",
+      "processedMeetings": "الاجتماعات المعالجة",
+      "activePipeline": "قيمة خط الأنابيب النشط",
+      "fromLastMonth": "عن الشهر الماضي",
+      "thisWeek": "هذا الأسبوع",
+      "quarterlyAdj": "تعديل ربع سنوي",
+      "uploadTitle": "رفع بيانات الاجتماع",
+      "uploadSubtitle": "اسحب وأفلت تسجيلات الاجتماعات (صوت/فيديو) لتشغيل النسخ وتحليل المشاعر بالذكاء الاصطناعي.",
+      "chooseFile": "اختيار ملف",
+      "linkMeet": "ربط Google Meet",
+      "recentMeetings": "الاجتماعات الأخيرة",
+      "meetingName": "اسم الاجتماع",
+      "date": "التاريخ",
+      "participants": "المشاركون",
+      "status": "الحالة",
+      "highIntent": "نية عالية",
+      "closedWon": "صفقة رابحة",
+      "aiSummary": "الملخص التنفيذي بالذكاء الاصطناعي",
+      "keyHighlight": "أبرز النقاط",
+      "highlightBody": "أبدى العميل اهتماماً كبيراً بتكامل واجهة البرمجة وقابلية التوسّع. ذُكرت مخاوف الميزانية لكنها ثانوية مقارنة بتكافؤ الميزات.",
+      "sentimentAnalysis": "تحليل المشاعر",
+      "positive": "إيجابي",
+      "keyTopics": "المواضيع الرئيسية",
+      "generateEmail": "إنشاء بريد متابعة",
+      "pipelineHealth": "صحة خط الأنابيب",
+      "pipelineNote1": "انتقلت Acme Corp إلى مرحلة الإغلاق — ارتفع الاحتمال إلى 92%.",
+      "pipelineNote2": "عميل محتمل جديد: Global Tech Inc — مطابق للملف المثالي للعميل."
+    },
+    "manager": {
+      "console": "وحدة تحكم المدير",
+      "totalRevenue": "إجمالي الإيرادات",
+      "winRate": "معدل الفوز",
+      "conversionRate": "معدل التحويل",
+      "activeLeads": "العملاء النشطون",
+      "salesPerformance": "أداء المبيعات",
+      "revenue": "الإيرادات",
+      "target": "المستهدف",
+      "dealDistribution": "توزيع الصفقات",
+      "active": "نشطة",
+      "discovery": "اكتشاف",
+      "negotiation": "تفاوض",
+      "proposal": "عرض",
+      "topPerformers": "أفضل الموظفين",
+      "goal": "الهدف",
+      "closed": "مغلقة",
+      "criticalAlerts": "تنبيهات حرجة",
+      "priority": "أولوية",
+      "dealAccount": "الصفقة / الحساب",
+      "issueType": "نوع المشكلة",
+      "value": "القيمة",
+      "owner": "المسؤول",
+      "action": "إجراء",
+      "atRisk": "في خطر",
+      "stuck": "متعثرة",
+      "noActivity": "لا نشاط",
+      "liveStatus": "حالة المحرك: نشط",
+      "lastSynced": "آخر مزامنة: قبل دقيقتين"
+    },
+    "executive": "لوحة معلومات التنفيذي",
+    "selectRole": "اختر وضع عرض لوحة المعلومات",
+    "kpis": {
+      "quota": "نسبة تحقيق المستهدف",
+      "pipeline": "حجم التدفقات",
+      "talkRatio": "متوسط نسبة الحديث",
+      "activities": "الأنشطة المكتملة"
+    },
+    "charts": {
+      "performance": "سجل الأداء المباشر",
+      "pipeline": "مراحل تدفق الصفقات",
+      "talkRatio": "تحقيق نسبة الاستماع والحديث",
+      "quota": "مستهدفات أعضاء الفريق",
+      "trend": "معدل حجم المكالمات",
+      "coaching": "أولويات التوجيه",
+      "growth": "نمو الإيرادات",
+      "health": "صحة مسار المبيعات",
+      "target": "نسبة تحقيق الأهداف السنوية"
+    },
+    "greeting": "صباح الخير، أليكس.",
+    "overview": "إليك نظرة عامة على أداء فريقك لهذا الشهر.",
+    "thisMonth": "هذا الشهر",
+    "viewAll": "عرض الكل",
+    "exec": {
+      "console": "الملخص التنفيذي",
+      "acv": "القيمة التعاقدية السنوية",
+      "globalPipeline": "خط الأنابيب العالمي",
+      "execWinRate": "معدل الفوز",
+      "exposure": "مؤشر التعرض",
+      "revenueForecast": "توقعات الإيرادات",
+      "actual": "الفعلي",
+      "forecast": "المتوقع",
+      "topSources": "لوحة صدارة الموظفين",
+      "aiForecast": "توقعات الذكاء الاصطناعي",
+      "forecastBody": "تقليل الركود في مرحلة التحقق الفني بثلاثة أيام قد يستعيد ما يصل إلى 1.2 مليون دولار من الإيرادات المتوقعة هذا الربع.",
+      "generatePlan": "إنشاء خطة عمل"
+    }
+  },
+  "notifications": {
+    "pageTitle": "مركز التنبيهات",
+    "subtitle": "تحديثات النظام في الوقت الفعلي، الإشارات للمستخدمين، وسجل الإشعارات.",
+    "alerts": "سجل التنبيهات",
+    "mentions": "الإشارات للمستخدمين",
+    "system": "إشعارات النظام",
+    "markAllRead": "تحديد الكل كمقروء",
+    "types": {
+      "success": "نجاح",
+      "warning": "تحذير",
+      "error": "خطأ",
+      "info": "معلومات"
+    },
+    "insightsSummary": "ملخص الرؤى",
+    "unreadMentions": "الإشارات غير المقروءة",
+    "atRiskDeals": "الصفقات المعرضة للخطر",
+    "opportunities": "الفرص المتاحة",
+    "configurePref": "تكوين التفضيلات",
+    "aiBriefTitle": "ملخصات الذكاء الاصطناعي الذكية",
+    "aiBriefDesc": "دع الذكاء الاصطناعي يلخص إشعاراتك اليومية في موجز مدته 30 ثانية يتم تسليمه كل صباح.",
+    "aiBriefBtn": "تفعيل الموجزات",
+    "teamOverview": "نظرة عامة على الفريق",
+    "teamOverviewSub": "ربح صفقة إيكمي • منذ ساعة",
+    "teamOverviewSub2": "تحديث التوقعات • منذ 3 ساعات"
+  },
+  "workflows": {
+    "pageTitle": "مخطط سير العمل الآلي",
+    "subtitle": "تصميم المحفزات والشروط والإجراءات لتبسيط عمليات المبيعات الخاصة بك.",
+    "canvas": "مساحة تصميم سير العمل",
+    "editor": "محرر خصائص العناصر",
+    "list": "نماذج سير العمل المتاحة",
+    "details": "مواصفات سير العمل الآلي",
+    "saveWorkflow": "حفظ سير العمل",
+    "newWorkflow": "إنشاء سير عمل جديد",
+    "triggers": {
+      "meeting_uploaded": "تم رفع الاجتماع",
+      "analysis_completed": "اكتمل تحليل الاجتماع",
+      "risk_detected": "تم كشف مخاطر الصفقة",
+      "stage_changed": "تغيرت مرحلة الصفقة"
+    },
+    "actions": {
+      "send_notification": "إرسال تنبيه",
+      "escalate": "تصعيد الصفقة",
+      "create_task": "إنشاء مهمة عمل",
+      "update_deal": "تحديث حالة الصفقة"
+    }
+  },
+  "integrations": {
+    "pageTitle": "دليل التكاملات",
+    "subtitle": "ربط مصادر البيانات الخارجية وأنظمة إدارة علاقات العملاء وعملاء البريد الإلكتروني لالتقاط إشارات تفاعل العملاء.",
+    "connect": "ربط",
+    "disconnect": "إلغاء الربط",
+    "connected": "متصل",
+    "disconnected": "غير متصل",
+    "error": "خطأ في الاتصال",
+    "healthStatus": "حالة الخدمة",
+    "syncHistory": "سجل المزامنة",
+    "settingsTitle": "إعدادات تكوين المزامنة",
+    "activeConnections": "خدمات التكامل النشطة",
+    "history": {
+      "timestamp": "وقت المزامنة",
+      "status": "الحالة",
+      "records": "السجلات الملتقطة",
+      "noHistory": "لم يتم تسجيل أي سجلات مزامنة بعد."
+    }
+  },
+  "developer": {
+    "pageTitle": "إعدادات المطور",
+    "subtitle": "تكوين مفاتيح واجهة برمجة التطبيقات للتطبيق، وعناوين URL لخطافات الويب (Webhooks)، وتتبع تسليم حمولات النظام.",
+    "apiKeys": "مفاتيح API",
+    "webhooks": "اشتراكات الويب هوك",
+    "deliveryLogs": "سجل عمليات التسليم",
+    "createKey": "إنشاء مفتاح API",
+    "keyName": "اسم المفتاح",
+    "keyPrefix": "معرف البادئة",
+    "status": "الحالة",
+    "actions": "الإجراءات",
+    "revoke": "إبطال",
+    "revoked": "ملغي",
+    "active": "نشط",
+    "newWebhook": "تسجيل ويب هوك",
+    "webhookUrl": "رابط الوجهة",
+    "events": "أحداث التشغيل",
+    "secret": "السر المخصص للتوقيع",
+    "logs": {
+      "event": "الحدث المشغل",
+      "status": "حالة الاستجابة",
+      "code": "رمز الحالة HTTP",
+      "duration": "زمن الاستجابة",
+      "retry": "إعادة محاولة الإرسال"
+    }
+  },
+  "aiSettings": {
+    "pageTitle": "مزودي الذكاء الاصطناعي وحالة النظام",
+    "subtitle": "تكوين نماذج اللغات الكبيرة النشطة، وتخصيص قوالب المطالبات، وتتبع استهلاك التكاليف والفوترة.",
+    "providerName": "مزود محرك الذكاء الاصطناعي",
+    "status": "الحالة",
+    "activeModel": "النموذج النشط",
+    "cost": "التكلفة المتراكمة",
+    "tokens": "الرموز المستهلكة",
+    "systemHealth": "مراقب صحة النظام",
+    "queueBacklog": "تراكم الطلبات في الطابور",
+    "processingRate": "معدل المعالجة",
+    "uptime": "نسبة تشغيل النظام",
+    "component": "المكون الفرعي",
+    "latency": "زمن الاستجابة",
+    "monthlyBillingUsage": "تتبع استهلاك وتكلفة محركات الذكاء الاصطناعي",
+    "computeEngines": "محركات الذكاء الاصطناعي",
+    "featureOrchestration": "تنسيق الميزات",
+    "featureOrchestrationDesc": "تحكّم في قدرات الذكاء الاصطناعي عبر المؤسسة",
+    "activeToggles": "{count} مفاتيح مفعّلة",
+    "features": {
+      "autoSummary": "التلخيص التلقائي",
+      "autoSummaryDesc": "إنشاء ملخصات موجزة تلقائياً لكل مكالمة مبيعات ونص اجتماع.",
+      "sentimentEngine": "محرك تحليل المشاعر",
+      "sentimentEngineDesc": "تحليل نبرة الصوت ونية الكلمات المفتاحية لتصنيف حرارة العميل ومستويات المشاعر.",
+      "competitorTracking": "تتبّع المنافسين",
+      "competitorTrackingDesc": "رصد ذكر أسعار المنافسين وميزاتهم أثناء المحادثات لتحديث بطاقات المواجهة."
+    }
+  },
+  "companies": {
+    "pageTitle": "دليل الشركات",
+    "subtitle": "الإشراف على حسابات الشركات، وتحديد باقات الاشتراك، وتكوين المقاعد النشطة.",
+    "name": "اسم الشركة",
+    "industry": "مجال العمل",
+    "domain": "نطاق الويب",
+    "plan": "باقة الاشتراك",
+    "users": "الأعضاء النشطين",
+    "status": "حالة الفوترة",
+    "create": "تسجيل شركة",
+    "edit": "تعديل إعدادات الشركة",
+    "actionsColumn": "إجراء",
+    "loading": "جارٍ تحميل دليل الشركات…",
+    "registrationDate": "تاريخ التسجيل",
+    "usersUnit": "{count} مستخدم",
+    "emptyTitle": "لم يتم تحديد شركة",
+    "emptyBody": "اختر شركة من الجدول لعرض بيانات حسابها.",
+    "cancel": "إلغاء",
+    "submit": "حفظ",
+    "namePlaceholder": "مثال: مجموعة إنيتك",
+    "industryPlaceholder": "مثال: الرعاية الصحية",
+    "domainPlaceholder": "مثال: initech.com",
+    "plans": {
+      "starter": "مبتدئ",
+      "growth": "نمو",
+      "enterprise": "مؤسسي"
+    },
+    "statuses": {
+      "active": "نشط",
+      "trial": "تجريبي",
+      "suspended": "موقوف"
+    },
+    "kpis": {
+      "totalAccounts": "إجمالي الحسابات النشطة",
+      "totalPipeline": "إجمالي خط الأنابيب",
+      "highIntent": "شركات عالية النية",
+      "activities24h": "الأنشطة (24 ساعة)"
+    }
+  },
+  "contacts": {
+    "pageTitle": "دليل جهات الاتصال",
+    "subtitle": "إدارة الملفات الشخصية للعملاء، ومراجعة الجدول الزمني للتفاعلات، وإضافة الملاحظات المخصصة.",
+    "name": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "phone": "رقم الهاتف",
+    "company": "الشركة المرتبطة",
+    "title": "المسمى الوظيفي",
+    "status": "الحالة",
+    "timeline": "الجدول الزمني للنشاط",
+    "notes": "الملاحظات والتعليقات",
+    "addNote": "إضافة ملاحظة",
+    "search": "البحث بالاسم أو البريد أو الشركة...",
+    "kpis": {
+      "totalContacts": "إجمالي جهات الاتصال",
+      "highIntent": "نية عالية",
+      "responseRate": "معدل الاستجابة",
+      "activeDeals": "الصفقات النشطة"
+    }
+  },
+  "users": {
+    "pageTitle": "إدارة المستخدمين والأدوار",
+    "subtitle": "الإشراف على أعضاء المنصة، وتعيين مستويات الوصول القائمة على الأدوار، ودعوة زملاء جدد.",
+    "name": "الاسم الكامل",
+    "email": "البريد الإلكتروني للعمل",
+    "role": "الدور في النظام",
+    "department": "القسم",
+    "status": "حالة النشاط",
+    "lastLogin": "آخر تسجيل دخول",
+    "invite": "دعوة عضو",
+    "deactivate": "إلغاء تفعيل العضو",
+    "edit": "تعديل الصلاحيات",
+    "save": "حفظ التغييرات",
+    "cancel": "إلغاء",
+    "emailPlaceholder": "name@company.com",
+    "inviteModal": {
+      "title": "دعوة عضو فريق جديد",
+      "desc": "سيتم إرسال دعوة بريد إلكتروني إلى العنوان المحدد تحتوي على تعليمات الإعداد.",
+      "submit": "إرسال الدعوة"
+    },
+    "kpis": {
+      "totalUsers": "إجمالي المستخدمين",
+      "activeNow": "النشطون الآن",
+      "invited": "المستخدمون المدعوون",
+      "securityAlerts": "تنبيهات الأمان",
+      "allClear": "كل شيء سليم",
+      "pending": "قيد الانتظار"
+    }
+  },
+  "billing": {
+    "pageTitle": "خطة الاشتراك ونظرة عامة على الفوترة",
+    "subtitle": "إدارة باقات الاشتراك، ومراقبة حدود البيانات المعالجة، ومراجعة سجل الفواتير.",
+    "currentPlan": "باقة الاشتراك النشطة حاليًا",
+    "usageSummary": "تتبع استهلاك موارد الحوسبة والذكاء الاصطناعي",
+    "invoicesTitle": "سجل الفواتير التاريخية",
+    "pricingTitle": "خيارات الباقات المتاحة",
+    "metrics": {
+      "meetings": "الاجتماعات المكتوبة",
+      "aiTokens": "طلبات تلخيص الذكاء الاصطناعي",
+      "storage": "تخزين أرشيف الصوت",
+      "users": "تخصيص المقاعد النشطة"
+    },
+    "starter": "الباقة الأساسية (Starter)",
+    "professional": "الباقة الاحترافية (Professional)",
+    "enterprise": "الباقة المؤسسية (Enterprise)",
+    "invoices": {
+      "id": "معرف الفاتورة",
+      "amount": "المبلغ المطلوب",
+      "date": "تاريخ الفاتورة",
+      "status": "حالة الدفع",
+      "action": "الإجراءات"
+    }
+  },
+  "auditLogs": {
+    "pageTitle": "سجلات النشاط والأمان",
+    "subtitle": "تتبع مسارات التدقيق الأمني، وسجلات تسجيل الدخول، وتعديلات الإعدادات الحساسة.",
+    "export": "تصدير السجلات",
+    "event": "الحدث المشغل",
+    "user": "المتسبب في الحدث",
+    "severity": "مستوى الخطورة",
+    "ip": "عنوان IP",
+    "details": "تفاصيل الحدث",
+    "time": "الطابع الزمني"
+  },
+  "adminSettings": {
+    "pageTitle": "إعدادات إدارة النظام العامة",
+    "subtitle": "تكوين إعدادات خوادم البريد SMTP، وبيانات تعريف المؤسسة، وسياسات كلمات المرور والحماية.",
+    "general": "الإعدادات العامة للمؤسسة",
+    "branding": "مظهر وهوية الواجهة",
+    "security": "سياسات أمان النظام",
+    "notifications": "إعدادات التنبيهات والإشعارات",
+    "save": "حفظ الإعدادات",
+    "reset": "تجاهل التغييرات",
+    "success": "تم حفظ الإعدادات بنجاح."
+  },
+  "analytics": {
+    "pageTitle": "تحليلات الإيرادات",
+    "subtitle": "مراقبة معمّقة للأداء لمبيعات المؤسسات العالمية.",
+    "ranges": {
+      "d": "يوم",
+      "w": "أسبوع",
+      "m": "شهر",
+      "y": "سنة"
+    },
+    "kpis": {
+      "revenue": "الإيرادات",
+      "conversion": "التحويل",
+      "activeDeals": "الصفقات النشطة",
+      "avgDealSize": "متوسط حجم الصفقة",
+      "revenueHint": "مقارنة بالشهر الماضي: 2.2 مليون دولار",
+      "conversionHint": "متوسط معدل التحويل حتى الإغلاق",
+      "activeDealsHint": "عبر 14 مرحلة في خط الأنابيب",
+      "avgDealSizeHint": "الاتجاه: تصاعدي",
+      "stable": "مستقر",
+      "highImpact": "تأثير عالٍ"
+    },
+    "revenueGrowth": "نمو الإيرادات",
+    "grossRevenue": "إجمالي الإيرادات",
+    "forecast": "التوقعات",
+    "aiSuggestions": "اقتراحات الذكاء الاصطناعي",
+    "aiSuggestionTitle": "تم اكتشاف فرصة بيع إضافي",
+    "aiSuggestionBody": "تُظهر حسابات الباقة المؤسسية في المنطقة الشمالية الشرقية تبنّياً أعلى بنسبة 42% لميزات الذكاء. نوصي بحملات توسّع موجّهة لحسابات الفئة الثانية.",
+    "generateActionPlan": "إنشاء خطة عمل",
+    "riskAnalysis": "تحليل المخاطر",
+    "riskTitle": "3 صفقات عالية القيمة معرّضة للخطر",
+    "riskBody": "تجاوزت Acme Corp وGlobex نوافذ التفاعل بأكثر من 14 يوماً.",
+    "funnelEfficiency": "كفاءة المسار",
+    "funnel": {
+      "newLeads": "عملاء محتملون جدد",
+      "qualified": "مؤهّل (MQL)",
+      "negotiation": "تفاوض",
+      "closedWon": "صفقات مغلقة"
+    },
+    "leadVelocity": "سرعة التحويل الإجمالية حتى الإغلاق",
+    "days": "{count} يوماً",
+    "regionalTitle": "توزيع الصفقات حسب المنطقة",
+    "region": "المنطقة",
+    "volume": "الحجم",
+    "marketShare": "الحصة السوقية",
+    "sentiment": "المشاعر",
+    "sentiments": {
+      "high": "مرتفع",
+      "neutral": "محايد",
+      "low": "منخفض"
+    }
+  }
+}

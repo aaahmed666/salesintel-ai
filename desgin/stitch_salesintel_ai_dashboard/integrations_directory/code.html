@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Integrations Directory | SalesIntel AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "secondary-container": "#8455ef",
+                "on-background": "#0b1c30",
+                "inverse-primary": "#c0c1ff",
+                "on-tertiary-fixed": "#001e2f",
+                "tertiary-container": "#007cb1",
+                "surface-container-high": "#dce9ff",
+                "on-error": "#ffffff",
+                "primary-fixed-dim": "#c0c1ff",
+                "tertiary-fixed-dim": "#89ceff",
+                "on-surface": "#0b1c30",
+                "on-primary-container": "#fffbff",
+                "surface-container-lowest": "#ffffff",
+                "error-container": "#ffdad6",
+                "surface-variant": "#d3e4fe",
+                "surface-tint": "#494bd6",
+                "surface-bright": "#f8f9ff",
+                "on-primary-fixed": "#07006c",
+                "background": "#f8f9ff",
+                "secondary-fixed-dim": "#d0bcff",
+                "on-surface-variant": "#464554",
+                "on-primary-fixed-variant": "#2f2ebe",
+                "inverse-surface": "#213145",
+                "on-secondary-container": "#fffbff",
+                "error": "#ba1a1a",
+                "surface-container": "#e5eeff",
+                "surface": "#f8f9ff",
+                "primary-container": "#6063ee",
+                "primary": "#4648d4",
+                "secondary-fixed": "#e9ddff",
+                "on-secondary": "#ffffff",
+                "on-primary": "#ffffff",
+                "on-tertiary": "#ffffff",
+                "inverse-on-surface": "#eaf1ff",
+                "secondary": "#6b38d4",
+                "outline-variant": "#c7c4d7",
+                "surface-dim": "#cbdbf5",
+                "surface-container-low": "#eff4ff",
+                "on-tertiary-container": "#fcfcff",
+                "on-error-container": "#93000a",
+                "tertiary": "#00628d",
+                "surface-container-highest": "#d3e4fe",
+                "on-tertiary-fixed-variant": "#004c6e",
+                "on-secondary-fixed": "#23005c",
+                "on-secondary-fixed-variant": "#5516be",
+                "primary-fixed": "#e1e0ff",
+                "tertiary-fixed": "#c9e6ff",
+                "outline": "#767586"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "gutter": "20px",
+                "margin-page": "40px",
+                "md": "16px",
+                "xl": "32px",
+                "lg": "24px",
+                "sm": "12px",
+                "base": "4px",
+                "xs": "8px"
+            },
+            "fontFamily": {
+                "label-md": ["Geist"],
+                "headline-lg": ["Geist"],
+                "body-lg": ["Inter"],
+                "headline-lg-mobile": ["Geist"],
+                "label-sm": ["Geist"],
+                "headline-xl": ["Geist"],
+                "headline-md": ["Geist"],
+                "body-sm": ["Inter"],
+                "body-md": ["Inter"]
+            },
+            "fontSize": {
+                "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .integration-card:hover {
+            box-shadow: 0 4px 20px -5px rgba(70, 72, 212, 0.1);
+            transform: translateY(-2px);
+        }
+        .gradient-primary {
+            background: linear-gradient(135deg, #4648d4 0%, #6b38d4 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md overflow-x-hidden">
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface border-r border-outline-variant flex flex-col p-md z-50">
+<div class="mb-xl px-xs">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">SalesIntel AI</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-70">Enterprise Edition</p>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">contacts</span>
+<span class="font-label-md text-label-md">CRM</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md text-label-md">Meetings</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm bg-primary-container text-on-primary-container font-bold rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings_input_component</span>
+<span class="font-label-md text-label-md">Integrations</span>
+</a>
+</nav>
+<button class="gradient-primary text-white font-label-md text-label-md py-sm rounded-xl mb-xl active:scale-95 transition-transform flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">add</span>
+            Add Prospect
+        </button>
+<div class="pt-md border-t border-outline-variant space-y-xs">
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-surface/80 backdrop-blur-md border-b border-outline-variant z-40 flex justify-between items-center px-lg">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-body-md">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary text-body-sm" placeholder="Search across integrations..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-sm">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-all text-on-surface-variant active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-all text-on-surface-variant active:scale-95">
+<span class="material-symbols-outlined">history</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-all text-on-surface-variant active:scale-95">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-xs cursor-pointer group">
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional business headshot for an enterprise administrator, set in a bright modern office with soft natural lighting. The subject has a clean, approachable look, wearing professional attire. The background is slightly blurred with a hint of tech-inspired office decor, following a light-mode aesthetic with clean white and blue tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDFio36mKCfGheQqf19mQPzdbT_KQEn91ORCgSDo9dXjuP54fF29blk4s_rz9qPInTrZ6DU-ViCvumFAio70jqp68r9tVzUVUGtLsQJR_YlK-8677no-BHRmyAIwoqJ6pnJ0Z2mcwqYS7ApPsQVU_n3WAld-YYRueDT09vcpCewNf6z6zfO2xs91FdZyZrjp1XSTLWPQ4fNL5xn3NQ-IbXjusxp1iY-khCgTziob2OpGLEMpuDo-BhBoc2py81V65kkuYFAi7ki5PH"/>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface transition-colors">keyboard_arrow_down</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 pb-xl px-margin-page">
+<!-- Header Section -->
+<div class="mb-xl flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-base">Integrations Directory</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Connect your existing tech stack to sync data and supercharge your AI prospecting.</p>
+</div>
+<div class="flex gap-xs bg-surface-container p-1 rounded-xl border border-outline-variant">
+<button class="px-md py-xs bg-surface text-primary shadow-sm rounded-lg font-label-sm text-label-sm">All</button>
+<button class="px-md py-xs hover:bg-surface/50 text-on-surface-variant rounded-lg font-label-sm text-label-sm transition-all">Installed</button>
+<button class="px-md py-xs hover:bg-surface/50 text-on-surface-variant rounded-lg font-label-sm text-label-sm transition-all">Available</button>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="flex flex-wrap items-center gap-sm mb-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mr-xs">Filter by:</span>
+<button class="px-md py-xs rounded-full border border-primary bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm flex items-center gap-xs">
+                All Categories
+            </button>
+<button class="px-md py-xs rounded-full border border-outline-variant hover:border-primary hover:text-primary transition-all font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">videocam</span> Video
+            </button>
+<button class="px-md py-xs rounded-full border border-outline-variant hover:border-primary hover:text-primary transition-all font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">hub</span> CRM
+            </button>
+<button class="px-md py-xs rounded-full border border-outline-variant hover:border-primary hover:text-primary transition-all font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span> Communication
+            </button>
+<button class="px-md py-xs rounded-full border border-outline-variant hover:border-primary hover:text-primary transition-all font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">code</span> Developer
+            </button>
+</div>
+<!-- Bento Grid of Integrations -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Zoom Card -->
+<div class="integration-card bg-surface border border-outline-variant rounded-xl p-lg flex flex-col transition-all duration-300">
+<div class="flex justify-between items-start mb-md">
+<div class="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="Minimalist logo icon for Zoom communications in a clean, high-resolution SVG style. The icon is characterized by its signature blue and white color scheme, appearing modern and tech-focused. It's isolated on a very soft blue background with sharp edges and a corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdPREfViINvjwnvGv5R9eWSlGhleKXySY4E1TbIW56pkYgPrd3zBxtBq4oIzO6Y4PNMhM_QTIWRcYykJhJaqLNKF9WXzxGK1QUTC58jx3TrpkWYOvI35MF1Qo3-B2bIFA51sUVrySQaAXP4liifSdsdtQkpEWDGOUDGICJSJpTTKHHIlkD0pTS5PJAKhWnY55BJ9GrbfJKxVUE9LoEs9qlG81GI2wPHmgvAXWmmyXmXRzg-xD3VwUEUgE1U7dUqODHoM1ee9pqcRKP"/>
+</div>
+<span class="px-sm py-xs bg-green-100 text-green-700 font-label-sm text-label-sm rounded-full flex items-center gap-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                        Connected
+                    </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Zoom</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-1 mb-lg">Record and transcribe sales calls directly into the SalesIntel platform for AI-powered sentiment analysis.</p>
+<div class="flex gap-sm">
+<button class="flex-1 py-2 rounded-lg border border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container transition-all active:scale-[0.98]">Configure</button>
+<button class="p-2 rounded-lg bg-surface-container text-on-surface-variant hover:text-error transition-all active:scale-95">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Google Meet Card -->
+<div class="integration-card bg-surface border border-outline-variant rounded-xl p-lg flex flex-col transition-all duration-300">
+<div class="flex justify-between items-start mb-md">
+<div class="h-12 w-12 rounded-lg bg-surface-container flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="The modern Google Meet logo featuring vibrant primary colors—blue, red, yellow, and green—in a stylized video camera icon. The design is flat and minimalist, conveying productivity and cloud-based collaboration. The lighting is neutral and the graphic is centered." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG-W5y7LA6VVeTGXQn7hZS_5V0qpW_cHrGTLUXt-nGSEe1AKkp5E4vqVQ360txxNM56u5r-_vvrqqK0S28Tsy8TQktTDsV794XW2FgZuvq6YYOmwj6VNkHcrm9Wdwxwnt_e7nqZxMcWQKTd1fRUnddk-OqV66VB_vBnmX46msPKwieux1pLsmMJ-o1qBZyGHPftuW6psQA4zA754LumrPP1K8m1FqA7WqN3KlusY_CxPqqJALpn1c9bpJ2r-pSIDc17Cuf6BMBNIQ1"/>
+</div>
+<span class="px-sm py-xs bg-surface-container text-on-surface-variant font-label-sm text-label-sm rounded-full flex items-center gap-xs">
+                        Not Connected
+                    </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Google Meet</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-1 mb-lg">Seamlessly sync Google Meet events and generate AI summaries of your client discussions.</p>
+<button class="w-full py-2 rounded-lg gradient-primary text-white font-label-md text-label-md hover:opacity-90 transition-all active:scale-[0.98]">Connect</button>
+</div>
+<!-- HubSpot Card -->
+<div class="integration-card bg-surface border border-outline-variant rounded-xl p-lg flex flex-col transition-all duration-300">
+<div class="flex justify-between items-start mb-md">
+<div class="h-12 w-12 rounded-lg bg-orange-50 flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="The HubSpot sprout logo in its signature warm orange color. The design is simple, clean, and highly recognizable as a leader in CRM software. The visual style is enterprise SaaS with a friendly, modern touch, rendered on a neutral background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5dP9yLk3sBSCwuB4CF--HRvcuLhP52wLvFOPue1deeDDrQ_VDI6NZ-PJhzU1RtOaI8n5BuDDzcgg5A0kYqzISbuos0OU2568FGachNCSfNUvz__s1H8sv3ZJ2TpPN3NGqreAXpJtvmHkqikRShEGozAEbFXekSw91ZBWEe-AnF2meTEKMtbngbIMbNM-dSRzhK2U6gzbi-aVe3UlSiieRWOpMj7ow6JoRbZv9ZKvRkmQhyTN7mkkUlefNdMqJAIAUgeJEBBHlt5Xx"/>
+</div>
+<span class="px-sm py-xs bg-green-100 text-green-700 font-label-sm text-label-sm rounded-full flex items-center gap-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                        Connected
+                    </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">HubSpot</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-1 mb-lg">Bidirectional sync of contacts, deals, and activities. Keep your pipeline accurate in real-time.</p>
+<div class="flex gap-sm">
+<button class="flex-1 py-2 rounded-lg border border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container transition-all active:scale-[0.98]">Configure</button>
+<button class="p-2 rounded-lg bg-surface-container text-on-surface-variant hover:text-error transition-all active:scale-95">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Salesforce Card -->
+<div class="integration-card bg-surface border border-outline-variant rounded-xl p-lg flex flex-col transition-all duration-300">
+<div class="flex justify-between items-start mb-md">
+<div class="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="Salesforce cloud logo with its iconic light blue cloud shape. The aesthetic is professional, corporate, and clean, representing industry-standard enterprise software. High-quality vector-style render on a soft, minimalist light-mode background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1bOI12omb1mah49I6ZciZnJ8yY3otJ6zb4hqH3mtVG0KBdZJe2Vyaq5YsmI-vpn0Kc63DQP2bCNVwTWLTgN9IPW6gedL3ASNlaHgrifDIZwssSqABqBbgNYnnb90BC8x1hZkgrypgpSqI54xss_R6DNBSDjOHXsnxqce1Yr7fgnmzvpb3frKoov6J4wpNTjLkaVKxC9d5xJJtv4LkVL47kKOHmEFs-JDL1AcfYXvoZWMs-ZJwGfj6-dDuCjTnST4dKjbriueqA-_o"/>
+</div>
+<span class="px-sm py-xs bg-surface-container text-on-surface-variant font-label-sm text-label-sm rounded-full flex items-center gap-xs">
+                        Not Connected
+                    </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Salesforce</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-1 mb-lg">Integrate with the world's #1 CRM to push insights directly to your Opportunity and Lead views.</p>
+<button class="w-full py-2 rounded-lg gradient-primary text-white font-label-md text-label-md hover:opacity-90 transition-all active:scale-[0.98]">Connect</button>
+</div>
+<!-- Slack Card -->
+<div class="integration-card bg-surface border border-outline-variant rounded-xl p-lg flex flex-col transition-all duration-300">
+<div class="flex justify-between items-start mb-md">
+<div class="h-12 w-12 rounded-lg bg-surface-container flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="The modern Slack octothorpe logo with its colorful four-bar design in green, blue, red, and yellow. The style is minimalist and clean, representing modern workplace communication. Rendered as a sharp digital icon on a light gray background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmVrTMzE3HhjJg1IPIymKjdj4hr9zX0OAjKfd3DvYFd4MIilnnHDZDKbW2o4PnUBbR3-eJbvrNjW1C0ym3vIzfExSMha5CEr2Lk_-BX2RNorvD1plAM85UXjg0DYBzXj4lFevBvplqa9lfX0zLOMDPejALdki_mFlLyCF-FmO9lpa_XX3iGvTSCO8Am7uC-wjCYAorjHnQDd1yp31eZNT2IEheEYVmYWdpYL9D4ePHx09eOY-u28Il0w65eGMvOXhcYNYhuZ0fwTHF"/>
+</div>
+<span class="px-sm py-xs bg-green-100 text-green-700 font-label-sm text-label-sm rounded-full flex items-center gap-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                        Connected
+                    </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Slack</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-1 mb-lg">Receive real-time notifications about lead activities and AI insights in your team's Slack channels.</p>
+<div class="flex gap-sm">
+<button class="flex-1 py-2 rounded-lg border border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container transition-all active:scale-[0.98]">Configure</button>
+<button class="p-2 rounded-lg bg-surface-container text-on-surface-variant hover:text-error transition-all active:scale-95">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Webhooks Card -->
+<div class="integration-card bg-surface border border-outline-variant rounded-xl p-lg flex flex-col transition-all duration-300">
+<div class="flex justify-between items-start mb-md">
+<div class="h-12 w-12 rounded-lg bg-tertiary/10 flex items-center justify-center p-2">
+<span class="material-symbols-outlined text-tertiary text-[32px]">webhook</span>
+</div>
+<span class="px-sm py-xs bg-surface-container text-on-surface-variant font-label-sm text-label-sm rounded-full flex items-center gap-xs">
+                        Not Connected
+                    </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Webhooks</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-1 mb-lg">Build custom automations by triggering events and sending JSON payloads to any external URL.</p>
+<button class="w-full py-2 rounded-lg gradient-primary text-white font-label-md text-label-md hover:opacity-90 transition-all active:scale-[0.98]">Connect</button>
+</div>
+</div>
+<!-- Featured Section (Bottom Canvas) -->
+<div class="mt-xl grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<div class="lg:col-span-2 relative overflow-hidden bg-primary-container rounded-2xl p-xl flex items-center min-h-[300px] border border-primary/20">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<!-- Subtle pattern -->
+<div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+</div>
+<div class="relative z-10 max-w-md">
+<h3 class="font-headline-lg text-headline-lg text-white mb-sm">Connect your own API</h3>
+<p class="font-body-md text-body-md text-white/90 mb-lg">Can't find the tool you need? Use our robust REST API to build custom integrations and sync enterprise data at scale.</p>
+<button class="px-xl py-3 bg-white text-primary rounded-xl font-bold font-label-md text-label-md hover:bg-surface-bright transition-all shadow-lg active:scale-95">Explore Developer Docs</button>
+</div>
+<div class="hidden md:block absolute right-12 top-1/2 -translate-y-1/2 w-64 h-64 opacity-20">
+<span class="material-symbols-outlined text-[200px] text-white">integration_instructions</span>
+</div>
+</div>
+<div class="bg-surface-container-high rounded-2xl p-xl border border-outline-variant flex flex-col justify-center">
+<div class="flex items-center gap-md mb-md">
+<div class="h-10 w-10 rounded-full bg-secondary text-white flex items-center justify-center">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-background">AI Sync Pro</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-lg">Enable SmartSync to let our AI automatically map fields between your connected platforms with 99.9% accuracy.</p>
+<div class="flex items-center justify-between p-md bg-surface rounded-xl border border-outline-variant">
+<span class="font-label-md text-label-md text-on-surface">Auto-Mapping</span>
+<button class="w-12 h-6 rounded-full bg-primary-container relative transition-all duration-300 p-1" id="toggle-sync">
+<div class="w-4 h-4 rounded-full bg-white transition-all transform translate-x-6"></div>
+</button>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple micro-interactions
+        document.getElementById('toggle-sync')?.addEventListener('click', function() {
+            const circle = this.querySelector('div');
+            const isActive = circle.classList.contains('translate-x-6');
+            if (isActive) {
+                circle.classList.remove('translate-x-6');
+                circle.classList.add('translate-x-0');
+                this.classList.replace('bg-primary-container', 'bg-surface-variant');
+            } else {
+                circle.classList.remove('translate-x-0');
+                circle.classList.add('translate-x-6');
+                this.classList.replace('bg-surface-variant', 'bg-primary-container');
+            }
+        });
+
+        // Search bar animation logic could go here
+    </script>
+</body></html>

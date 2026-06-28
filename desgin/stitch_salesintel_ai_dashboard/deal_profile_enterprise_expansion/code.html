@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Deal Profile | CRM Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#eff4ff",
+                        "on-background": "#0b1c30",
+                        "on-surface-variant": "#464554",
+                        "primary": "#4648d4",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#c9e6ff",
+                        "tertiary-container": "#007cb1",
+                        "surface": "#f8f9ff",
+                        "inverse-surface": "#213145",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "background": "#f8f9ff",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "primary-fixed": "#e1e0ff",
+                        "primary-container": "#6063ee",
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "on-surface": "#0b1c30",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "on-tertiary-fixed": "#001e2f",
+                        "on-primary-container": "#fffbff",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c7c4d7",
+                        "on-primary-fixed": "#07006c",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#fffbff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#89ceff",
+                        "on-secondary-fixed": "#23005c",
+                        "surface-tint": "#494bd6",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "secondary": "#6b38d4",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-container": "#e5eeff",
+                        "outline": "#767586",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#cbdbf5",
+                        "secondary-fixed": "#e9ddff",
+                        "tertiary": "#00628d",
+                        "on-tertiary-container": "#fcfcff",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "secondary-container": "#8455ef",
+                        "inverse-primary": "#c0c1ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "20px",
+                        "sm": "12px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "margin-page": "40px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Geist"],
+                        "label-md": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Geist"],
+                        "headline-xl": ["Geist"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid #e2e8f0;
+        }
+        .bento-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+        .bento-card:hover {
+            box-shadow: 0 4px 20px -5px rgba(70, 72, 212, 0.1);
+            border-color: #4648d4;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- SideNavBar (Authority: JSON) -->
+<nav class="bg-surface-container-low dark:bg-inverse-surface h-screen w-64 fixed left-0 top-0 border-r border-outline-variant dark:border-outline flex flex-col h-full py-lg px-md z-50">
+<div class="mb-xl px-xs">
+<h1 class="font-headline-md text-headline-md font-bold text-on-background dark:text-inverse-on-surface">Sales Intelligence</h1>
+<p class="font-label-md text-label-md text-on-surface-variant opacity-70">Enterprise CRM</p>
+</div>
+<div class="space-y-xs flex-grow">
+<!-- Active Navigation: Deals -->
+<a class="flex items-center gap-md px-md py-sm transition-colors text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm transition-colors text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-label-md text-label-md">Companies</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm transition-colors text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Contacts</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm transition-colors bg-primary-container dark:bg-primary-container text-on-primary-container font-bold rounded-lg scale-95 duration-100 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">handshake</span>
+<span class="font-label-md text-label-md">Deals</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm transition-colors text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-label-md text-label-md">Activities</span>
+</a>
+</div>
+<div class="mt-auto border-t border-outline-variant pt-md space-y-xs">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-sm rounded-lg mb-md hover:opacity-90 transition-opacity">
+                Add New Deal
+            </button>
+<a class="flex items-center gap-md px-md py-sm transition-colors text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm transition-colors text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar (Authority: JSON) -->
+<header class="bg-surface/80 dark:bg-surface-container-low/80 backdrop-blur-xl docked full-width top-0 sticky z-40 border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center w-full px-lg h-16 ml-64 max-w-[calc(100%-16rem)]">
+<div class="flex items-center gap-xl">
+<span class="font-headline-lg text-headline-lg font-black text-primary dark:text-inverse-primary">CRM Intelligence</span>
+<div class="relative flex items-center bg-surface-container rounded-full px-md py-xs ml-md w-64 border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant mr-xs">search</span>
+<input class="bg-transparent border-none outline-none text-label-md font-label-md w-full focus:ring-0" placeholder="Search opportunities..." type="text"/>
+</div>
+<nav class="hidden md:flex gap-lg">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all" href="#">Pipeline</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all" href="#">Reporting</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all" href="#">Insights</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-md py-xs rounded-full hover:opacity-90">Create Task</button>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">history</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Corporate headshot of a professional sales manager, high-end photography with soft studio lighting, background featuring a blurred modern tech office, warm tones and high-key brightness for a light-mode UI design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcBC54Fg-Z0IXcv8lYV95EMl89y7Z5y_sqSg6g1ilw0pMHY8O2T4-PRUBx_j95mWA4nBmxsDH1ghoa7reZUFy34YlBfqRrM9rlIiw0nhRpCGV7fxg35QhvpVLpfSdaCajZ4EbryoV8uKgJf4hD0jWg2Y2KlS82CdTNGSXrItfPJLBxJiBfx7wSz4XE5I4junBYOiZFmxgh6prveoJIclSBOxihDvqgAoqpovaY-nGXjuoqiYh1pCE_81CqmNzq44iz2qP9pzfzh8V1"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-margin-page">
+<!-- Deal Header -->
+<div class="mb-xl flex justify-between items-end">
+<div>
+<div class="flex items-center gap-xs mb-xs">
+<span class="bg-secondary-container/10 text-secondary px-sm py-xs rounded-full font-label-sm text-label-sm">Enterprise Tier</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">• ID: DEAL-4921-X</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-on-background">CloudScale Infrastructure Expansion</h2>
+<div class="flex items-center gap-md mt-sm">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="font-body-md text-body-md font-semibold">Negotiation Stage</span>
+</div>
+<span class="text-outline">|</span>
+<span class="text-on-surface-variant">Last activity 2 hours ago</span>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="glass-panel px-md py-sm rounded-xl font-label-md text-label-md hover:bg-surface-container transition-colors">Edit Deal</button>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-xl font-label-md text-label-md shadow-lg shadow-primary/20">Close Deal</button>
+</div>
+</div>
+<!-- Layout Grid -->
+<div class="grid grid-cols-12 gap-lg">
+<!-- Left Column: Deal Overview & History (8 Columns) -->
+<div class="col-span-8 space-y-lg">
+<!-- Quick Stats Grid -->
+<div class="grid grid-cols-3 gap-md">
+<div class="bento-card bg-surface-container-lowest p-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-base">Deal Value</p>
+<h3 class="font-headline-lg text-headline-lg text-primary">$450,000.00</h3>
+<p class="text-on-surface-variant text-body-sm mt-xs">+12% vs. initial quote</p>
+</div>
+<div class="bento-card bg-surface-container-lowest p-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-base">Close Date</p>
+<h3 class="font-headline-lg text-headline-lg">Oct 14, 2024</h3>
+<p class="text-tertiary text-body-sm mt-xs">22 days remaining</p>
+</div>
+<div class="bento-card bg-surface-container-lowest p-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-base">Win Probability</p>
+<h3 class="font-headline-lg text-headline-lg">78%</h3>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-sm">
+<div class="bg-primary h-full rounded-full" style="width: 78%"></div>
+</div>
+</div>
+</div>
+<!-- Activity Timeline -->
+<div class="bento-card bg-surface-container-lowest p-lg">
+<div class="flex justify-between items-center mb-xl">
+<h4 class="font-headline-md text-headline-md">Activity History</h4>
+<div class="flex gap-xs">
+<button class="p-xs hover:bg-surface-container rounded-lg transition-colors"><span class="material-symbols-outlined text-on-surface-variant">filter_list</span></button>
+<button class="p-xs hover:bg-surface-container rounded-lg transition-colors"><span class="material-symbols-outlined text-on-surface-variant">search</span></button>
+</div>
+</div>
+<div class="relative timeline-line space-y-xl ml-xs">
+<!-- Timeline Item 1 -->
+<div class="relative pl-xl">
+<div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-primary-container flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'opsz' 20;">mail</span>
+</div>
+<div class="bg-surface-container-low/50 p-md rounded-xl border border-outline-variant">
+<div class="flex justify-between items-start mb-xs">
+<h5 class="font-label-md text-label-md font-bold">Email Sent: Proposal Follow-up</h5>
+<span class="text-label-sm text-on-surface-variant">Today, 2:45 PM</span>
+</div>
+<p class="text-body-sm text-on-surface-variant line-clamp-2">"Hi Sarah, following up on our call from yesterday. Attached is the revised architecture diagram reflecting the new security requirements..."</p>
+<div class="mt-sm flex items-center gap-xs text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined" style="font-size: 16px;">visibility</span>
+<span>Opened 3 times</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative pl-xl">
+<div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center z-10 border border-tertiary/20">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'opsz' 20;">call</span>
+</div>
+<div class="bg-surface-container-low/50 p-md rounded-xl border border-outline-variant">
+<div class="flex justify-between items-start mb-xs">
+<h5 class="font-label-md text-label-md font-bold">Inbound Call: Budget Discussion</h5>
+<span class="text-label-sm text-on-surface-variant">Yesterday, 11:15 AM</span>
+</div>
+<p class="text-body-sm text-on-surface-variant">14-minute call with Marcus Chen (CFO). Discussed multi-year contract discounting and implementation timeline.</p>
+<div class="mt-sm bg-surface-container-highest/30 p-xs rounded-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-tertiary">graphic_eq</span>
+<span class="text-label-sm italic text-on-surface-variant">AI Transcript available</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative pl-xl">
+<div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-secondary-container/10 flex items-center justify-center z-10 border border-secondary-container/20">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'opsz' 20;">groups</span>
+</div>
+<div class="bg-surface-container-low/50 p-md rounded-xl border border-outline-variant">
+<div class="flex justify-between items-start mb-xs">
+<h5 class="font-label-md text-label-md font-bold">On-site Meeting: Tech Review</h5>
+<span class="text-label-sm text-on-surface-variant">Oct 2, 2024</span>
+</div>
+<p class="text-body-sm text-on-surface-variant">Full technical vetting with the DevOps team. Security clearance for data centers approved.</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-xl text-primary font-label-md text-label-md py-sm border-t border-outline-variant hover:bg-surface-container transition-all">
+                        View Full History
+                    </button>
+</div>
+</div>
+<!-- Right Column: AI Insights & Details (4 Columns) -->
+<div class="col-span-4 space-y-lg">
+<!-- AI Insights Panel -->
+<div class="relative overflow-hidden bento-card bg-inverse-surface text-inverse-on-surface p-lg">
+<!-- Subtle background decoration -->
+<div class="absolute -right-16 -top-16 w-48 h-48 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-primary-fixed">auto_awesome</span>
+<h4 class="font-headline-md text-headline-md">AI Deal Intelligence</h4>
+</div>
+<div class="space-y-md">
+<div class="bg-surface-container-low/10 p-md rounded-xl border border-white/5">
+<p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase mb-xs">Next Best Action</p>
+<p class="text-body-md font-medium">Send Security Compliance PDF to Marcus Chen</p>
+<p class="text-label-sm text-white/60 mt-xs leading-relaxed">Closing signals: Marcus opened the proposal twice in the last hour but hasn't responded.</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase mb-xs">Risk Factors</p>
+<ul class="space-y-xs">
+<li class="flex items-start gap-xs text-body-sm">
+<span class="material-symbols-outlined text-error text-[18px]">warning</span>
+<span>Decision maker (CTO) hasn't attended last 2 meetings.</span>
+</li>
+<li class="flex items-start gap-xs text-body-sm">
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">info</span>
+<span>Competitor "Logix" recently met with the procurement team.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Stakeholders List -->
+<div class="bento-card bg-surface-container-lowest p-lg">
+<div class="flex justify-between items-center mb-md">
+<h4 class="font-label-md text-label-md font-bold uppercase tracking-widest text-on-surface-variant">Stakeholders</h4>
+<button class="material-symbols-outlined text-on-surface-variant">person_add</button>
+</div>
+<div class="space-y-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of an East Asian female technology executive in her 40s, sharp professional attire, minimalist studio lighting with a neutral gray background, modern professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6QrziDPhk_Lo1-ShRt3CIsc7SOBzZoCxqyYS_XU4IIxeZLLqwZKhHUHpdp1Qm2_MibptsOchx5MtA1PTzSDB1Huwsm7v-ly8ax03uwc6r8A4dBDkdCX4g30tzUrT1hGMM44eSqfWg2lznLglchSOYekbtlSmPSBouQWZOkTWPFMKzTrHI7hRtvgcQHxYb7E-LqjfhhU8AzJ7gQf0DTvfzklZ10CPwb3KpC1Gpm2EwazcntzI0YBlMs3fYBq3byKSijg6G7-TEf6tF"/>
+</div>
+<div class="flex-grow">
+<p class="font-label-md text-label-md font-bold">Sarah Jenkins</p>
+<p class="text-label-sm text-on-surface-variant">Champion • VP Operations</p>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a mature male executive with silver hair, wearing a high-end navy suit, sophisticated and trustworthy expression, soft cinematic lighting, professional office environment bokeh background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0pF1UqDEAhsLcHYSLeHTrZSGB875BJAbG_YRxmKeQJnxpCVaEATqYsBJx5F_ESCcdEQ36BgAsXGlDe0gXcLvqmvNdc8b7kNZYNUfRiDRd3fOB5qKG1enIQoP-Yxk7p7SKVuul4pbA3M2mJDX9dDNukeIzTsTdoltNP3TBFwVLTrs3Ys-RvYdyZidcz0FFI2YpF_Aa9PmYpLiCn3Mk0z8oJ3PUtNEXNsTM09Csojh8v8ZKpTiIA_1F4h3R49nqEwrxmaAfz_7Psycg"/>
+</div>
+<div class="flex-grow">
+<p class="font-label-md text-label-md font-bold">Marcus Chen</p>
+<p class="text-label-sm text-on-surface-variant">Economic Buyer • CFO</p>
+</div>
+<div class="w-2 h-2 rounded-full bg-error"></div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Headshot of a younger South Asian man in business casual, bright and friendly smile, tech-startup founder aesthetic, clean white studio background with soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwJk4HXTC6DZrHtCU39gzlQx32FV6i5sMja15zoqHwMoY8io5811IUgRTIxtaXWiPs3UkL-6fpLzC6tM-urXZNvbnmbegyGD6Zvbx5uA6yamiaZ0ykOwDj1OSLqMQowcbozM12KpfWK_6sUH45rWzR0fU_aZBci47ZBuXYGblGuJUdUNkqAgw_PTF3_OhlwDog56sKXw3bcpjMR53MaqV_vMXPSuLqMfaWDJLVg1nd-SXcvDoJ5H3vcP03pnBk6zYjhuDaaf7WQTTS"/>
+</div>
+<div class="flex-grow">
+<p class="font-label-md text-label-md font-bold">Anita Rao</p>
+<p class="text-label-sm text-on-surface-variant">Technical Lead</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Tasks -->
+<div class="bento-card bg-surface-container-lowest p-lg">
+<h4 class="font-label-md text-label-md font-bold uppercase tracking-widest text-on-surface-variant mb-md">Upcoming Tasks</h4>
+<div class="space-y-sm">
+<div class="flex items-start gap-md group">
+<input class="mt-1 rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<div class="flex-grow">
+<p class="font-body-sm text-body-sm font-medium">Finalize contract SLA annex</p>
+<p class="text-label-sm text-error">Due Tomorrow</p>
+</div>
+<button class="opacity-0 group-hover:opacity-100 material-symbols-outlined text-on-surface-variant">more_vert</button>
+</div>
+<div class="flex items-start gap-md group">
+<input class="mt-1 rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<div class="flex-grow">
+<p class="font-body-sm text-body-sm font-medium">Internal sync with Solutions Eng</p>
+<p class="text-label-sm text-on-surface-variant">Due Oct 11</p>
+</div>
+<button class="opacity-0 group-hover:opacity-100 material-symbols-outlined text-on-surface-variant">more_vert</button>
+</div>
+</div>
+<button class="w-full mt-lg py-sm border-2 border-dashed border-outline-variant rounded-xl text-on-surface-variant font-label-md text-label-md hover:border-primary hover:text-primary transition-colors">
+                        + Add Task
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Micro-interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.bento-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.classList.add('translate-y-[-2px]');
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.classList.remove('translate-y-[-2px]');
+                });
+            });
+
+            // Smooth scaling for nav buttons
+            const navButtons = document.querySelectorAll('nav a');
+            navButtons.forEach(btn => {
+                btn.addEventListener('mousedown', () => {
+                    btn.style.transform = 'scale(0.96)';
+                });
+                btn.addEventListener('mouseup', () => {
+                    btn.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body></html>

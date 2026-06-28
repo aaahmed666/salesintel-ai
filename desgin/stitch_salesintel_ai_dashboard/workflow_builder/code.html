@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Workflow Builder | SalesIntel AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#8455ef",
+                        "on-background": "#0b1c30",
+                        "inverse-primary": "#c0c1ff",
+                        "on-tertiary-fixed": "#001e2f",
+                        "tertiary-container": "#007cb1",
+                        "surface-container-high": "#dce9ff",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "tertiary-fixed-dim": "#89ceff",
+                        "on-surface": "#0b1c30",
+                        "on-primary-container": "#fffbff",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#d3e4fe",
+                        "surface-tint": "#494bd6",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary-fixed": "#07006c",
+                        "background": "#f8f9ff",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "on-surface-variant": "#464554",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "inverse-surface": "#213145",
+                        "on-secondary-container": "#fffbff",
+                        "error": "#ba1a1a",
+                        "surface-container": "#e5eeff",
+                        "surface": "#f8f9ff",
+                        "primary-container": "#6063ee",
+                        "primary": "#4648d4",
+                        "secondary-fixed": "#e9ddff",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "secondary": "#6b38d4",
+                        "outline-variant": "#c7c4d7",
+                        "surface-dim": "#cbdbf5",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary-container": "#fcfcff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#00628d",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "on-secondary-fixed": "#23005c",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "primary-fixed": "#e1e0ff",
+                        "tertiary-fixed": "#c9e6ff",
+                        "outline": "#767586"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "20px",
+                        "margin-page": "40px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "sm": "12px",
+                        "base": "4px",
+                        "xs": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "headline-xl": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .workflow-canvas {
+            background-image: radial-gradient(#d3e4fe 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .step-connector {
+            width: 2px;
+            background: linear-gradient(to bottom, #4648d4 50%, transparent 50%);
+            background-size: 2px 8px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Sidebar Navigation (JSON Anchor) -->
+<aside class="h-screen w-64 fixed left-0 top-0 flex flex-col p-md bg-surface border-r border-outline-variant z-50">
+<div class="mb-xl px-xs">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">SalesIntel AI</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Enterprise Edition</p>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-sm p-sm transition-colors duration-200 ease-in-out text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm p-sm transition-colors duration-200 ease-in-out text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="contacts">contacts</span>
+<span class="font-label-md text-label-md">CRM</span>
+</a>
+<a class="flex items-center gap-sm p-sm transition-colors duration-200 ease-in-out text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-label-md text-label-md">Meetings</span>
+</a>
+<a class="flex items-center gap-sm p-sm transition-colors duration-200 ease-in-out bg-primary-container text-on-primary-container font-bold rounded-lg active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+<span class="font-label-md text-label-md">Integrations</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-md space-y-xs">
+<button class="w-full bg-primary text-on-primary py-sm px-md rounded-xl font-label-md text-label-md flex items-center justify-center gap-xs hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                Add Prospect
+            </button>
+<a class="flex items-center gap-sm p-sm transition-colors duration-200 ease-in-out text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+<a class="flex items-center gap-sm p-sm transition-colors duration-200 ease-in-out text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen flex flex-col">
+<!-- Top Navigation Bar (JSON Anchor) -->
+<header class="h-16 sticky top-0 bg-surface/80 backdrop-blur-md border-b border-outline-variant z-40 px-lg flex justify-between items-center">
+<div class="flex items-center gap-lg">
+<div class="relative group">
+<span class="absolute inset-y-0 left-3 flex items-center text-outline group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+</span>
+<input class="bg-surface-container-low border-none rounded-full pl-10 pr-md py-xs text-body-sm focus:ring-2 focus:ring-primary w-64 transition-all" placeholder="Search workflows..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-xs hover:bg-surface-container-high rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-xs hover:bg-surface-container-high rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant mx-xs"></div>
+<div class="flex items-center gap-xs">
+<img class="h-8 w-8 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a business administrator in high-key studio lighting. The person is wearing a sleek charcoal suit against a clean, minimalist off-white background. The photo uses soft depth of field and has a modern, premium corporate aesthetic consistent with a high-end AI software interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKLCZcsZDuLkjkvcuOHgGXhBwvEoU6vgovBqpm3YpNX3UMMwOSmyLO4szrijfR6BLVohunz32vKrgXkOW8H_6Hhl9ZqvCLjQiBAFdGlOZxZtnTCSZjED0vmDvlGDP8RUkgaI6PCYKjBjN3TFZbO63j0ubm2KAAyaCDDcFPqp-ODTdlTJL1oLJGoTFQoHzxloFw_6K31TjWcdybJ0MuQssZwzEeGqqbHr1Tv3BtUnkmcdvx20LKDQNvlLlngiAhxIqi3rc6R71Bf7is"/>
+<span class="font-label-md text-label-md text-on-surface">Admin</span>
+</div>
+</div>
+</header>
+<!-- Workflow Builder Canvas -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Tool Palette (Sidebar for Triggers/Actions) -->
+<aside class="w-80 bg-surface border-r border-outline-variant flex flex-col">
+<div class="p-lg border-b border-outline-variant">
+<h2 class="font-headline-md text-[18px] font-bold text-on-surface">Workflow Nodes</h2>
+<p class="text-body-sm text-on-surface-variant">Drag or click to add elements</p>
+</div>
+<div class="flex-1 overflow-y-auto p-md space-y-lg">
+<!-- Triggers Section -->
+<section>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-md px-xs">Triggers</h3>
+<div class="grid grid-cols-1 gap-sm">
+<div class="p-md bg-surface-container-lowest border border-outline-variant rounded-xl flex items-center gap-md hover:border-primary cursor-pointer transition-all group active:scale-95">
+<div class="h-10 w-10 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="electric_bolt">electric_bolt</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md">Deal Stage Change</p>
+<p class="text-[11px] text-on-surface-variant">Fires when CRM deal moves</p>
+</div>
+</div>
+<div class="p-md bg-primary-container/10 border-2 border-primary rounded-xl flex items-center gap-md cursor-pointer transition-all">
+<div class="h-10 w-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined" data-icon="sentiment_very_dissatisfied">sentiment_very_dissatisfied</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-primary font-bold">Negative Sentiment</p>
+<p class="text-[11px] text-on-primary-fixed-variant">AI detects low engagement</p>
+</div>
+</div>
+<div class="p-md bg-surface-container-lowest border border-outline-variant rounded-xl flex items-center gap-md hover:border-primary cursor-pointer transition-all group active:scale-95 opacity-70">
+<div class="h-10 w-10 rounded-lg bg-tertiary-container/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="alternate_email">alternate_email</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md">Email Reply</p>
+<p class="text-[11px] text-on-surface-variant">Inbound message received</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Actions Section -->
+<section>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-md px-xs">Actions</h3>
+<div class="grid grid-cols-1 gap-sm">
+<div class="p-md bg-surface-container-lowest border border-outline-variant rounded-xl flex items-center gap-md hover:border-primary cursor-pointer transition-all active:scale-95">
+<div class="h-10 w-10 rounded-lg bg-secondary-container/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md">Slack Message</p>
+<p class="text-[11px] text-on-surface-variant">Send automated notification</p>
+</div>
+</div>
+<div class="p-md bg-surface-container-lowest border border-outline-variant rounded-xl flex items-center gap-md hover:border-primary cursor-pointer transition-all active:scale-95">
+<div class="h-10 w-10 rounded-lg bg-tertiary-container/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="task">task</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md">Salesforce Task</p>
+<p class="text-[11px] text-on-surface-variant">Create follow-up item</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</aside>
+<!-- Builder Canvas Area -->
+<div class="flex-1 workflow-canvas relative overflow-auto p-xl flex flex-col items-center">
+<!-- Page Title -->
+<div class="w-full max-w-4xl mb-xl flex justify-between items-center">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background">Customer Risk Alert</h2>
+<p class="text-body-md text-on-surface-variant">Automatically flagging high-risk deals based on sentiment analysis.</p>
+</div>
+<div class="flex gap-md">
+<button class="px-md py-sm rounded-lg font-label-md text-label-md bg-surface border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-all">Save Draft</button>
+<button class="px-md py-sm rounded-lg font-label-md text-label-md bg-primary text-on-primary shadow-lg shadow-primary/20 hover:opacity-90 transition-all">Publish Workflow</button>
+</div>
+</div>
+<!-- Workflow Visualization -->
+<div class="flex flex-col items-center w-full max-w-4xl space-y-0">
+<!-- Trigger Node -->
+<div class="w-72 p-lg bg-white border border-outline-variant rounded-2xl shadow-sm hover:shadow-md transition-shadow relative z-10 group">
+<div class="flex justify-between items-start mb-md">
+<div class="h-10 w-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-icon="sentiment_very_dissatisfied">sentiment_very_dissatisfied</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-tighter text-primary bg-primary/5 px-xs py-[2px] rounded-full">Trigger</span>
+</div>
+<h4 class="font-headline-md text-[16px] font-bold mb-xs">Sentiment Alert</h4>
+<p class="text-body-sm text-on-surface-variant">When Sentiment Score <span class="text-error font-bold">40</span></p>
+<div class="mt-lg pt-md border-t border-outline-variant flex justify-between items-center">
+<span class="text-[11px] text-on-surface-variant">Last run: 2m ago</span>
+<button class="text-primary hover:underline text-[11px] font-bold">Configure</button>
+</div>
+</div>
+<!-- Connector Line 1 -->
+<div class="h-16 step-connector"></div>
+<!-- Filter / Decision Node -->
+<div class="relative z-10">
+<div class="w-12 h-12 rotate-45 bg-surface-container-high border border-outline-variant rounded-lg flex items-center justify-center shadow-sm">
+<div class="-rotate-45">
+<span class="material-symbols-outlined text-tertiary" data-icon="filter_list">filter_list</span>
+</div>
+</div>
+</div>
+<!-- Connector Line 2 -->
+<div class="h-16 step-connector"></div>
+<!-- Action Node -->
+<div class="w-72 p-lg bg-white border border-primary/30 rounded-2xl shadow-xl shadow-primary/5 relative z-10">
+<div class="flex justify-between items-start mb-md">
+<div class="h-10 w-10 rounded-xl bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-tighter text-secondary bg-secondary/5 px-xs py-[2px] rounded-full">Action</span>
+</div>
+<h4 class="font-headline-md text-[16px] font-bold mb-xs">Send Slack Alert</h4>
+<p class="text-body-sm text-on-surface-variant">Post to <span class="font-mono bg-surface-variant px-xs rounded text-[12px]">#sales-risk</span></p>
+<div class="mt-md p-xs bg-surface-container-low rounded-lg text-[12px] text-on-surface-variant italic">
+                            "Attention @channel: High-risk sentiment detected on {{deal_name}}..."
+                        </div>
+<div class="mt-lg pt-md border-t border-outline-variant flex justify-between items-center">
+<span class="text-[11px] text-on-surface-variant">Integration: Slack API</span>
+<button class="text-primary hover:underline text-[11px] font-bold">Test</button>
+</div>
+</div>
+<!-- Connector Line 3 -->
+<div class="h-12 step-connector opacity-30"></div>
+<!-- Add Step Button -->
+<button class="w-10 h-10 rounded-full border-2 border-dashed border-outline hover:border-primary hover:text-primary transition-all flex items-center justify-center text-outline-variant group">
+<span class="material-symbols-outlined transition-transform group-hover:rotate-90" data-icon="add">add</span>
+</button>
+</div>
+<!-- Floating Helper Card -->
+<div class="fixed bottom-lg right-lg w-80 glass-panel bg-white/70 border border-outline-variant rounded-2xl p-lg shadow-xl shadow-primary/10">
+<div class="flex items-center gap-sm mb-md text-primary">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<h5 class="font-label-md text-label-md">AI Insights</h5>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-md">
+                        This workflow is projected to prevent <span class="text-primary font-bold">12% churn</span> by reducing response time to negative feedback.
+                    </p>
+<button class="w-full py-xs border border-primary/20 text-primary font-label-sm text-label-sm rounded-lg hover:bg-primary/5 transition-colors">
+                        View Prediction Model
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Micro-interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nodes = document.querySelectorAll('.workflow-canvas > div > div');
+            nodes.forEach(node => {
+                node.addEventListener('mouseenter', () => {
+                    node.classList.add('scale-[1.02]');
+                });
+                node.addEventListener('mouseleave', () => {
+                    node.classList.remove('scale-[1.02]');
+                });
+            });
+
+            // Smooth entrance animation for the nodes
+            const canvasNodes = document.querySelectorAll('.workflow-canvas [class*="w-72"], .step-connector, .rotate-45');
+            canvasNodes.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.5s ease-out';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = el.classList.contains('rotate-45') ? 'rotate(45deg) translateY(0)' : 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body></html>

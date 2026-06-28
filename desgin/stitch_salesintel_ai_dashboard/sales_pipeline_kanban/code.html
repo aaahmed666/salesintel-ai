@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sales Intelligence - Kanban Pipeline</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#eff4ff",
+                    "on-background": "#0b1c30",
+                    "on-surface-variant": "#464554",
+                    "primary": "#4648d4",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#c9e6ff",
+                    "tertiary-container": "#007cb1",
+                    "surface": "#f8f9ff",
+                    "inverse-surface": "#213145",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "background": "#f8f9ff",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "primary-fixed": "#e1e0ff",
+                    "primary-container": "#6063ee",
+                    "on-tertiary-fixed-variant": "#004c6e",
+                    "on-surface": "#0b1c30",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "on-tertiary-fixed": "#001e2f",
+                    "on-primary-container": "#fffbff",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#c7c4d7",
+                    "on-primary-fixed": "#07006c",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#fffbff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#89ceff",
+                    "on-secondary-fixed": "#23005c",
+                    "surface-tint": "#494bd6",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#d3e4fe",
+                    "surface-bright": "#f8f9ff",
+                    "secondary": "#6b38d4",
+                    "surface-container-highest": "#d3e4fe",
+                    "surface-container": "#e5eeff",
+                    "outline": "#767586",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#cbdbf5",
+                    "secondary-fixed": "#e9ddff",
+                    "tertiary": "#00628d",
+                    "on-tertiary-container": "#fcfcff",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "secondary-container": "#8455ef",
+                    "inverse-primary": "#c0c1ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "20px",
+                    "sm": "12px",
+                    "base": "4px",
+                    "xs": "8px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "margin-page": "40px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Geist"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Geist"],
+                    "label-md": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Geist"],
+                    "headline-xl": ["Geist"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .kanban-column { min-width: 320px; }
+        .glass-effect { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .deal-card:active { cursor: grabbing; scale: 0.98; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen selection:bg-primary-fixed">
+<!-- SideNavBar Anchor -->
+<aside class="bg-surface-container-low dark:bg-inverse-surface border-r border-outline-variant dark:border-outline h-screen w-64 fixed left-0 top-0 flex flex-col py-lg px-md z-50">
+<div class="mb-xl px-xs">
+<h1 class="font-headline-md text-headline-md font-bold text-on-background dark:text-inverse-on-surface">Sales Intelligence</h1>
+<p class="font-label-md text-label-md text-outline">Enterprise CRM</p>
+</div>
+<nav class="flex-grow space-y-base">
+<a class="flex items-center gap-md p-md text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors font-label-md text-label-md rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-md p-md text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors font-label-md text-label-md rounded-lg" href="#">
+<span class="material-symbols-outlined">business</span> Companies
+            </a>
+<a class="flex items-center gap-md p-md text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors font-label-md text-label-md rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span> Contacts
+            </a>
+<a class="flex items-center gap-md p-md bg-primary-container dark:bg-primary-container text-on-primary-container font-bold rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">handshake</span> Deals
+            </a>
+<a class="flex items-center gap-md p-md text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors font-label-md text-label-md rounded-lg" href="#">
+<span class="material-symbols-outlined">event_note</span> Activities
+            </a>
+</nav>
+<div class="mt-auto space-y-base border-t border-outline-variant pt-lg">
+<button class="w-full bg-primary text-on-primary font-bold py-md rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">add</span> Add New Deal
+            </button>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+            </a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span> Support
+            </a>
+</div>
+</aside>
+<!-- TopAppBar Anchor -->
+<header class="bg-surface/80 dark:bg-surface-container-low/80 backdrop-blur-xl border-b border-outline-variant dark:border-outline docked full-width top-0 sticky z-40 flex justify-between items-center w-full px-lg h-16 ml-64 max-w-[calc(100%-16rem)]">
+<div class="flex items-center gap-xl">
+<span class="font-headline-lg text-headline-lg font-black text-primary dark:text-inverse-primary">CRM Intelligence</span>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary">search</span>
+<input class="bg-surface-container border border-outline-variant rounded-full pl-xl pr-md py-xs font-body-sm text-body-sm focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none w-64" placeholder="Search pipeline..." type="text"/>
+</div>
+<nav class="hidden md:flex gap-lg">
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-md text-label-md" href="#">Pipeline</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-md text-label-md" href="#">Reporting</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-md text-label-md" href="#">Insights</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="bg-secondary text-on-secondary px-lg py-xs rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity">Create Task</button>
+<div class="flex items-center gap-xs">
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">history</span></button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate executive for a sales platform profile. High-quality lighting in a bright modern studio setting, wearing professional attire. The style is clean, sharp, and corporate minimalist with soft natural skin tones and a neutral grey background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq9XETN9tGRpLi36PpisozS0_j7IhpveJHHGUd6oVnex3iLkcHDlUdzHK9y8c7rSFQB7vwcyBlKjU_75l1JsGlCTEtdCoyGZ9s1WNFrpW1NcJTqRDJIT03vkZfqAs4DPGwyih1fm2o0POFuPsefDX45vNOzQl_JXixlRQOGWVDRRETKNGD0198Y3GBynKuHdBFoqDwUeB2PQPHKmL5KXyTAHpV91BsRrDXxjhme02PI8jBGwU78SWQVqTfwaoZxrhjaymryOfO7geV"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 p-lg">
+<!-- Control Header -->
+<div class="flex justify-between items-end mb-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-xs">Deal Pipeline</h2>
+<div class="flex items-center gap-sm">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-background overflow-hidden"><img class="w-full h-full object-cover" data-alt="Close-up portrait of a diverse female team leader in a tech office, professional lighting, soft bokeh background, corporate modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgRHx_dG9SNATfKY4tNWyWhKBw5XU1yUpSlcTA-jjSips5j9F3sb25kbryrZjdotvcq068c_6t8Mfsc3MWr86Yk1pCp4B-a3je7x4Nvygl6WmUI8FqkwujKDXkThxwycWJW5Mt8xkzUxKRt6-SP4O3yRR8SHEnrCpEA2mS36CSMrJ8exB1u2VJcHuuH_xnS7aAJODFD9PqiEIV-gGKA1_jdzRSy3phkYU6igM9ixCpJV5KpPO2qbfPFn9hwSFp09ZAym0FPcDYjlud"/></div>
+<div class="w-8 h-8 rounded-full border-2 border-background overflow-hidden"><img class="w-full h-full object-cover" data-alt="Portrait of a young professional man in a casual business environment, soft natural lighting, high resolution, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA287ODX53GxeIS86GEkDVW3TN_4LYGC5PHNmwPYrrZFCvcNBECdIaoa7IvHQJajm4wOag0EhhVVBX8fCtwF8Ddg22QwKU7WsVeCxIRUTj16CDYXpM60COcUNpSjZdLQk34-BsTWmdsmkbnXjjg69uzlePHDRkM-lMN8vTYkI-iNarhaYjH6AkUZVV-8GNjQ4awCzbFWrRNxtOfV-XLgYYbxiMYpz2UcAFIx3i_oVd-njRNSgnAeOdUnC6iCmEkpXvTjqHTsyk-dXB0"/></div>
+<div class="w-8 h-8 rounded-full border-2 border-background overflow-hidden"><img class="w-full h-full object-cover" data-alt="Executive portrait of an older woman with glasses, smiling warmly, professional corporate photography style, clean light background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCocVeCgInJmz8dncQyMjf6aSdqtPa-axI3_v0SPJ0u5g5SOHWhgs_6W7GGfkuo0X80PP3pxHPMJqpEdhuLih8tRu6l2VfxsM63iS6KWWti4eAYHTFJGS-9Fin_PXELabmPzPw-Dh25sK4K56357fxO14DbjDIZQVMBVI6A0JYEW8ql3XT0PsKKufJNAHI39tuS27iSxuG4-CX5pJZvFvtowEj9QqpYi3FfDrZDLVSwFD3OgSdU6yxbS3IpojB03KGWBhHgKpWcX7I8"/></div>
+<div class="flex items-center justify-center w-8 h-8 rounded-full border-2 border-background bg-surface-container-high text-[10px] font-bold">+12</div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">42 active deals under management</span>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="flex items-center gap-xs px-md py-sm bg-surface-container border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]">filter_list</span> Filters
+                </button>
+<button class="flex items-center gap-xs px-md py-sm bg-surface-container border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]">sort</span> Sort
+                </button>
+<div class="flex bg-surface-container rounded-lg p-base border border-outline-variant">
+<button class="p-xs bg-surface-container-lowest shadow-sm rounded-md"><span class="material-symbols-outlined">view_kanban</span></button>
+<button class="p-xs hover:bg-surface-container-high rounded-md"><span class="material-symbols-outlined">view_list</span></button>
+</div>
+</div>
+</div>
+<!-- Kanban Board -->
+<div class="flex gap-lg overflow-x-auto pb-xl">
+<!-- Column Template: Lead -->
+<div class="kanban-column flex flex-col gap-md">
+<div class="flex justify-between items-center px-sm">
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Lead</h3>
+<span class="bg-surface-container-highest px-xs rounded font-label-sm text-label-sm">8</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">$1.2M</span>
+</div>
+<!-- Cards -->
+<div class="flex flex-col gap-md">
+<!-- Deal Card 1 -->
+<div class="deal-card group bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm hover:border-primary/50 transition-all cursor-grab active:cursor-grabbing">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-error/10 text-error px-sm py-[2px] rounded-full font-label-sm text-label-sm">High Priority</span>
+<div class="flex items-center gap-xs text-primary font-bold">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1">bolt</span>
+<span class="font-label-sm text-label-sm">92</span>
+</div>
+</div>
+<h4 class="font-headline-md text-[18px] text-on-surface font-semibold mb-base">Global Logistics Corp</h4>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">$125,000</p>
+<p class="font-label-sm text-label-sm text-outline mt-base">Last active 2h ago</p>
+</div>
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Avatar of a male sales agent, professional corporate photography, warm lighting, blue shirt, modern minimalist office background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB54T5hQFPWcZRmrycNdblj8L2trWXUdCgQyK8-5vDIz7jel25wK4k9V-T_0Oo0ymFKxAusyzxxEZsbJaKx-3VN3hSpeVfFWWF_0u3ZEjhbfXYYQEsU7pfojLPmJbFh2PIsgY0D8p_Pmxmz4OZfTaZ1vW8HOC7ljhCrfCU8-sWTbgkRUC85ceRyQ6PAsFji7bwwp31PGO3iRHMmn3wQn25jtX8n184KizHlaJr5b9D66QnP-Lrw9IPM951tTUUz3ojxmlGXYe6OVcmn"/>
+</div>
+</div>
+</div>
+<!-- Deal Card 2 -->
+<div class="deal-card group bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm hover:border-primary/50 transition-all cursor-grab">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-on-surface-variant/10 text-on-surface-variant px-sm py-[2px] rounded-full font-label-sm text-label-sm">Med Priority</span>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span class="font-label-sm text-label-sm">64</span>
+</div>
+</div>
+<h4 class="font-headline-md text-[18px] text-on-surface font-semibold mb-base">Vanguard Retail</h4>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">$45,000</p>
+<p class="font-label-sm text-label-sm text-outline mt-base">Yesterday</p>
+</div>
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Avatar of a woman with curly hair, smiling, professional sales headshot, clean lighting, white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtj8Qi4GPIK4XA5N5gIIHUx8jNCDGD0_G7rDXQ-1f7JFxO3g4DaEaLhhB50hufI7GsXCb8RMZy3_3Ff5qDoZdS5bUs5p3j1sP05g3Uc2TRnzlNpFCyj3A4tMHSAw5pBzOhbvnX8VaWgDBB5g7HExDBpROCFY3D6RjJGD-B_6FYEUxOi-rMqSxzykvUu4dWwOfdNhP0AWSVW1IBS5y7Ore-zS3Lc0nK-ebG0fzgsQve2RxcMbWSdW_6rILuXmQIwkiah9dKBfAXPzfC"/>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full border-2 border-dashed border-outline-variant rounded-xl py-sm text-outline font-label-md text-label-md hover:border-primary hover:text-primary transition-all">
+                    + Add Deal
+                </button>
+</div>
+<!-- Column: Qualified -->
+<div class="kanban-column flex flex-col gap-md">
+<div class="flex justify-between items-center px-sm">
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Qualified</h3>
+<span class="bg-surface-container-highest px-xs rounded font-label-sm text-label-sm">5</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">$840k</span>
+</div>
+<div class="flex flex-col gap-md">
+<div class="deal-card bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm hover:border-primary/50 transition-all">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-error/10 text-error px-sm py-[2px] rounded-full font-label-sm text-label-sm">High Priority</span>
+<div class="flex items-center gap-xs text-primary font-bold">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1">bolt</span>
+<span class="font-label-sm text-label-sm">88</span>
+</div>
+</div>
+<h4 class="font-headline-md text-[18px] text-on-surface font-semibold mb-base">Cyberdyne Systems</h4>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">$250,000</p>
+<p class="font-label-sm text-label-sm text-outline mt-base">3h ago</p>
+</div>
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of a professional male agent with a friendly expression, soft office lighting, high density color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGXuUFlfwzW6rDHZPROXvo2xD820rfj0fGdooPGcoz4PTWpjRS2iTEARELltI4ke8V_Gux7RipVGNBQxUrTnicLT-Z2z8X7K3gmOWuAvgTT31iSgQfWiAaBrd974zzuoQqpeo30NU-VHeDx8cv0Bj74EmaWlPaycfzkP3maJSGCToftaAGafqq2O1CDs_Ph2r33GYKcS-sc4Kn0XJXqvY0fl19IBENfolgfXsQRu9ztTdb2v4sKGzp6uFodB8Oac_vV_6ITlebm0fK"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Proposal -->
+<div class="kanban-column flex flex-col gap-md">
+<div class="flex justify-between items-center px-sm">
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Proposal</h3>
+<span class="bg-surface-container-highest px-xs rounded font-label-sm text-label-sm">3</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">$2.1M</span>
+</div>
+<div class="flex flex-col gap-md">
+<div class="deal-card bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm border-l-4 border-l-primary">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-on-surface-variant/10 text-on-surface-variant px-sm py-[2px] rounded-full font-label-sm text-label-sm">Med Priority</span>
+<div class="flex items-center gap-xs text-primary font-bold">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1">bolt</span>
+<span class="font-label-sm text-label-sm">97</span>
+</div>
+</div>
+<h4 class="font-headline-md text-[18px] text-on-surface font-semibold mb-base">Stark Industries</h4>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">$1,200,000</p>
+<p class="font-label-sm text-label-sm text-outline mt-base">Awaiting Signature</p>
+</div>
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a modern businesswoman, sophisticated style, light blue background, high quality resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG4l2PgjNEGigs8Q1V4n0ux6MJzcstm9UJwT7eJVVa70BcEnSE7mY5xTC3UR7e_i-9sTNgv4dVaxspHtb0UgZPleKtQQJts6c7pkM-ngXoD--pBjf4gMzvU4ZHHyeKaArrY3bm9XT3kFLejfQyl8RSWJEAQUJ7_yxu2jKBsHPCwn125mtUA_HNXejgbBVmI7K-TkRyOPOHvFsagPJPu2xrlKKEa5-Q__UBXg4PBWTbSXGr_LEhV06h7sMIhIabowavg3lG3XLZdOz-"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Negotiation -->
+<div class="kanban-column flex flex-col gap-md">
+<div class="flex justify-between items-center px-sm">
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Negotiation</h3>
+<span class="bg-surface-container-highest px-xs rounded font-label-sm text-label-sm">2</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">$450k</span>
+</div>
+<div class="flex flex-col gap-md">
+<div class="deal-card bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-error/10 text-error px-sm py-[2px] rounded-full font-label-sm text-label-sm">High Priority</span>
+<div class="flex items-center gap-xs text-primary font-bold">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1">bolt</span>
+<span class="font-label-sm text-label-sm">81</span>
+</div>
+</div>
+<h4 class="font-headline-md text-[18px] text-on-surface font-semibold mb-base">Wayne Enterprises</h4>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">$320,000</p>
+<p class="font-label-sm text-label-sm text-outline mt-base">5 days ago</p>
+</div>
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional man in a suit, corporate headshot, focus on face, soft light, neutral office background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3P6SRaJPkhKO28VPxOPL7jCZmJI9StO77Mhm_M4KJK7Qu8emgkF2Fcx8qZFeMcNeQjkWCHt4lu_AOwxY-DGxN3RquSIGvQ-jRbuvPcKZZl5hpeCDaqx4WlRQaTpFwtrjmoq8hhQdBdtdxiwVafq_dcYunzIoi_8gS8N7OI1jpaSdHiEAgHSpt9JgvEpfOCMSXTMSoO9tafJz8zhueJPmiggtYAtfoVXkh6zqWvEkwCwHIhtufWgxkxQ1xkqfDsVZ-T593twEzeiry"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Won -->
+<div class="kanban-column flex flex-col gap-md">
+<div class="flex justify-between items-center px-sm">
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Closed Won</h3>
+<span class="bg-surface-container-highest px-xs rounded font-label-sm text-label-sm">12</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-green-600 font-bold">$3.4M</span>
+</div>
+<div class="flex flex-col gap-md opacity-75">
+<div class="deal-card bg-green-50/50 border border-green-200 rounded-xl p-md shadow-sm">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-green-100 text-green-700 px-sm py-[2px] rounded-full font-label-sm text-label-sm">Closed</span>
+<div class="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</div>
+<h4 class="font-headline-md text-[18px] text-on-surface font-semibold mb-base">Acme Corp</h4>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">$85,000</p>
+<p class="font-label-sm text-label-sm text-outline mt-base">Closed Aug 14</p>
+</div>
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Cheerful professional woman, smiling, bright corporate lighting, modern minimalist setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvNkjxzoOOVMaOL9LQRGz1vkpsmlOofUQnsxFMsLTJN7EoTxu2SM9xdkFFJ02_PFfA_lgS1PszlqgFIle3w1PCpMyntkGey3o9ojJuW2TexrNYvLczQ_OXaXzQOf97dtgIa9vFjulbVF0QPZyekRUxLOgd-JBDs2nnKUuLGD71uXlx7L5vE0TVM_bvFl2sosuzA6RkMAmif4BvHZegbMB6HoE5sXUmHmnnOJsyqTWVBKc1zCEhsGMZeVJAxUOcfvdY31265kDe9HPE"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Lost -->
+<div class="kanban-column flex flex-col gap-md">
+<div class="flex justify-between items-center px-sm">
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Closed Lost</h3>
+<span class="bg-surface-container-highest px-xs rounded font-label-sm text-label-sm">4</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">$210k</span>
+</div>
+<div class="flex flex-col gap-md opacity-60 grayscale-[0.5]">
+<div class="deal-card bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-error/10 text-error px-sm py-[2px] rounded-full font-label-sm text-label-sm">Lost</span>
+</div>
+<h4 class="font-headline-md text-[18px] text-on-surface font-semibold mb-base">Umbrella Corp</h4>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">$55,000</p>
+<p class="font-label-sm text-label-sm text-outline mt-base">Budget constraints</p>
+</div>
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a male professional, serious expression, office lighting, blurred background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW6rBbKOlad8Op9t1hnVqa4sydpxU1hx2KxIJwhWU8zxrXcTbSUIcPbNJCDyx7fo4stcYtS_E-azgGP8rZDk7QWIa6iGc_kQrsNmitMtBE1TPgkIihrb2o3qfq3Y_eGeGPRnYDZeE2mqrcrm7vuwd7qGKkRtDQLG5P3d53bs2BzOYVIwV3IwpA96rRs6nBIoj2Nlnwne4mVA7Uv8PatOBuKehsM-HzkRjPRy5GI278_K5DzZgaUwu6y62tDzQlnDPuOIW_Cos1-2Aq"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Micro-interaction Script -->
+<script>
+        // Simple drag feedback simulation
+        const cards = document.querySelectorAll('.deal-card');
+        cards.forEach(card => {
+            card.addEventListener('dragstart', () => {
+                card.style.opacity = '0.5';
+            });
+            card.addEventListener('dragend', () => {
+                card.style.opacity = '1';
+            });
+        });
+
+        // Search Bar Focus Effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('w-80');
+            searchInput.parentElement.classList.remove('w-64');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.add('w-64');
+            searchInput.parentElement.classList.remove('w-80');
+        });
+    </script>
+</body></html>

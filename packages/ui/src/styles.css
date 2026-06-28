@@ -1,0 +1,7 @@
+/* Shared design-system base rules. Imported by apps after their Tailwind
+   directives. Kept free of @layer/@tailwind so it composes cleanly when
+   inlined via @import into a host stylesheet. */
+
+[dir='rtl'] {
+  text-align: right;
+}

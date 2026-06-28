@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Billing &amp; Subscriptions | SalesAI Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#fffbff",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "secondary-container": "#8455ef",
+                    "on-surface-variant": "#464554",
+                    "surface-variant": "#d3e4fe",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "surface-container-highest": "#d3e4fe",
+                    "primary-fixed": "#e1e0ff",
+                    "surface-dim": "#cbdbf5",
+                    "error-container": "#ffdad6",
+                    "primary": "#4648d4",
+                    "on-tertiary-fixed-variant": "#004c6e",
+                    "on-secondary-fixed": "#23005c",
+                    "on-primary-fixed": "#07006c",
+                    "surface-container-low": "#eff4ff",
+                    "surface-tint": "#494bd6",
+                    "outline": "#767586",
+                    "on-tertiary-container": "#fcfcff",
+                    "surface-container-high": "#dce9ff",
+                    "on-tertiary-fixed": "#001e2f",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "surface-container": "#e5eeff",
+                    "on-background": "#0b1c30",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-bright": "#f8f9ff",
+                    "secondary": "#6b38d4",
+                    "secondary-fixed": "#e9ddff",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#213145",
+                    "tertiary-fixed-dim": "#89ceff",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "tertiary": "#00628d",
+                    "tertiary-container": "#007cb1",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "tertiary-fixed": "#c9e6ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f8f9ff",
+                    "inverse-primary": "#c0c1ff",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "primary-container": "#6063ee",
+                    "outline-variant": "#c7c4d7",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "on-primary-container": "#fffbff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "16px",
+                    "xl": "24px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "8px",
+                    "base": "4px",
+                    "sm": "12px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "margin-page": "40px",
+                    "md": "16px",
+                    "gutter": "20px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "body-sm": ["Inter"],
+                    "label-md": ["Geist"],
+                    "headline-lg-mobile": ["Geist"],
+                    "body-md": ["Inter"],
+                    "headline-xl": ["Geist"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Geist"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .pricing-active {
+            border: 2px solid #4648d4;
+            box-shadow: 0 10px 25px -5px rgba(70, 72, 212, 0.1);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c7c4d7;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full z-40 h-screen w-64 flex-col border-r border-outline-variant bg-surface-container-low dark:bg-inverse-surface">
+<div class="p-lg flex flex-col h-full">
+<div class="mb-xl">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed block mb-base">SalesAI Admin</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Enterprise Suite</span>
+</div>
+<nav class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-xs text-on-surface-variant hover:text-on-surface px-md py-xs hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-xs text-on-surface-variant hover:text-on-surface px-md py-xs hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">User Management</span>
+</a>
+<a class="flex items-center gap-xs text-on-surface-variant hover:text-on-surface px-md py-xs hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-md text-label-md">Security</span>
+</a>
+<a class="flex items-center gap-xs text-on-surface-variant hover:text-on-surface px-md py-xs hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-md text-label-md">AI Settings</span>
+</a>
+<a class="flex items-center gap-xs bg-secondary-container text-on-secondary-container rounded-lg px-md py-xs font-semibold active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Billing</span>
+</a>
+<a class="flex items-center gap-xs text-on-surface-variant hover:text-on-surface px-md py-xs hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-md text-label-md">System Monitoring</span>
+</a>
+</nav>
+<div class="mt-auto">
+<button class="w-full bg-primary text-on-primary py-sm rounded-lg font-label-md text-label-md active:scale-95 transition-all shadow-lg shadow-primary/20">
+                    Upgrade Plan
+                </button>
+</div>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 right-0 left-64 h-16 flex justify-between items-center px-lg z-30 bg-surface/80 dark:bg-on-background/80 backdrop-blur-md border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-md w-1/2">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-base pl-xl pr-md font-body-sm text-body-sm focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all" placeholder="Search billing records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md text-on-surface-variant">
+<span class="material-symbols-outlined hover:text-primary cursor-pointer transition-colors">notifications</span>
+<span class="material-symbols-outlined hover:text-primary cursor-pointer transition-colors">settings</span>
+<span class="material-symbols-outlined hover:text-primary cursor-pointer transition-colors">apps</span>
+</div>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-label-md font-semibold text-primary">Workspace</span>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="Professional studio portrait of an enterprise software administrator, high-key lighting, soft clean background, modern corporate tech aesthetic, wearing minimalist business casual attire, confident and friendly expression, centered composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2qkJ0LXbGTFHhKrGhVgaVr8hTCaItbTiimiYvNrfPpmNEAHJBuaah0O0GpUjCOYY_ZS_D98r-W-RbpDqEjd8HK-t4RSDCnCvW29wU4P12SadeGPtgdLtKi4G_HVHu8MnYdDXq3909xP-tR3hH_If5lc0fGcu88akqoImceMXfkixNB7Ao5S-0Bm4keeNX-Fzhrj1XsD70cVhl3tTgLuOj7lmt0Xuc0YOWHfzgXckKDvE5h03mVAxGTMw7brjrwn1IQP3Ja-tOfOnW"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-margin-page">
+<div class="max-w-[1200px] mx-auto flex flex-col gap-xl">
+<!-- Page Header -->
+<div class="flex flex-col gap-xs">
+<h1 class="font-headline-lg text-headline-lg text-on-background">Billing &amp; Subscription</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Manage your organizational subscription, payment methods, and historical financial records from one centralized console.</p>
+</div>
+<!-- Current Plan Hero -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="md:col-span-2 relative overflow-hidden p-xl rounded-xl bg-primary-container text-on-primary-container flex flex-col justify-between shadow-xl shadow-primary/10">
+<!-- Atmospheric Glow -->
+<div class="absolute -right-16 -top-16 w-64 h-64 bg-secondary rounded-full blur-3xl opacity-30"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-sm mb-md">
+<div class="p-xs bg-white/20 rounded-lg backdrop-blur-md">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<span class="font-label-md text-label-md uppercase tracking-widest opacity-80">Current Plan</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl mb-base">Enterprise Tier</h2>
+<p class="font-body-md text-body-md opacity-90 max-w-md">Comprehensive AI insights, unlimited user seats, and priority 24/7 dedicated support for your entire organization.</p>
+</div>
+<div class="relative z-10 mt-xl flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm opacity-70">Renews on</span>
+<span class="font-body-lg text-body-lg font-semibold">October 24, 2024</span>
+</div>
+<button class="bg-on-primary-container text-primary-container px-lg py-sm rounded-lg font-label-md text-label-md font-bold hover:bg-white transition-colors active:scale-95">
+                            Manage Subscription
+                        </button>
+</div>
+</div>
+<!-- Next Payment Card -->
+<div class="p-xl rounded-xl border border-outline-variant bg-white flex flex-col justify-between hover:shadow-lg transition-shadow">
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant block mb-sm">Estimated Next Bill</span>
+<span class="font-headline-lg text-headline-lg text-on-background">$2,490.00</span>
+<div class="mt-md flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="font-body-sm text-body-sm">Billing cycle: Monthly</span>
+</div>
+</div>
+<div class="pt-lg mt-lg border-t border-outline-variant flex flex-col gap-xs">
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Enterprise Base</span>
+<span class="font-semibold text-on-background">$1,990.00</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Add-ons (5 Seats)</span>
+<span class="font-semibold text-on-background">$500.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pricing Comparison -->
+<section class="flex flex-col gap-lg">
+<div class="flex flex-col gap-base">
+<h3 class="font-headline-md text-headline-md">Compare Plans</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Switch tiers to scale your sales intelligence needs.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Free Plan -->
+<div class="p-lg rounded-xl border border-outline-variant bg-white flex flex-col gap-md transition-all hover:border-outline">
+<div>
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Free</span>
+<div class="flex items-baseline gap-base mt-base">
+<span class="font-headline-lg text-headline-lg text-on-background">$0</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/mo</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant h-12">Basic lead tracking for individuals and small startups.</p>
+<ul class="flex flex-col gap-sm mt-md flex-1">
+<li class="flex items-center gap-xs font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">check_circle</span>
+                                50 Leads/month
+                            </li>
+<li class="flex items-center gap-xs font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">check_circle</span>
+                                Basic AI Insights
+                            </li>
+<li class="flex items-center gap-xs font-body-sm text-body-sm opacity-40">
+<span class="material-symbols-outlined" style="font-size: 18px;">block</span>
+                                API Access
+                            </li>
+</ul>
+<button class="w-full py-sm rounded-lg border border-primary text-primary font-label-md text-label-md hover:bg-primary/5 transition-all">Downgrade</button>
+</div>
+<!-- Pro Plan -->
+<div class="p-lg rounded-xl border border-outline-variant bg-white flex flex-col gap-md transition-all hover:border-outline">
+<div>
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Pro</span>
+<div class="flex items-baseline gap-base mt-base">
+<span class="font-headline-lg text-headline-lg text-on-background">$99</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/mo</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant h-12">Advanced automation and deep CRM integration for growing teams.</p>
+<ul class="flex flex-col gap-sm mt-md flex-1">
+<li class="flex items-center gap-xs font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">check_circle</span>
+                                Unlimited Leads
+                            </li>
+<li class="flex items-center gap-xs font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">check_circle</span>
+                                Predictive Analysis
+                            </li>
+<li class="flex items-center gap-xs font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">check_circle</span>
+                                Priority Support
+                            </li>
+</ul>
+<button class="w-full py-sm rounded-lg border border-primary text-primary font-label-md text-label-md hover:bg-primary/5 transition-all">Switch to Pro</button>
+</div>
+<!-- Enterprise Plan (Active) -->
+<div class="p-lg rounded-xl border-2 border-primary bg-white flex flex-col gap-md relative pricing-active ring-4 ring-primary/5">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-sm py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter">Current Plan</div>
+<div>
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Enterprise</span>
+<div class="flex items-baseline gap-base mt-base">
+<span class="font-headline-lg text-headline-lg text-on-background">$2,490</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/mo</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant h-12">Total visibility and custom AI models tailored for large organizations.</p>
+<ul class="flex flex-col gap-sm mt-md flex-1">
+<li class="flex items-center gap-xs font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">check_circle</span>
+                                Custom Data Training
+                            </li>
+<li class="flex items-center gap-xs font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">check_circle</span>
+                                White-glove Onboarding
+                            </li>
+<li class="flex items-center gap-xs font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">check_circle</span>
+                                Dedicated Account Manager
+                            </li>
+</ul>
+<button class="w-full py-sm rounded-lg bg-surface-container-high text-on-surface-variant font-label-md text-label-md cursor-not-allowed">Active Tier</button>
+</div>
+</div>
+</section>
+<!-- Payment Methods -->
+<section class="flex flex-col gap-lg">
+<div class="flex items-center justify-between">
+<div class="flex flex-col gap-base">
+<h3 class="font-headline-md text-headline-md">Payment Methods</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Update your primary billing information and card details.</p>
+</div>
+<button class="flex items-center gap-xs text-primary font-semibold font-label-md text-label-md hover:underline active:scale-95 transition-transform">
+<span class="material-symbols-outlined">add</span>
+                        Add New Card
+                    </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Card 1 -->
+<div class="p-md rounded-xl border border-outline-variant bg-white flex items-center gap-md hover:border-primary transition-colors cursor-pointer group">
+<div class="w-16 h-12 bg-on-background rounded-lg flex items-center justify-center">
+<span class="text-white font-bold tracking-tighter italic">VISA</span>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex items-center gap-xs">
+<span class="font-body-md text-body-md font-semibold text-on-background">•••• 4242</span>
+<span class="px-xs py-[2px] bg-primary/10 text-primary text-[10px] font-bold rounded-full uppercase">Primary</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Expires 12/26 • John Anderson</span>
+</div>
+<div class="flex items-center gap-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary">edit</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-error">delete</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-md rounded-xl border border-outline-variant bg-white flex items-center gap-md hover:border-primary transition-colors cursor-pointer group">
+<div class="w-16 h-12 bg-[#EB001B] rounded-lg flex items-center justify-center">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-white/20"></div>
+<div class="w-6 h-6 rounded-full bg-white/40"></div>
+</div>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex items-center gap-xs">
+<span class="font-body-md text-body-md font-semibold text-on-background">•••• 8812</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Expires 08/25 • Corporate Ops</span>
+</div>
+<div class="flex items-center gap-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary">edit</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-error">delete</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Billing History Table -->
+<section class="flex flex-col gap-lg pb-xl">
+<div class="flex items-center justify-between">
+<div class="flex flex-col gap-base">
+<h3 class="font-headline-md text-headline-md">Billing History</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Review and download all past transaction invoices.</p>
+</div>
+<button class="flex items-center gap-xs text-on-surface-variant font-label-md text-label-md hover:text-on-surface px-md py-xs border border-outline-variant rounded-lg transition-all">
+<span class="material-symbols-outlined">filter_list</span>
+                        Filter
+                    </button>
+</div>
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant font-semibold">Invoice ID</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant font-semibold">Billing Date</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant font-semibold">Amount</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant font-semibold">Status</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-lg py-md font-body-sm text-body-sm font-medium text-on-background">INV-2024-009</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">Sep 24, 2024</td>
+<td class="px-lg py-md font-body-sm text-body-sm font-semibold text-on-background">$2,490.00</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded-full uppercase">Paid</span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="text-primary hover:bg-primary/5 p-xs rounded-full transition-all">
+<span class="material-symbols-outlined">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-lg py-md font-body-sm text-body-sm font-medium text-on-background">INV-2024-008</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">Aug 24, 2024</td>
+<td class="px-lg py-md font-body-sm text-body-sm font-semibold text-on-background">$2,490.00</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded-full uppercase">Paid</span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="text-primary hover:bg-primary/5 p-xs rounded-full transition-all">
+<span class="material-symbols-outlined">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-lg py-md font-body-sm text-body-sm font-medium text-on-background">INV-2024-007</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">Jul 24, 2024</td>
+<td class="px-lg py-md font-body-sm text-body-sm font-semibold text-on-background">$2,490.00</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded-full uppercase">Paid</span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="text-primary hover:bg-primary/5 p-xs rounded-full transition-all">
+<span class="material-symbols-outlined">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-lg py-md font-body-sm text-body-sm font-medium text-on-background">INV-2024-006</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">Jun 24, 2024</td>
+<td class="px-lg py-md font-body-sm text-body-sm font-semibold text-on-background">$1,990.00</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded-full uppercase">Paid</span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="text-primary hover:bg-primary/5 p-xs rounded-full transition-all">
+<span class="material-symbols-outlined">download</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="p-md flex justify-center border-t border-outline-variant bg-surface-container-lowest">
+<button class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors">View All Invoices</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Micro-interaction Scripts -->
+<script>
+        // Simple hover effect for pricing cards
+        const pricingCards = document.querySelectorAll('.grid-cols-3 > div');
+        pricingCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                if (!card.classList.contains('pricing-active')) {
+                    card.style.transform = 'translateY(-4px)';
+                }
+            });
+            card.addEventListener('mouseleave', () => {
+                if (!card.classList.contains('pricing-active')) {
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Search Bar focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('w-full');
+        });
+    </script>
+</body></html>

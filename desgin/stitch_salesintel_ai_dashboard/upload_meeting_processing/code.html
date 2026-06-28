@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Upload &amp; Process | SalesForce AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-tertiary-container": "#fcfcff",
+                "outline": "#767586",
+                "surface-tint": "#494bd6",
+                "on-tertiary-fixed": "#001e2f",
+                "on-secondary-fixed-variant": "#5516be",
+                "surface-container-high": "#dce9ff",
+                "on-tertiary-fixed-variant": "#004c6e",
+                "on-secondary-fixed": "#23005c",
+                "surface-container-low": "#eff4ff",
+                "on-primary-fixed": "#07006c",
+                "surface-container-highest": "#d3e4fe",
+                "primary-fixed": "#e1e0ff",
+                "primary": "#4648d4",
+                "error-container": "#ffdad6",
+                "surface-dim": "#cbdbf5",
+                "secondary-container": "#8455ef",
+                "on-surface-variant": "#464554",
+                "on-primary-fixed-variant": "#2f2ebe",
+                "on-error-container": "#93000a",
+                "on-secondary-container": "#fffbff",
+                "surface-variant": "#d3e4fe",
+                "on-tertiary": "#ffffff",
+                "background": "#f8f9ff",
+                "inverse-primary": "#c0c1ff",
+                "primary-fixed-dim": "#c0c1ff",
+                "on-primary-container": "#fffbff",
+                "primary-container": "#6063ee",
+                "outline-variant": "#c7c4d7",
+                "secondary-fixed-dim": "#d0bcff",
+                "surface": "#f8f9ff",
+                "tertiary-fixed": "#c9e6ff",
+                "surface-container-lowest": "#ffffff",
+                "on-surface": "#0b1c30",
+                "on-primary": "#ffffff",
+                "tertiary-container": "#007cb1",
+                "tertiary": "#00628d",
+                "secondary-fixed": "#e9ddff",
+                "on-secondary": "#ffffff",
+                "surface-bright": "#f8f9ff",
+                "secondary": "#6b38d4",
+                "inverse-on-surface": "#eaf1ff",
+                "surface-container": "#e5eeff",
+                "on-background": "#0b1c30",
+                "on-error": "#ffffff",
+                "error": "#ba1a1a",
+                "tertiary-fixed-dim": "#89ceff",
+                "inverse-surface": "#213145"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "xl": "32px",
+                "margin-page": "40px",
+                "md": "16px",
+                "gutter": "20px",
+                "xs": "8px",
+                "base": "4px",
+                "sm": "12px",
+                "lg": "24px"
+            },
+            "fontFamily": {
+                "body-lg": ["Inter"],
+                "headline-xl": ["Geist"],
+                "label-sm": ["Geist"],
+                "label-md": ["Geist"],
+                "headline-lg-mobile": ["Geist"],
+                "body-sm": ["Inter"],
+                "headline-md": ["Geist"],
+                "headline-lg": ["Geist"],
+                "body-md": ["Inter"]
+            },
+            "fontSize": {
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.7);
+        }
+        .drop-zone-active {
+            border-color: #4648d4;
+            background-color: #eff4ff;
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .progress-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .progress-shimmer::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<div class="flex h-screen overflow-hidden">
+<!-- SideNavBar (Predicted Component) -->
+<aside class="hidden md:flex flex-col h-full py-lg w-64 border-r border-outline-variant bg-surface-container-low">
+<div class="px-lg mb-xl">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<span class="font-headline-md text-headline-md font-bold text-primary">SalesForce AI</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Enterprise Tier</p>
+</div>
+<nav class="flex-1 space-y-1 px-sm">
+<!-- Intelligence Active -->
+<a class="text-primary font-bold flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-colors duration-200 scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-label-md text-label-md">Intelligence</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person_search">person_search</span>
+<span class="font-label-md text-label-md">Leads</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-label-md text-label-md">Pipelines</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="reorder">reorder</span>
+<span class="font-label-md text-label-md">Activity</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings_suggest">settings_suggest</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="px-sm mt-auto space-y-4">
+<button class="w-full bg-primary-container text-on-primary-container py-3 rounded-xl font-label-md text-label-md hover:opacity-90 transition-opacity">
+                    Upgrade Plan
+                </button>
+<div class="pt-4 border-t border-outline-variant space-y-1">
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col overflow-y-auto">
+<!-- TopNavBar (Predicted Component) -->
+<header class="flex justify-between items-center w-full px-xl h-16 sticky top-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-outline-variant">
+<div class="flex items-center gap-8">
+<h1 class="font-headline-md text-headline-md font-black text-on-surface">Sales Intelligence</h1>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all" href="#">Dashboard</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all" href="#">Reports</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all" href="#">Forecasts</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 mr-4">
+<button class="p-2 rounded-full hover:bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+</div>
+<button class="px-4 py-2 border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all">
+                        Export
+                    </button>
+<button class="px-4 py-2 bg-primary text-white rounded-lg font-label-md text-label-md hover:opacity-90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+                        Create Lead
+                    </button>
+<div class="w-8 h-8 rounded-full bg-surface-container ml-2 overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate sales executive, shot in high-definition with soft studio lighting. The person is smiling confidently, wearing a dark blazer over a crisp white shirt. The background is a blurred modern office space with subtle indigo and violet color accents to match the enterprise UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6ZlUMPZn9uh4cWsaATAdyOixJezg4VL2Q-F-sta4r6SEBgt7t99IUN2tNNFuQ-c6y08rvtohR4fOZEt5hSIStMLg3mIovsWI7RuDjj6xAv9AoI019PLHsMWQLoNPCFYkc-4ILfrv4ormGGJ84hO1ddvji1reu8yMHHropblq59rcvqbrvixXfVLN_AXEdV52fZLLCsbwb8Xln6pTzCupcGXqM-ZRy7_3W7BkI9elSovYMVZ15SAM2EyUKSYVFRNmtLsKyzU4jwvra"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-xl max-w-7xl mx-auto w-full space-y-xl">
+<!-- Page Title Area -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Upload &amp; Process</h2>
+<p class="text-on-surface-variant mt-2 font-body-md text-body-md">Analyze sales recordings to extract deal intelligence and sentiment.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 bg-white border border-outline-variant rounded-xl font-label-md text-label-md text-on-surface hover:bg-surface-container transition-all shadow-sm">
+<img alt="Google Calendar" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArBtToa5bhGRk2_X_ggRdpzrfRlZNfV18ce8MHTWQMWHPguzj0bMbqYefO6Fv5ieIFcBj9TTW8U0Q_yL_jNL24hcH2pH0OH2eOBhzhf4lU-PPxbUG1pQMbx7HMzVwHJbVQeSIZNXpaWCAFTcZmG0kZyHj6_esVJ2f7BCEPj_z5nXJNg4XRNrbfwcKUjhF4B2S-_FY3Ra3QTuB_SB46MrqfrWG9PgYh2qrDNC5tFBctUN2wvASyFCRJWDUn7-D5D0yxWhwxaHuS7jfH"/>
+                            Link Google Calendar
+                        </button>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-white border border-outline-variant rounded-xl font-label-md text-label-md text-on-surface hover:bg-surface-container transition-all shadow-sm">
+<img alt="Outlook Calendar" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCGObwiVoXS7lDpx06zXdgvQ_unDjWJzQM0ASEBFddqkMm6Eown2QK07v8p4OqZV1VJApkFSqK1B23lDbl-Z0ezFhog01uD4eFreZSFroNM7XsmcfyepKkiezGYeOZA6wxxsaQdz648NN_K9xyGaZglA75TI_6gWX_zcVvoawo-wvcl1ObFTg5caaKHzCGvr4ZrSgPV5a1kGPlLkjLxDwmMa5vGkEBOTRi3DojW0VQbjKlhpcYyGmlIn0tbxf2zFzx1cvigD89VVge"/>
+                            Link Outlook
+                        </button>
+</div>
+</div>
+<!-- Main Layout: Bento Grid Style -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left Column: Drag & Drop Zone -->
+<div class="col-span-12 lg:col-span-7 space-y-gutter">
+<div class="relative border-2 border-dashed border-outline-variant rounded-3xl bg-white p-xl flex flex-col items-center justify-center min-h-[400px] transition-all hover:border-primary group" id="drop-zone">
+<div class="w-20 h-20 rounded-full bg-primary-container/20 flex items-center justify-center mb-lg group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-[40px] text-primary" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-center">Drop meeting files here</h3>
+<p class="text-on-surface-variant mt-2 text-center max-w-sm">Support for MP4, MOV, MP3, and WAV formats. Drag files directly from your desktop or browser.</p>
+<div class="mt-xl flex flex-wrap justify-center gap-4">
+<button class="px-6 py-3 bg-primary text-white rounded-xl font-label-md text-label-md hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                                    Browse Files
+                                </button>
+<button class="px-6 py-3 bg-white border border-outline-variant rounded-xl font-label-md text-label-md text-on-surface hover:bg-surface-container transition-all">
+                                    Import from Zoom
+                                </button>
+</div>
+<div class="mt-12 flex items-center gap-8 text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="verified">verified</span>
+<span class="text-label-sm font-label-sm">High-fidelity transcription</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="security">security</span>
+<span class="text-label-sm font-label-sm">GDPR Compliant</span>
+</div>
+</div>
+</div>
+<!-- Info Card -->
+<div class="bg-surface-container-low rounded-2xl p-lg border border-outline-variant flex items-start gap-4">
+<div class="p-2 bg-secondary/10 rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold">New: Competitor Detection</h4>
+<p class="text-body-sm text-body-sm text-on-surface-variant mt-1">Our AI now automatically identifies when prospects mention competitors and analyzes the context of the mention.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Processing Queue -->
+<div class="col-span-12 lg:col-span-5 space-y-gutter">
+<div class="bg-white rounded-3xl border border-outline-variant shadow-sm flex flex-col h-full overflow-hidden">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center bg-surface-container-lowest">
+<h3 class="font-headline-md text-headline-md text-on-surface">Processing Queue</h3>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full font-label-sm text-label-sm">3 Active</span>
+</div>
+<div class="flex-1 divide-y divide-outline-variant overflow-y-auto">
+<!-- Active Item 1 -->
+<div class="p-lg hover:bg-surface-container-lowest transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface font-semibold">Q4 Strategy - Acme Corp</h4>
+<p class="text-label-sm text-label-sm text-on-surface-variant">124 MB • Today at 10:45 AM</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-label-sm font-label-sm text-primary">Est. 4m left</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary progress-shimmer rounded-full" style="width: 65%;"></div>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="flex items-center gap-1.5 px-2.5 py-1 bg-surface-container text-on-surface-variant rounded-full text-[11px] font-medium border border-outline-variant">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                                Transcribing
+                                            </span>
+<span class="flex items-center gap-1.5 px-2.5 py-1 bg-primary-container/20 text-primary rounded-full text-[11px] font-bold border border-primary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                                Analyzing Sentiment
+                                            </span>
+<span class="flex items-center gap-1.5 px-2.5 py-1 bg-surface-container-low text-outline rounded-full text-[11px] font-medium border border-outline-variant/30 italic">
+                                                Pending: Competitors
+                                            </span>
+</div>
+</div>
+</div>
+<!-- Active Item 2 -->
+<div class="p-lg hover:bg-surface-container-lowest transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface font-semibold">Discovery Call: Stellar Solutions</h4>
+<p class="text-label-sm text-label-sm text-on-surface-variant">42 MB • Today at 09:15 AM</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-label-sm font-label-sm text-primary">Est. 1m left</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary progress-shimmer rounded-full" style="width: 88%;"></div>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="flex items-center gap-1.5 px-2.5 py-1 bg-surface-container text-on-surface-variant rounded-full text-[11px] font-medium border border-outline-variant">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                                Transcribing
+                                            </span>
+<span class="flex items-center gap-1.5 px-2.5 py-1 bg-surface-container text-on-surface-variant rounded-full text-[11px] font-medium border border-outline-variant">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                                Analyzing Sentiment
+                                            </span>
+<span class="flex items-center gap-1.5 px-2.5 py-1 bg-primary-container/20 text-primary rounded-full text-[11px] font-bold border border-primary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                                Detecting Competitors
+                                            </span>
+</div>
+</div>
+</div>
+<!-- Completed Item -->
+<div class="p-lg hover:bg-surface-container-lowest transition-colors opacity-60">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface font-semibold">Weekly Sync - Regional Ops</h4>
+<p class="text-label-sm text-label-sm text-on-surface-variant">Processed • 2h ago</p>
+</div>
+</div>
+<button class="text-primary font-label-sm text-label-sm hover:underline">View Insights</button>
+</div>
+</div>
+</div>
+<div class="p-lg bg-surface-container-low border-t border-outline-variant">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">Daily AI Tokens Remaining:</span>
+<span class="font-label-sm text-label-sm font-bold">1,450 / 2,000</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full mt-2">
+<div class="h-full bg-secondary rounded-full" style="width: 72.5%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Connections / Asymmetric Section -->
+<div class="pt-xl">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-lg">Connected Sources</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<div class="bg-white p-lg rounded-2xl border border-outline-variant shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
+<img alt="Zoom" class="h-6 mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEYuDyP9tVzqHaMHs97LC_DPpyEEg8MLB-Wgt6h5k0ATR4fX7sCmIgOdV3cFd8JvX68aseo8Di8Af7fLDv0ijUJED-HEchNcVJO0MDHcbEXNvbsFhWq6ab5lz-ajltLsi1T7dedQpETAFcw2GN8Alg0Z6OnwaU77ow7fUY3rkXBM4nKYaswKyho-wkpfqNgDYctPdP8Tviu6SwkdUW_D2QwhAb7kaSJwAydz5lEVJSuZ_n_wvHhF_7DoXInqYTdsShd4I5_aVutoJB"/>
+<span class="font-label-md text-label-md text-on-surface font-bold">Zoom Video</span>
+<span class="text-[11px] text-primary mt-1 px-2 py-0.5 bg-primary/10 rounded-full font-bold uppercase tracking-wider">Syncing</span>
+</div>
+<div class="bg-white p-lg rounded-2xl border border-outline-variant shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
+<img alt="Teams" class="h-6 mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrGhOH9dKqqPtdMS6qyPEDKki3Ac3uTWRqHab8Qj7O1FcbLdE_g97tMNF-zK5_ibhpsEvfZaZuqNgClB15tA6WSjM0XwpXfMLlEfJbrXilDMSN9K5Wjy_b4RdbLmdXD0hUCCkX5yci30dGxj3PkLVk5DbtWWxE6pVbqJF8WoDmc4Q7teBLeiE-OiZF1C874kadHrFiNKydsYNiLE67iXa-3kwt9fxOU12WjStqELXq5JTzm7eiJSc3_iRIL95YZAOQ9LkPDayX30HD"/>
+<span class="font-label-md text-label-md text-on-surface font-bold">MS Teams</span>
+<span class="text-[11px] text-on-surface-variant mt-1 px-2 py-0.5 bg-surface-container rounded-full font-bold uppercase tracking-wider">Disconnected</span>
+</div>
+<div class="bg-white p-lg rounded-2xl border border-outline-variant shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center group cursor-pointer">
+<div class="w-10 h-10 rounded-full border-2 border-dashed border-outline-variant flex items-center justify-center mb-4 group-hover:border-primary group-hover:bg-primary-container/10 transition-all">
+<span class="material-symbols-outlined text-outline group-hover:text-primary" data-icon="add">add</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Add New Integration</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Floating Action Button for Mobile -->
+<div class="md:hidden fixed bottom-6 right-6 z-50">
+<button class="w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[28px]" data-icon="add">add</span>
+</button>
+</div>
+<script>
+        // Simple drag & drop visual feedback
+        const dropZone = document.getElementById('drop-zone');
+        
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                dropZone.classList.add('drop-zone-active');
+            }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('drop-zone-active');
+            }, false);
+        });
+
+        // Fake progress simulation
+        const progressBars = document.querySelectorAll('.progress-shimmer');
+        progressBars.forEach(bar => {
+            let width = parseInt(bar.style.width);
+            setInterval(() => {
+                if(width < 99) {
+                    width += Math.random() * 0.5;
+                    bar.style.width = width + '%';
+                }
+            }, 3000);
+        });
+    </script>
+</body></html>

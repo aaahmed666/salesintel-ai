@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Deal Risk &amp; Escalation | CRM Intelligence</title>
+<!-- Google Fonts: Geist & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#767586",
+                    "tertiary-fixed": "#c9e6ff",
+                    "primary-fixed": "#e1e0ff",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "on-tertiary-fixed-variant": "#004c6e",
+                    "on-secondary-fixed": "#23005c",
+                    "surface-container-highest": "#d3e4fe",
+                    "tertiary": "#00628d",
+                    "surface-container-low": "#eff4ff",
+                    "on-tertiary-container": "#fcfcff",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#cbdbf5",
+                    "outline-variant": "#c7c4d7",
+                    "secondary": "#6b38d4",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-container": "#6063ee",
+                    "primary": "#4648d4",
+                    "surface-container": "#e5eeff",
+                    "surface": "#f8f9ff",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#fffbff",
+                    "inverse-surface": "#213145",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "on-surface-variant": "#464554",
+                    "background": "#f8f9ff",
+                    "on-primary-fixed": "#07006c",
+                    "surface-bright": "#f8f9ff",
+                    "surface-variant": "#d3e4fe",
+                    "surface-tint": "#494bd6",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "on-primary-container": "#fffbff",
+                    "tertiary-fixed-dim": "#89ceff",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "tertiary-container": "#007cb1",
+                    "surface-container-high": "#dce9ff",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#001e2f",
+                    "on-background": "#0b1c30",
+                    "inverse-primary": "#c0c1ff",
+                    "secondary-container": "#8455ef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "base": "4px",
+                    "xs": "8px",
+                    "margin-page": "40px",
+                    "gutter": "20px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Geist"],
+                    "headline-xl": ["Geist"],
+                    "headline-lg-mobile": ["Geist"],
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-md": ["Geist"],
+                    "label-md": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(226, 232, 240, 1);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+      }
+      .risk-gradient-critical {
+        background: linear-gradient(135deg, #ba1a1a 0%, #ffdad6 100%);
+      }
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 24px;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .active-nav-bg {
+        background: #6063ee;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- SideNavBar (from JSON) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant flex flex-col py-lg px-md z-50">
+<div class="mb-xl px-xs">
+<h1 class="font-headline-md text-headline-md font-bold text-on-background">Sales Intelligence</h1>
+<p class="font-label-md text-label-md text-on-surface-variant opacity-70">Enterprise CRM</p>
+</div>
+<nav class="flex-1 space-y-base">
+<!-- Dashboard Tab (Active) -->
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container font-bold rounded-lg duration-100 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-label-md text-label-md">Companies</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Contacts</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">handshake</span>
+<span class="font-label-md text-label-md">Deals</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-label-md text-label-md">Activities</span>
+</a>
+</nav>
+<div class="mt-auto space-y-base border-t border-outline-variant pt-lg">
+<button class="w-full bg-primary text-on-primary py-sm px-md rounded-xl font-label-md flex items-center justify-center gap-xs hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                Add New Deal
+            </button>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar (from JSON) -->
+<header class="flex justify-between items-center w-full px-lg h-16 sticky top-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-xl">
+<span class="font-headline-lg text-headline-lg font-black text-primary">CRM Intelligence</span>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all" href="#">Pipeline</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all" href="#">Reporting</a>
+<a class="font-label-sm text-label-sm text-primary border-b-2 border-primary pb-1" href="#">Insights</a>
+</nav>
+</div>
+<div class="flex items-center gap-lg">
+<div class="hidden lg:flex items-center bg-surface-container px-md py-xs rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-outline text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm font-body-sm w-48" placeholder="Search risks..." type="text"/>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all">history</button>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-xs overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional business headshot of a female executive with short dark hair, wearing a tailored navy blue blazer, set against a bright, minimalist office background with soft daylight and clean architectural lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbzIPLgs23m19JF93bHIxFhurpLnMkCTCU1NI7JaLpATeM5WMEnc2E9kjcGZ5n6qcVwafbkv-BtcJtICGAM6PONZH9zGw0XjA4DZ4rrWnoarqI9jTOT6XUSLivD_GOwHUBJwL_5_qrr6wb1r64ADbs74rdO3bgn37DnF4PtQ3W0d8pxr3BKG6WAzse8xgL-7IER91en49BCt1ZCrk7v6pYMZh9V9QVVgcrp5LJ1y-Q0rPC3pJj-2KJUJD6A5Uj2mFhyCV0iOIJEsa2"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Canvas -->
+<div class="p-margin-page">
+<!-- Page Header -->
+<div class="mb-xl flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-base">Risk &amp; Escalation Control</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time monitoring of high-stakes deal vulnerabilities and automated response triggers.</p>
+</div>
+<div class="flex gap-md">
+<div class="flex items-center bg-error-container text-on-error-container px-md py-xs rounded-full gap-xs">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-error"></span>
+</span>
+<span class="font-label-sm text-label-sm">12 Critical Risks</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="bento-grid">
+<!-- Primary: Risk Deals List (8 cols) -->
+<div class="col-span-12 lg:col-span-8 space-y-lg">
+<div class="glass-card rounded-xl p-lg">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface">High-Risk Deal Queue</h3>
+<button class="text-primary font-label-md hover:underline flex items-center gap-xs">
+                                View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="space-y-md">
+<!-- Deal Item 1 (Critical) -->
+<div class="p-md rounded-lg border border-outline-variant bg-surface hover:bg-surface-container-low transition-all cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[28px]">rocket_launch</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Acme Corp - Enterprise Expansion</h4>
+<div class="flex items-center gap-md mt-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">$240,000 • Discovery Stage</span>
+<span class="px-xs py-[2px] bg-error-container text-on-error text-[10px] rounded uppercase font-bold tracking-wider">Critical</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-error font-bold mb-xs">Negative Sentiment</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">"We might have to push this to Q3..."</p>
+</div>
+</div>
+</div>
+<!-- Deal Item 2 (Warning) -->
+<div class="p-md rounded-lg border border-outline-variant bg-surface hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="flex items-start justify-between">
+<div class="flex gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[28px]">apartment</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Starlight Logistics SaaS</h4>
+<div class="flex items-center gap-md mt-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">$85,000 • Negotiation Stage</span>
+<span class="px-xs py-[2px] bg-secondary-container text-on-secondary-container text-[10px] rounded uppercase font-bold tracking-wider">Warning</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-secondary font-bold mb-xs">Stagnant Flow</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">In stage for 14 days (+4 over avg)</p>
+</div>
+</div>
+</div>
+<!-- Deal Item 3 (Normal) -->
+<div class="p-md rounded-lg border border-outline-variant bg-surface hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="flex items-start justify-between">
+<div class="flex gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-[28px]">cloud</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Nebula Systems Integration</h4>
+<div class="flex items-center gap-md mt-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">$112,000 • Technical Validation</span>
+<span class="px-xs py-[2px] bg-surface-container-high text-on-surface-variant text-[10px] rounded uppercase font-bold tracking-wider">Normal</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-tertiary font-bold mb-xs">Action Required</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Stakeholder meeting not scheduled</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Escalation Rules Config (8 cols) -->
+<div class="glass-card rounded-xl p-lg border-primary/20">
+<div class="flex items-center gap-md mb-lg">
+<span class="material-symbols-outlined text-primary">auto_fix_high</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Escalation Rules &amp; Automation</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Rule 1 -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant">
+<div class="flex justify-between items-center mb-md">
+<span class="font-label-sm text-label-sm text-primary uppercase">Condition</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<p class="font-body-md text-body-md mb-md">If <span class="font-bold text-on-surface">Sentiment Score &lt; 40</span> across last 2 interactions...</p>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+<span class="font-label-sm">Notify Account Manager via Slack</span>
+</div>
+</div>
+<!-- Rule 2 -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant">
+<div class="flex justify-between items-center mb-md">
+<span class="font-label-sm text-label-sm text-primary uppercase">Condition</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<p class="font-body-md text-body-md mb-md">If <span class="font-bold text-on-surface">Stagnant Stage &gt; 10 days</span> for deals over $100k...</p>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+<span class="font-label-sm">Escalate to VP of Sales (Email)</span>
+</div>
+</div>
+</div>
+<button class="mt-lg w-full border-2 border-dashed border-outline-variant rounded-xl py-md font-label-md text-on-surface-variant hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">add_circle</span>
+                            Define New Escalation Trigger
+                        </button>
+</div>
+</div>
+<!-- Secondary: Risk Breakdown & Stats (4 cols) -->
+<div class="col-span-12 lg:col-span-4 space-y-lg">
+<!-- Escalation Status Visualizer -->
+<div class="glass-card rounded-xl p-lg overflow-hidden relative">
+<div class="relative z-10">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-xl tracking-widest">Aggregate Status</h3>
+<div class="flex flex-col items-center">
+<div class="relative w-48 h-48 flex items-center justify-center">
+<!-- Simple CSS Radial Chart Placeholder -->
+<div class="absolute inset-0 rounded-full border-[12px] border-surface-container"></div>
+<div class="absolute inset-0 rounded-full border-[12px] border-error border-t-transparent border-l-transparent -rotate-45"></div>
+<div class="text-center">
+<p class="font-headline-xl text-headline-xl text-error">72%</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Risk Exposure</p>
+</div>
+</div>
+</div>
+<div class="mt-xl space-y-md">
+<div class="flex justify-between items-center">
+<span class="flex items-center gap-xs font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-error"></span> Critical</span>
+<span class="font-label-sm text-label-sm font-bold">12</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="flex items-center gap-xs font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-secondary-container"></span> Warning</span>
+<span class="font-label-sm text-label-sm font-bold">28</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="flex items-center gap-xs font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-outline-variant"></span> Normal</span>
+<span class="font-label-sm text-label-sm font-bold">144</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Risk Factor Breakdown -->
+<div class="glass-card rounded-xl p-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-lg">Risk Factor Root Causes</h3>
+<div class="space-y-xl">
+<div>
+<div class="flex justify-between mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface">Sentiment Drift</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">42%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 42%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface">Stagnancy (&gt;10d)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">28%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 28%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface">Budget Re-prioritization</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">18%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 18%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface">Competitor Mentioned</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">12%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-outline h-full rounded-full" style="width: 12%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Insights Panel -->
+<div class="p-lg rounded-xl bg-primary text-on-primary shadow-xl overflow-hidden relative">
+<div class="absolute top-0 right-0 p-lg opacity-10">
+<span class="material-symbols-outlined text-[80px]">psychology</span>
+</div>
+<h4 class="font-label-md text-label-md uppercase tracking-widest mb-md">AI Forecast</h4>
+<p class="font-body-lg text-body-lg font-medium italic mb-lg leading-relaxed">
+                            "Reducing stagnation in the Technical Validation stage by just 3 days could recover up to $1.2M in projected revenue this quarter."
+                        </p>
+<button class="bg-white text-primary px-lg py-sm rounded-full font-label-sm hover:bg-opacity-90 transition-all">
+                            Generate Action Plan
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+                card.style.transition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Basic toggle logging
+        document.querySelectorAll('input[type="checkbox"]').forEach(toggle => {
+            toggle.addEventListener('change', (e) => {
+                const ruleName = e.target.closest('.bg-surface-container-lowest').querySelector('p').innerText;
+                console.log(`Automation rule "${ruleName}" updated to: ${e.target.checked}`);
+            });
+        });
+    </script>
+</body></html>

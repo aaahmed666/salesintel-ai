@@ -1,0 +1,1192 @@
+{
+  "common": {
+    "appName": "SalesForce AI",
+    "tagline": "Enterprise Sales Intelligence Platform",
+    "loading": "Loading…",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "back": "Back",
+    "continue": "Continue",
+    "or": "OR",
+    "orContinueWith": "OR CONTINUE WITH",
+    "language": "Language",
+    "english": "English",
+    "arabic": "العربية",
+    "search": "Search conversations, insights...",
+    "viewAll": "View all",
+    "retry": "Retry",
+    "close": "Close",
+    "save": "Save changes",
+    "comingSoon": "Business screens are coming next."
+  },
+  "auth": {
+    "badges": {
+      "soc2": "SOC2 COMPLIANT",
+      "encryption": "AES-256 ENCRYPTION"
+    },
+    "login": {
+      "title": "SalesForce AI",
+      "subtitle": "Enterprise Sales Intelligence Platform",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "name@company.com",
+      "passwordLabel": "Password",
+      "forgotPassword": "Forgot password?",
+      "submit": "Sign in to Dashboard",
+      "submitting": "Signing in…",
+      "google": "Sign in with Google",
+      "noAccount": "Don't have an account yet?",
+      "startTrial": "Start 14-day free trial",
+      "success": "Welcome back!"
+    },
+    "register": {
+      "title": "Create your account",
+      "subtitle": "Empower your sales team with enterprise-grade AI intelligence.",
+      "fullNameLabel": "FULL NAME",
+      "fullNamePlaceholder": "John Doe",
+      "emailLabel": "WORK EMAIL",
+      "emailPlaceholder": "name@company.com",
+      "passwordLabel": "PASSWORD",
+      "passwordHint": "Must be at least 12 characters.",
+      "submit": "Create Account",
+      "submitting": "Creating account…",
+      "google": "Sign up with Google",
+      "haveAccount": "Already have an account?",
+      "login": "Log in",
+      "agree": "By clicking create account, you agree to our",
+      "terms": "Terms of Service",
+      "and": "and",
+      "privacy": "Privacy Policy",
+      "success": "Account created. Check your inbox to verify your email.",
+      "features": {
+        "predictive": {
+          "title": "Predictive Intelligence",
+          "desc": "Identify high-intent prospects before they even reach out."
+        },
+        "workflows": {
+          "title": "Automated Workflows",
+          "desc": "Scale your outreach with AI-generated personalizations."
+        },
+        "analytics": {
+          "title": "Real-time Analytics",
+          "desc": "Deep-dive into conversion metrics with live dashboards."
+        }
+      },
+      "footer": {
+        "helpCenter": "Help Center",
+        "documentation": "Documentation",
+        "systemStatus": "System Status",
+        "rights": "All rights reserved."
+      }
+    },
+    "forgotPassword": {
+      "title": "Sales Intelligence",
+      "subtitle": "Enter your email to receive a recovery link for your account.",
+      "emailLabel": "EMAIL ADDRESS",
+      "emailPlaceholder": "name@company.com",
+      "submit": "Send Reset Link",
+      "submitting": "Sending…",
+      "backToLogin": "Back to Login",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "success": "If an account exists for that email, a recovery link is on its way."
+    },
+    "resetPassword": {
+      "title": "Set a new password",
+      "subtitle": "Choose a strong password you haven't used before.",
+      "passwordLabel": "NEW PASSWORD",
+      "passwordPlaceholder": "Enter new password",
+      "confirmLabel": "CONFIRM PASSWORD",
+      "confirmPlaceholder": "Re-enter new password",
+      "submit": "Reset Password",
+      "submitting": "Resetting…",
+      "backToLogin": "Back to Login",
+      "success": "Your password has been reset. You can now sign in.",
+      "invalidToken": "This reset link is invalid or has expired."
+    },
+    "verifyEmail": {
+      "title": "Verify your email",
+      "subtitle": "We've sent a verification link to your inbox. Confirm to activate your account.",
+      "verifying": "Verifying your email…",
+      "submit": "Verify Email",
+      "resend": "Resend verification email",
+      "backToLogin": "Back to Login",
+      "success": "Your email is verified. Welcome aboard!",
+      "invalidToken": "This verification link is invalid or has expired."
+    },
+    "twoFactor": {
+      "title": "Verify your identity",
+      "subtitle": "We've sent a 6-digit verification code to",
+      "submit": "Verify code",
+      "submitting": "Verifying…",
+      "noCode": "Didn't receive a code?",
+      "resend": "Resend code",
+      "resendIn": "Resend code in {seconds}s",
+      "resent": "A new code has been sent.",
+      "support": "Support center",
+      "cancel": "Cancel login",
+      "success": "Identity verified."
+    },
+    "logout": {
+      "success": "You've been signed out."
+    }
+  },
+  "validation": {
+    "email": {
+      "required": "Email is required.",
+      "invalid": "Enter a valid email address."
+    },
+    "password": {
+      "required": "Password is required.",
+      "min": "Password must be at least 12 characters.",
+      "max": "Password is too long.",
+      "lowercase": "Include at least one lowercase letter.",
+      "uppercase": "Include at least one uppercase letter.",
+      "number": "Include at least one number."
+    },
+    "fullName": {
+      "min": "Please enter your full name.",
+      "max": "Name is too long."
+    },
+    "confirmPassword": {
+      "required": "Please confirm your password.",
+      "mismatch": "Passwords do not match."
+    },
+    "token": {
+      "required": "A valid token is required."
+    },
+    "code": {
+      "length": "Enter the 6-digit code.",
+      "digits": "Code must contain only digits."
+    },
+    "file": {
+      "required": "Please choose a file to upload.",
+      "unsupported": "Unsupported file type. Use MP3, WAV, MP4, WEBM or M4A.",
+      "tooLarge": "File exceeds the 500 MB limit.",
+      "empty": "This file appears to be empty."
+    }
+  },
+  "errors": {
+    "network": "Network error. Please check your connection and try again.",
+    "unknown": "Something went wrong. Please try again.",
+    "invalidCredentials": "Incorrect email or password.",
+    "emailTaken": "An account with this email already exists.",
+    "emailNotFound": "We couldn't find an account with that email.",
+    "invalidToken": "This link is invalid or has expired.",
+    "expiredToken": "This session has expired. Please start again.",
+    "invalid2faCode": "That code is incorrect. Please try again.",
+    "rateLimited": "Too many attempts. Please wait and try again."
+  },
+  "roles": {
+    "representative": "Sales Rep",
+    "manager": "Sales Manager",
+    "admin": "Admin"
+  },
+  "nav": {
+    "intelligence": "Intelligence",
+    "leads": "Leads",
+    "pipelines": "Pipelines",
+    "companies": "Companies",
+    "contacts": "Contacts",
+    "activity": "Activity",
+    "analytics": "Analytics",
+    "settings": "Settings",
+    "meetings": "Reports",
+    "upload": "Upload",
+    "integrations": "Integrations",
+    "developer": "Developer Settings",
+    "aiSettings": "AI Settings",
+    "users": "Users & Roles",
+    "billing": "Billing & Plan",
+    "auditLogs": "Security Logs",
+    "adminSettings": "Admin Settings",
+    "workflows": "Workflows"
+  },
+  "shell": {
+    "tier": "Enterprise Tier",
+    "upgrade": "Upgrade Plan",
+    "help": "Help",
+    "logout": "Logout",
+    "accessDenied": {
+      "title": "Access restricted",
+      "description": "Your role doesn't have permission to view this page. Redirecting you to your dashboard."
+    },
+    "createLead": "Create Lead",
+    "export": "Export",
+    "search": "Search conversations, insights...",
+    "toggleSidebar": "Toggle navigation",
+    "userMenu": {
+      "profile": "Profile",
+      "settings": "Account settings",
+      "billing": "Billing",
+      "signOut": "Sign out"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "markAllRead": "Mark all as read",
+      "empty": "You're all caught up.",
+      "unread": "{count, plural, =0 {No new} one {# new} other {# new}}",
+      "viewActivity": "View all activity"
+    },
+    "org": {
+      "switch": "Switch organization",
+      "current": "Current organization",
+      "plan": {
+        "starter": "Starter",
+        "growth": "Growth",
+        "enterprise": "Enterprise"
+      }
+    },
+    "breadcrumbs": {
+      "home": "Home"
+    }
+  },
+  "meetings": {
+    "upload": {
+      "title": "Upload & Process",
+      "subtitle": "Analyze sales recordings to extract deal intelligence and sentiment.",
+      "linkGoogle": "Link Google Calendar",
+      "linkOutlook": "Link Outlook",
+      "dropTitle": "Drop meeting files here",
+      "dropSubtitle": "Support for MP3, WAV, MP4, WEBM and M4A formats.",
+      "dropHint": "Drag files directly from your desktop or browser.",
+      "browse": "Browse Files",
+      "importZoom": "Import from Zoom",
+      "highFidelity": "High-fidelity transcription",
+      "gdpr": "GDPR Compliant",
+      "maxSize": "Maximum file size {size} MB",
+      "dropActive": "Release to add to the queue",
+      "newFeature": "New: Competitor Detection",
+      "newFeatureDesc": "Our AI now automatically identifies when prospects mention competitors and analyzes the context of the mention."
+    },
+    "queue": {
+      "title": "Processing Queue",
+      "active": "{count} Active",
+      "empty": "No active uploads. Drop a file to begin.",
+      "estLeft": "Est. {minutes}m left",
+      "viewInsights": "View Insights",
+      "processedAgo": "Processed • {time}",
+      "tokens": "Daily AI Tokens Remaining:",
+      "retry": "Retry upload",
+      "remove": "Remove",
+      "cancel": "Cancel"
+    },
+    "history": {
+      "title": "Upload History",
+      "empty": "Nothing uploaded yet.",
+      "columnName": "Meeting",
+      "columnSize": "Size",
+      "columnStatus": "Status",
+      "columnDate": "Uploaded",
+      "columnScore": "Score"
+    },
+    "status": {
+      "uploaded": "Uploaded",
+      "processing": "Processing",
+      "transcribing": "Transcribing",
+      "analyzing": "Analyzing Sentiment",
+      "scoring": "Scoring",
+      "completed": "Completed",
+      "failed": "Failed"
+    },
+    "directory": {
+      "title": "Meetings Directory",
+      "pageTitle": "Meetings Analysis",
+      "pageSubtitle": "Review analyzed sales conversations, sentiment and AI deal insights.",
+      "filter": "Filter",
+      "allStatuses": "All statuses",
+      "export": "Export",
+      "createLead": "Create Lead",
+      "searchPlaceholder": "Search meetings, companies or reps...",
+      "previous": "Previous",
+      "next": "Next",
+      "showing": "Showing {count} of {total} meetings",
+      "error": "We couldn't load meetings. Please try again.",
+      "retry": "Retry",
+      "columns": {
+        "name": "Meeting Name",
+        "company": "Company",
+        "date": "Date & Time",
+        "rep": "Representative",
+        "dealValue": "Deal Value",
+        "duration": "Duration",
+        "status": "Status",
+        "sentiment": "Sentiment",
+        "insights": "AI Insights"
+      },
+      "empty": {
+        "title": "No meetings found",
+        "subtitle": "Try adjusting your search or filters to find what you're looking for."
+      },
+      "stats": {
+        "volume": "Total Call Volume",
+        "volumeDelta": "+12.5% this month",
+        "sentiment": "Avg. Sentiment",
+        "competitor": "Top Competitor Mentioned",
+        "competitorMeta": "Mentioned in 18% of calls"
+      }
+    },
+    "sentiment": {
+      "very_positive": "Very Positive",
+      "positive": "Positive",
+      "neutral": "Neutral",
+      "critical": "Critical"
+    },
+    "details": {
+      "pageTitle": "Meeting Details",
+      "breadcrumb": "Meetings",
+      "export": "Export",
+      "shareInsight": "Share Insight",
+      "tabsLabel": "Meeting detail sections",
+      "tabs": {
+        "overview": "Overview",
+        "transcript": "Transcript",
+        "analysis": "Analysis",
+        "score": "Score"
+      },
+      "aiSummary": "AI Executive Summary",
+      "score": "Score",
+      "scorePending": "Score will appear once analysis completes.",
+      "momentum": "Deal momentum increased by +12% since last call.",
+      "sentimentTimeline": "Sentiment Timeline",
+      "positive": "Positive",
+      "friction": "Friction",
+      "competitorIntel": "Competitor Intelligence",
+      "keyHighlights": "Key Highlights",
+      "transcript": "Meeting Transcript",
+      "downloadPdf": "Download PDF",
+      "findInTranscript": "Find in transcript...",
+      "noTranscriptMatch": "No transcript lines match your search.",
+      "metadata": "Metadata",
+      "status": "Status",
+      "discoveryCall": "Discovery Call",
+      "recording": "Recording",
+      "available": "Available",
+      "unavailable": "Unavailable",
+      "participants": "Participants",
+      "members": "{count} Members",
+      "dealSize": "Deal Size",
+      "nextSteps": "AI Next Steps",
+      "createTasks": "Create Tasks in CRM",
+      "stakeholders": "Stakeholders",
+      "syncedWith": "Synced with {provider}",
+      "error": "We couldn't load this meeting. Please try again.",
+      "retry": "Retry",
+      "openTranscript": "Open Transcript & AI Highlights",
+      "openDeepDive": "Open AI Deep Dive"
+    },
+    "transcript": {
+      "pageTitle": "Transcript & AI Highlights",
+      "breadcrumb": "Transcript",
+      "backToMeeting": "Back to meeting",
+      "duration": "Duration",
+      "dealValue": "Deal Value",
+      "exportInsights": "Export Insights",
+      "participantsMore": "+{count}",
+      "urgency": {
+        "high": "High Urgency",
+        "medium": "Medium Urgency",
+        "low": "Low Urgency"
+      },
+      "search": {
+        "placeholder": "Search transcript...",
+        "matches": "{current} of {total}",
+        "noMatches": "No matches",
+        "previous": "Previous match",
+        "next": "Next match",
+        "clear": "Clear search"
+      },
+      "timeline": {
+        "label": "Transcript timeline",
+        "jumpTo": "Jump to {time}"
+      },
+      "jumpToTimestamp": "Jump to {time}",
+      "highlight": {
+        "objection": "Objection Detected",
+        "upsell": "Upsell Opportunity",
+        "buying-signal": "Buying Intent Signal",
+        "objectionPricing": "Pricing Objection Detected",
+        "upsellOpportunity": "Upsell Opportunity",
+        "buyingIntentSignal": "Buying Intent Signal"
+      },
+      "panel": {
+        "buyingIntent": "Buying Intent",
+        "competitors": "Competitors Mentioned",
+        "keywordAnalysis": "Keyword Analysis",
+        "aiConfidence": "AI Confidence",
+        "reliable": "Reliable",
+        "threat": "Threat",
+        "neutral": "Neutral",
+        "favorable": "Favorable"
+      },
+      "empty": "No transcript is available for this meeting yet.",
+      "error": "We couldn't load the transcript. Please try again.",
+      "retry": "Retry",
+      "loading": "Loading transcript..."
+    },
+    "deepDive": {
+      "pageTitle": "AI Analysis Deep Dive",
+      "closeWon": "Closed-Won Probability: {value}%",
+      "export": "Export",
+      "createLead": "Create Lead",
+      "contextHighlights": "AI Context Highlights",
+      "keyIntent": "Key Intent",
+      "sectionNav": "Analysis sections",
+      "dealHealth": "Deal Health Score",
+      "nextBestAction": "Next Best Action",
+      "loading": "Analyzing meeting...",
+      "error": "We couldn't load the analysis. Please try again.",
+      "retry": "Retry",
+      "sentiment": {
+        "title": "Sentiment Analysis",
+        "breakdown": "Sentiment Breakdown",
+        "positive": "Positive",
+        "neutral": "Neutral",
+        "negative": "Negative",
+        "talkRatio": "Talk Ratio",
+        "you": "You",
+        "prospect": "Prospect",
+        "healthyBalance": "Healthy balance (Gong Gold Std.)",
+        "qualityScore": "Quality Score"
+      },
+      "competitor": {
+        "title": "Competitor Analysis",
+        "mentionShare": "Mention Share",
+        "favorable": "Favorable",
+        "threat": "Threat",
+        "mentions": "{count, plural, one {# mention} other {# mentions}}",
+        "empty": "No competitors were mentioned in this conversation."
+      },
+      "industry": {
+        "title": "Industry Context",
+        "benchmarks": "You vs Sector Benchmark",
+        "thisDeal": "This deal",
+        "sectorAvg": "Sector average",
+        "trends": "Industry Trends"
+      },
+      "keyword": {
+        "title": "Keyword Detection",
+        "empty": "No keywords were detected yet.",
+        "categories": {
+          "product": "Product",
+          "pricing": "Pricing",
+          "competitor": "Competitor",
+          "risk": "Risk",
+          "process": "Process"
+        }
+      },
+      "buyingSignals": {
+        "title": "Buying Signals",
+        "intent": "Intent"
+      },
+      "objection": {
+        "title": "Objection Analysis",
+        "count": "{count, plural, one {# objection} other {# objections}}",
+        "recommendation": "Recommendation",
+        "empty": "No objections were detected — clean conversation.",
+        "severity": {
+          "high": "High",
+          "medium": "Medium",
+          "low": "Low"
+        },
+        "status": {
+          "open": "Open",
+          "addressed": "Addressed"
+        }
+      }
+    },
+    "scoring": {
+      "pageTitle": "Sales Score",
+      "breadcrumb": "Score",
+      "tabs": {
+        "overview": "Score Overview",
+        "breakdown": "Score Breakdown",
+        "coaching": "Coaching Recommendations"
+      },
+      "overallScore": "Overall Score",
+      "previousScore": "vs last meeting",
+      "scoreDelta": "{delta} from last meeting",
+      "scoreUp": "↑ +{delta}",
+      "scoreDown": "↓ {delta}",
+      "noChange": "No change",
+      "grade": "Grade",
+      "gradeLabel": {
+        "A+": "Exceptional",
+        "A": "Excellent",
+        "B": "Good",
+        "C": "Needs Improvement",
+        "D": "Below Standard"
+      },
+      "metrics": {
+        "talkRatio": "Talk Ratio",
+        "discovery": "Discovery",
+        "objectionHandling": "Objection Handling",
+        "commitment": "Commitment",
+        "nextSteps": "Next Steps"
+      },
+      "benchmark": "Benchmark",
+      "yourScore": "Your Score",
+      "industryAvg": "Industry Avg",
+      "aboveBenchmark": "Above benchmark",
+      "belowBenchmark": "Below benchmark",
+      "strengths": "Strengths",
+      "improvements": "Areas for Improvement",
+      "talkRatioBreakdown": "Talk Ratio Breakdown",
+      "you": "You",
+      "prospect": "Prospect",
+      "silence": "Silence",
+      "idealRange": "Ideal Range",
+      "gongStandard": "Gong Gold Standard",
+      "scoreTrend": "Score Trend",
+      "recentMeetings": "Recent Meetings",
+      "coaching": {
+        "title": "AI Coaching Recommendations",
+        "subtitle": "Personalized action items to improve your next sales conversation.",
+        "priority": "Priority",
+        "high": "High Priority",
+        "medium": "Medium Priority",
+        "low": "Low Priority",
+        "targetMetric": "Target Metric",
+        "steps": "Action Steps",
+        "estimatedImpact": "Estimated Impact",
+        "stepsCount": "{count} action steps"
+      },
+      "metricSummary": "Performance Summary",
+      "metricDetail": "Detailed Analysis",
+      "error": "We couldn't load the scoring data. Please try again.",
+      "retry": "Retry",
+      "loading": "Calculating scores..."
+    }
+  },
+  "pipeline": {
+    "pageTitle": "Sales Pipeline",
+    "boardTitle": "Pipeline Board",
+    "subtitle": "Track and manage deals across your sales pipeline.",
+    "breadcrumb": "Pipelines",
+    "pipelineLabel": "Pipeline",
+    "activeDeals": "{count} active deals under management",
+    "tabs": {
+      "table": "Table View",
+      "board": "Board View"
+    },
+    "stages": {
+      "lead": "Lead",
+      "qualified": "Qualified",
+      "proposal": "Proposal",
+      "negotiation": "Negotiation",
+      "won": "Won",
+      "lost": "Lost"
+    },
+    "temperature": {
+      "hot": "Hot",
+      "warm": "Warm",
+      "cold": "Cold"
+    },
+    "kpis": {
+      "totalDeals": "Total Deals",
+      "pipelineValue": "Pipeline Value",
+      "avgDealSize": "Avg Deal Size",
+      "winRate": "Win Rate",
+      "avgCycle": "Avg Cycle",
+      "weightedPipeline": "Weighted Pipeline",
+      "days": "days"
+    },
+    "columns": {
+      "company": "Company",
+      "title": "Deal Title",
+      "value": "Deal Value",
+      "stage": "Stage",
+      "temperature": "Temperature",
+      "closeDate": "Close Date",
+      "rep": "Representative",
+      "lastActivity": "Last Activity",
+      "probability": "Win %"
+    },
+    "toolbar": {
+      "filterByRep": "Filter by Rep",
+      "filters": "Filters",
+      "sort": "Sort",
+      "export": "Export",
+      "viewKanban": "Board view",
+      "viewTable": "Table view",
+      "search": "Search pipeline..."
+    },
+    "filters": {
+      "title": "Filters",
+      "stage": "Stage",
+      "temperature": "Temperature",
+      "valueRange": "Deal Value Range",
+      "minValue": "Min value",
+      "maxValue": "Max value",
+      "rep": "Representative",
+      "clearAll": "Clear all",
+      "apply": "Apply Filters"
+    },
+    "deal": {
+      "addDeal": "+ Add Deal",
+      "closingNextWeek": "Closing Next Week",
+      "competitor": "Competitor",
+      "noBudget": "No budget",
+      "timing": "Timing"
+    },
+    "empty": {
+      "title": "No deals found",
+      "subtitle": "Try adjusting your search or filters to find what you're looking for."
+    },
+    "error": "We couldn't load the pipeline. Please try again.",
+    "retry": "Retry",
+    "loading": "Loading pipeline..."
+  },
+  "dealProfile": {
+    "tabs": {
+      "overview": "Overview",
+      "stakeholders": "Stakeholders",
+      "activities": "Activities",
+      "documents": "Documents",
+      "aiInsights": "AI Insights"
+    },
+    "overview": {
+      "dealValue": "Deal Value",
+      "closeDate": "Close Date",
+      "winProbability": "Win Probability",
+      "healthScore": "Deal Health Score",
+      "healthScoreStatus": {
+        "good": "Healthy",
+        "fair": "Neutral",
+        "risk": "At Risk"
+      },
+      "revenue": {
+        "title": "Revenue Tracking",
+        "margin": "Margin",
+        "expectedValue": "Expected Value"
+      },
+      "nextActions": "Next Best Action",
+      "nextActionsSubtitle": "Closing signals and automated recommendations",
+      "editDeal": "Edit Deal",
+      "closeDeal": "Close Deal",
+      "lastActivity": "Last activity {time}"
+    },
+    "company": {
+      "title": "Company Information",
+      "website": "Website",
+      "industry": "Industry",
+      "employees": "Employees",
+      "revenue": "Annual Revenue",
+      "headquarters": "Headquarters"
+    },
+    "contacts": {
+      "title": "Contacts",
+      "champion": "Champion"
+    },
+    "stakeholders": {
+      "title": "Stakeholders",
+      "add": "Add Stakeholder",
+      "categories": {
+        "champion": "Champion",
+        "buyer": "Economic Buyer",
+        "blocker": "Blocker",
+        "influencer": "Influencer"
+      }
+    },
+    "activities": {
+      "title": "Activity History",
+      "fullHistory": "View Full History",
+      "transcript": "AI Transcript available"
+    },
+    "tasks": {
+      "title": "Upcoming Tasks",
+      "add": "Add Task",
+      "newTask": "New Task",
+      "due": "Due",
+      "dueTomorrow": "Due Tomorrow",
+      "placeholder": "Enter task title...",
+      "priority": "Priority",
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "notes": {
+      "title": "Notes",
+      "add": "Add Note",
+      "placeholder": "Type a note...",
+      "save": "Save Note"
+    },
+    "documents": {
+      "title": "Related Documents",
+      "uploadDate": "Uploaded {date}"
+    },
+    "aiInsights": {
+      "title": "AI Deal Intelligence",
+      "nextAction": "Next Best Action",
+      "riskFactors": "Risk Factors",
+      "healthScore": "Health Score",
+      "signals": "Closing Signals"
+    },
+    "loading": "Loading deal profile...",
+    "error": "We couldn't load the deal profile. Please try again."
+  },
+  "risks": {
+    "pageTitle": "Risk & Escalation Control",
+    "subtitle": "Real-time monitoring of high-stakes deal vulnerabilities and automated response triggers.",
+    "criticalCount": "{count} Critical Risks",
+    "queueTitle": "High-Risk Deal Queue",
+    "rootCauses": "Risk Factor Root Causes",
+    "aiForecast": "AI Forecast",
+    "generatePlan": "Generate Action Plan",
+    "rulesTitle": "Escalation Rules & Automation",
+    "condition": "Condition",
+    "newTrigger": "Define New Escalation Trigger",
+    "exposure": "Risk Exposure",
+    "aggregateStatus": "Aggregate Status",
+    "severities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "critical": "Critical"
+    },
+    "statuses": {
+      "detected": "Detected",
+      "under_review": "Under Review",
+      "escalated": "Escalated",
+      "resolved": "Resolved"
+    },
+    "causes": {
+      "sentiment_drift": "Sentiment Drift",
+      "stagnancy": "Stagnancy (>10d)",
+      "budget_reprioritization": "Budget Re-prioritization",
+      "competitor_mentioned": "Competitor Mentioned"
+    },
+    "tabs": {
+      "all": "All",
+      "detected": "Detected",
+      "under_review": "Under Review",
+      "escalated": "Escalated",
+      "resolved": "Resolved"
+    },
+    "actions": {
+      "escalate": "Escalate to Manager",
+      "resolve": "Mark Resolved",
+      "underReview": "Start Review",
+      "submit": "Submit Update",
+      "commentPlaceholder": "Explain the resolution or escalation reason..."
+    },
+    "sidebar": {
+      "title": "Escalation Details",
+      "dealInfo": "Deal Info",
+      "assignedTo": "Assigned Rep",
+      "escalatedTo": "Assigned Analyst",
+      "ruleTriggers": "Trigger Details",
+      "resolutionWorkflow": "Manager Review Workflow",
+      "timeline": "Escalation Timeline",
+      "statusLabel": "Status",
+      "severityLabel": "Severity"
+    },
+    "loading": "Loading risk dashboard...",
+    "error": "We couldn't load the risk analysis. Please try again."
+  },
+  "dashboards": {
+    "pageTitle": "Intelligence Suite",
+    "subtitle": "Role-based dashboards providing deep-dives into team KPIs and revenue streams.",
+    "rep": {
+      "console": "Representative Workspace",
+      "totalInteractions": "Total Interactions",
+      "processedMeetings": "Processed Meetings",
+      "activePipeline": "Active Pipeline Value",
+      "fromLastMonth": "from last month",
+      "thisWeek": "this week",
+      "quarterlyAdj": "Quarterly adjustment",
+      "uploadTitle": "Upload Meeting Intel",
+      "uploadSubtitle": "Drag & drop meeting recordings (audio/video) to trigger AI transcription and sentiment analysis.",
+      "chooseFile": "Choose File",
+      "linkMeet": "Link Google Meet",
+      "recentMeetings": "Recent Meetings",
+      "meetingName": "Meeting Name",
+      "date": "Date",
+      "participants": "Participants",
+      "status": "Status",
+      "highIntent": "High Intent",
+      "closedWon": "Closed-Won",
+      "aiSummary": "AI Executive Summary",
+      "keyHighlight": "Key Highlight",
+      "highlightBody": "Client expressed strong interest in API Integration and scalability. Budget concerns were mentioned but secondary to feature parity.",
+      "sentimentAnalysis": "Sentiment Analysis",
+      "positive": "Positive",
+      "keyTopics": "Key Topics",
+      "generateEmail": "Generate Follow-up Email",
+      "pipelineHealth": "Pipeline Health",
+      "pipelineNote1": "Acme Corp moved to Closing — probability increased to 92%.",
+      "pipelineNote2": "New Lead: Global Tech Inc — matched ideal customer profile."
+    },
+    "manager": {
+      "console": "Manager Console",
+      "totalRevenue": "Total Revenue",
+      "winRate": "Win Rate",
+      "conversionRate": "Conversion Rate",
+      "activeLeads": "Active Leads",
+      "salesPerformance": "Sales Performance",
+      "revenue": "Revenue",
+      "target": "Target",
+      "dealDistribution": "Deal Distribution",
+      "active": "Active",
+      "discovery": "Discovery",
+      "negotiation": "Negotiation",
+      "proposal": "Proposal",
+      "topPerformers": "Top Performers",
+      "goal": "Goal",
+      "closed": "Closed",
+      "criticalAlerts": "Critical Alerts",
+      "priority": "Priority",
+      "dealAccount": "Deal / Account",
+      "issueType": "Issue Type",
+      "value": "Value",
+      "owner": "Owner",
+      "action": "Action",
+      "atRisk": "At Risk",
+      "stuck": "Stuck",
+      "noActivity": "No Activity",
+      "liveStatus": "Live Engine Status: Active",
+      "lastSynced": "Last synced: 2 minutes ago"
+    },
+    "executive": "Executive Dashboard",
+    "selectRole": "Select Dashboard View Mode",
+    "kpis": {
+      "quota": "Quota Attainment",
+      "pipeline": "Pipeline Size",
+      "talkRatio": "Avg Talk Ratio",
+      "activities": "Activities Done"
+    },
+    "charts": {
+      "performance": "Performance History",
+      "pipeline": "Pipeline Stages",
+      "talkRatio": "Talk Ratio Attainment",
+      "quota": "Team Quota Attainment",
+      "trend": "Call Volume Trend",
+      "coaching": "Coaching Priorities",
+      "growth": "Revenue Growth",
+      "health": "Pipeline Health",
+      "target": "Annual Target Attainment"
+    },
+    "greeting": "Good Morning, Alex.",
+    "overview": "Here's your team's performance overview for this month.",
+    "thisMonth": "This Month",
+    "viewAll": "View all",
+    "exec": {
+      "console": "Executive Summary",
+      "acv": "Annual Contract Value",
+      "globalPipeline": "Global Pipeline",
+      "execWinRate": "Win Rate",
+      "exposure": "Exposure Index",
+      "revenueForecast": "Revenue Forecast",
+      "actual": "Actual",
+      "forecast": "Forecast",
+      "topSources": "Top Performers Leaderboard",
+      "aiForecast": "AI Forecast",
+      "forecastBody": "Reducing stagnation in the Technical Validation stage by 3 days could recover up to $1.2M in projected revenue this quarter.",
+      "generatePlan": "Generate Action Plan"
+    }
+  },
+  "notifications": {
+    "pageTitle": "Notification Center",
+    "subtitle": "Real-time system updates, client mentions, and alert histories.",
+    "alerts": "Alert History",
+    "mentions": "Mentions",
+    "system": "System Notifications",
+    "markAllRead": "Mark all as read",
+    "types": {
+      "success": "Success",
+      "warning": "Warning",
+      "error": "Error",
+      "info": "Info"
+    },
+    "insightsSummary": "Insights Summary",
+    "unreadMentions": "Unread Mentions",
+    "atRiskDeals": "At-Risk Deals",
+    "opportunities": "Opportunities",
+    "configurePref": "Configure Preferences",
+    "aiBriefTitle": "AI Smart Summaries",
+    "aiBriefDesc": "Let AI condense your daily notifications into a 30-second brief delivered every morning.",
+    "aiBriefBtn": "Enable Briefs",
+    "teamOverview": "Team Overview",
+    "teamOverviewSub": "Won Acme deal • 1h ago",
+    "teamOverviewSub2": "Updated Forecast • 3h ago"
+  },
+  "workflows": {
+    "pageTitle": "Workflow Automation Builder",
+    "subtitle": "Design triggers, conditions, and actions to streamline your sales operations.",
+    "canvas": "Workflow Canvas",
+    "editor": "Node Properties Editor",
+    "list": "Workflow Blueprints",
+    "details": "Workflow Specifications",
+    "saveWorkflow": "Save Workflow",
+    "newWorkflow": "Create New Workflow",
+    "triggers": {
+      "meeting_uploaded": "Meeting Uploaded",
+      "analysis_completed": "Analysis Completed",
+      "risk_detected": "Risk Detected",
+      "stage_changed": "Deal Stage Changed"
+    },
+    "actions": {
+      "send_notification": "Send Notification",
+      "escalate": "Escalate Deal",
+      "create_task": "Create Action Task",
+      "update_deal": "Update Deal Status"
+    }
+  },
+  "integrations": {
+    "pageTitle": "Integrations Directory",
+    "subtitle": "Connect external data feeds, CRMs, and email clients to capture customer interaction signals.",
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "connected": "Connected",
+    "disconnected": "Disconnected",
+    "error": "Connection Error",
+    "healthStatus": "Health Status",
+    "syncHistory": "Sync History",
+    "settingsTitle": "Sync Configuration Settings",
+    "activeConnections": "Active Integration Services",
+    "history": {
+      "timestamp": "Sync Time",
+      "status": "Status",
+      "records": "Records Captured",
+      "noHistory": "No sync records logged yet."
+    }
+  },
+  "developer": {
+    "pageTitle": "Developer Settings",
+    "subtitle": "Configure application API keys, webhook URLs, and trace system payload deliveries.",
+    "apiKeys": "API Credentials",
+    "webhooks": "Webhook Subscriptions",
+    "deliveryLogs": "Delivery Logs Log",
+    "createKey": "Create API Key",
+    "keyName": "Credential Name",
+    "keyPrefix": "Prefix ID",
+    "status": "Status",
+    "actions": "Actions",
+    "revoke": "Revoke",
+    "revoked": "Revoked",
+    "active": "Active",
+    "newWebhook": "Register Webhook",
+    "webhookUrl": "Destination URL",
+    "events": "Trigger Events",
+    "secret": "Signing Secret",
+    "logs": {
+      "event": "Triggered Event",
+      "status": "Response Status",
+      "code": "HTTP Status",
+      "duration": "Latency",
+      "retry": "Retry Delivery"
+    }
+  },
+  "aiSettings": {
+    "pageTitle": "AI Providers & System Health",
+    "subtitle": "Configure active large language models, customize prompt blueprints, and trace billing consumption.",
+    "providerName": "AI Engine Provider",
+    "status": "Status",
+    "activeModel": "Active Model",
+    "cost": "Cost Accrued",
+    "tokens": "Tokens Consumed",
+    "systemHealth": "System Health Monitor",
+    "queueBacklog": "Queue Backlog",
+    "processingRate": "Processing Rate",
+    "uptime": "System Uptime Ratio",
+    "component": "Sub-component",
+    "latency": "Latency",
+    "monthlyBillingUsage": "AI Engine Usage & Cost Tracking",
+    "computeEngines": "AI Compute Engines",
+    "featureOrchestration": "Feature Orchestration",
+    "featureOrchestrationDesc": "Control AI capabilities across the organization",
+    "activeToggles": "{count} Active Toggles",
+    "features": {
+      "autoSummary": "Auto-Summarization",
+      "autoSummaryDesc": "Automatically generate concise summaries for every sales call and meeting transcript.",
+      "sentimentEngine": "Sentiment Analysis Engine",
+      "sentimentEngineDesc": "Analyze vocal tone and keyword intent to categorize lead heat and sentiment levels.",
+      "competitorTracking": "Competitor Tracking",
+      "competitorTrackingDesc": "Flag mentions of competitor pricing and features during conversations for battlecard updates."
+    }
+  },
+  "companies": {
+    "pageTitle": "SaaS Companies Directory",
+    "subtitle": "Oversee tenant accounts, subscription tiers, and active seats configuration.",
+    "name": "Company Name",
+    "industry": "Industry Sector",
+    "domain": "Web Domain",
+    "plan": "Subscription Plan",
+    "users": "Active Members",
+    "status": "Billing Status",
+    "create": "Register Company",
+    "edit": "Modify Company Settings",
+    "actionsColumn": "Action",
+    "loading": "Loading Companies Directory…",
+    "registrationDate": "Registration Date",
+    "usersUnit": "{count} users",
+    "emptyTitle": "No Company Selected",
+    "emptyBody": "Select a tenant in the table to view their account metadata.",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "namePlaceholder": "e.g. Initech Group",
+    "industryPlaceholder": "e.g. Healthcare",
+    "domainPlaceholder": "e.g. initech.com",
+    "plans": {
+      "starter": "Starter",
+      "growth": "Growth",
+      "enterprise": "Enterprise"
+    },
+    "statuses": {
+      "active": "Active",
+      "trial": "Trial",
+      "suspended": "Suspended"
+    },
+    "kpis": {
+      "totalAccounts": "Total Active Accounts",
+      "totalPipeline": "Total Deal Pipeline",
+      "highIntent": "High Intent Companies",
+      "activities24h": "Activities (24h)"
+    }
+  },
+  "contacts": {
+    "pageTitle": "Contacts Directory",
+    "subtitle": "Manage individual lead profiles, inspect interaction history timelines, and attach custom memos.",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "company": "Associated Company",
+    "title": "Job Title",
+    "status": "Status State",
+    "timeline": "Timeline Feed",
+    "notes": "Memos & Annotations",
+    "addNote": "Attach Memo",
+    "search": "Filter by name, domain, or company...",
+    "kpis": {
+      "totalContacts": "Total Contacts",
+      "highIntent": "High Intent",
+      "responseRate": "Response Rate",
+      "activeDeals": "Active Deals"
+    }
+  },
+  "users": {
+    "pageTitle": "User Management & Permissions",
+    "subtitle": "Oversee platform members, assign role-based access levels, and invite new delegates.",
+    "name": "Full Name",
+    "email": "Work Email",
+    "role": "System Role",
+    "department": "Department",
+    "status": "Activity Status",
+    "lastLogin": "Last Login Session",
+    "invite": "Invite Member",
+    "deactivate": "Deactivate Member",
+    "edit": "Edit Permissions",
+    "save": "Save Changes",
+    "cancel": "Cancel",
+    "emailPlaceholder": "name@company.com",
+    "inviteModal": {
+      "title": "Invite New Team Member",
+      "desc": "An email invitation will be sent to the specified address containing the setup instructions.",
+      "submit": "Send Invitation"
+    },
+    "kpis": {
+      "totalUsers": "Total Users",
+      "activeNow": "Active Now",
+      "invited": "Invited Users",
+      "securityAlerts": "Security Alerts",
+      "allClear": "All Clear",
+      "pending": "Pending"
+    }
+  },
+  "billing": {
+    "pageTitle": "Subscription Plan & Billing Overview",
+    "subtitle": "Manage subscription tiers, monitor processed data limits, and inspect invoices histories.",
+    "currentPlan": "Active Subscription Plan Tiers",
+    "usageSummary": "AI Compute Resource Usage Tracking",
+    "invoicesTitle": "Historical Invoice Statements",
+    "pricingTitle": "Available Package Options",
+    "metrics": {
+      "meetings": "Meetings Transcribed",
+      "aiTokens": "AI Summary Requests",
+      "storage": "Audio Archive Storage",
+      "users": "Active Seat Allocations"
+    },
+    "starter": "Starter",
+    "professional": "Professional",
+    "enterprise": "Enterprise",
+    "invoices": {
+      "id": "Invoice ID",
+      "amount": "Billed Amount",
+      "date": "Billing Date",
+      "status": "Payment Status",
+      "action": "Actions"
+    }
+  },
+  "auditLogs": {
+    "pageTitle": "Security Activity Logs",
+    "subtitle": "Trace system audit trails, login records, and critical settings modifications.",
+    "export": "Export Logs Logs",
+    "event": "Triggered Event",
+    "user": "Initiator",
+    "severity": "Severity Grade",
+    "ip": "IP Address",
+    "details": "Details Payload",
+    "time": "Timestamp"
+  },
+  "adminSettings": {
+    "pageTitle": "Global System Administration Settings",
+    "subtitle": "Configure SMTP relay presets, organization detail metadata, and login password complexities.",
+    "general": "General Org Settings",
+    "branding": "Interface Branding Themes",
+    "security": "System Security Policies",
+    "notifications": "Notification Alert Settings",
+    "save": "Commit Settings",
+    "reset": "Discard Settings",
+    "success": "Configuration settings saved successfully."
+  },
+  "analytics": {
+    "pageTitle": "Revenue Analytics",
+    "subtitle": "Deep-dive performance monitoring for Enterprise Global Sales.",
+    "ranges": {
+      "d": "D",
+      "w": "W",
+      "m": "M",
+      "y": "Y"
+    },
+    "kpis": {
+      "revenue": "Revenue",
+      "conversion": "Conversion",
+      "activeDeals": "Active Deals",
+      "avgDealSize": "Avg Deal Size",
+      "revenueHint": "vs last month: $2.2M",
+      "conversionHint": "Avg lead-to-close rate",
+      "activeDealsHint": "Across 14 pipeline stages",
+      "avgDealSizeHint": "Trend: Increasing",
+      "stable": "Stable",
+      "highImpact": "High Impact"
+    },
+    "revenueGrowth": "Revenue Growth",
+    "grossRevenue": "Gross Revenue",
+    "forecast": "Forecast",
+    "aiSuggestions": "AI Suggestions",
+    "aiSuggestionTitle": "Upsell Opportunity Detected",
+    "aiSuggestionBody": "Enterprise Tier accounts in the Northeast show a 42% higher adoption of Intelligence features. Recommend targeted expansion campaigns for Tier 2 accounts.",
+    "generateActionPlan": "Generate Action Plan",
+    "riskAnalysis": "Risk Analysis",
+    "riskTitle": "3 High-Value Deals at Risk",
+    "riskBody": "Acme Corp and Globex have missed engagement windows by >14 days.",
+    "funnelEfficiency": "Funnel Efficiency",
+    "funnel": {
+      "newLeads": "New Leads",
+      "qualified": "Qualified (MQL)",
+      "negotiation": "Negotiation",
+      "closedWon": "Closed Won"
+    },
+    "leadVelocity": "Overall Lead-to-Close Velocity",
+    "days": "{count} Days",
+    "regionalTitle": "Regional Deal Distribution",
+    "region": "Region",
+    "volume": "Volume",
+    "marketShare": "Market Share",
+    "sentiment": "Sentiment",
+    "sentiments": {
+      "high": "High",
+      "neutral": "Neutral",
+      "low": "Low"
+    }
+  }
+}

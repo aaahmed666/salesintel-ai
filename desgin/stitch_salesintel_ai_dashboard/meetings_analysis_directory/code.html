@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Meetings Directory | Sales Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#fcfcff",
+                    "outline": "#767586",
+                    "surface-tint": "#494bd6",
+                    "on-tertiary-fixed": "#001e2f",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "surface-container-high": "#dce9ff",
+                    "on-tertiary-fixed-variant": "#004c6e",
+                    "on-secondary-fixed": "#23005c",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-fixed": "#07006c",
+                    "surface-container-highest": "#d3e4fe",
+                    "primary-fixed": "#e1e0ff",
+                    "primary": "#4648d4",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#cbdbf5",
+                    "secondary-container": "#8455ef",
+                    "on-surface-variant": "#464554",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#fffbff",
+                    "surface-variant": "#d3e4fe",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "inverse-primary": "#c0c1ff",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "on-primary-container": "#fffbff",
+                    "primary-container": "#6063ee",
+                    "outline-variant": "#c7c4d7",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "surface": "#f8f9ff",
+                    "tertiary-fixed": "#c9e6ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#007cb1",
+                    "tertiary": "#00628d",
+                    "secondary-fixed": "#e9ddff",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#f8f9ff",
+                    "secondary": "#6b38d4",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-container": "#e5eeff",
+                    "on-background": "#0b1c30",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#89ceff",
+                    "inverse-surface": "#213145"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "margin-page": "40px",
+                    "md": "16px",
+                    "gutter": "20px",
+                    "xs": "8px",
+                    "base": "4px",
+                    "sm": "12px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Geist"],
+                    "label-sm": ["Geist"],
+                    "label-md": ["Geist"],
+                    "headline-lg-mobile": ["Geist"],
+                    "body-sm": ["Inter"],
+                    "headline-md": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<div class="flex h-screen overflow-hidden">
+<!-- SideNavBar - JSON Implementation -->
+<aside class="docked h-screen w-64 border-r border-outline-variant bg-surface-container-low flex flex-col py-lg shrink-0">
+<div class="px-md mb-xl flex items-center gap-xs">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">insights</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">SalesForce AI</h1>
+<p class="font-label-sm text-label-sm text-outline">Enterprise Tier</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1 px-sm">
+<!-- Navigation Tabs from JSON -->
+<a class="hover:bg-surface-container-highest transition-colors duration-200 text-on-surface-variant flex items-center gap-3 px-4 py-2 rounded-lg group" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-md text-label-md">Intelligence</span>
+</a>
+<a class="hover:bg-surface-container-highest transition-colors duration-200 text-on-surface-variant flex items-center gap-3 px-4 py-2 rounded-lg group" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-label-md text-label-md">Leads</span>
+</a>
+<a class="hover:bg-surface-container-highest transition-colors duration-200 text-on-surface-variant flex items-center gap-3 px-4 py-2 rounded-lg group" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-label-md text-label-md">Pipelines</span>
+</a>
+<!-- Active Tab Logic: Mapping "Activity" to Meetings Directory -->
+<a class="text-primary font-bold flex items-center gap-3 px-4 py-2 bg-surface-container-high rounded-lg group scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">reorder</span>
+<span class="font-label-md text-label-md">Activity</span>
+</a>
+<a class="hover:bg-surface-container-highest transition-colors duration-200 text-on-surface-variant flex items-center gap-3 px-4 py-2 rounded-lg group" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="hover:bg-surface-container-highest transition-colors duration-200 text-on-surface-variant flex items-center gap-3 px-4 py-2 rounded-lg group" href="#">
+<span class="material-symbols-outlined">settings_suggest</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-sm pt-xl space-y-4">
+<button class="w-full py-2 px-4 rounded-xl bg-gradient-to-r from-primary to-secondary text-on-primary font-label-md text-label-md shadow-sm hover:opacity-90 transition-opacity">
+                    Upgrade Plan
+                </button>
+<div class="border-t border-outline-variant pt-4 space-y-1">
+<a class="hover:bg-surface-container-highest transition-colors duration-200 text-on-surface-variant flex items-center gap-3 px-4 py-2 rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+<a class="hover:bg-surface-container-highest transition-colors duration-200 text-on-surface-variant flex items-center gap-3 px-4 py-2 rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+<!-- TopNavBar - JSON Implementation -->
+<header class="flex justify-between items-center w-full px-xl h-16 sticky top-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-outline-variant">
+<div class="flex items-center gap-lg">
+<h2 class="font-headline-md text-headline-md font-black text-on-surface">Sales Intelligence</h2>
+<div class="hidden md:flex gap-md">
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-md text-label-md pb-1" href="#">Dashboard</a>
+<a class="text-primary border-b-2 border-primary transition-all font-label-md text-label-md pb-1" href="#">Reports</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-md text-label-md pb-1" href="#">Forecasts</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline">search</span>
+<input class="pl-10 pr-4 py-1.5 rounded-full border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-body-sm text-body-sm w-64" placeholder="Search meetings..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary p-2">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary p-2">history</button>
+<div class="h-8 w-8 rounded-full border border-outline overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional corporate headshot of a female sales executive in a minimalist studio. She wears a sharp navy blazer and has a confident, warm expression. The background is a clean, neutral grey with soft three-point lighting that emphasizes her professional demeanor. The image has a crisp, high-end SaaS marketing aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOIf0w_xggD2_BiimtLQ3QwFK3DgzOU3Nj3t_IIrMIfZ92V0jFMWZrC1y1TEJQPapUOSbUEiQ7tJPxlNJoNldFYSATaZy8zdQEV_xtaK_5D8tdICWiE4aVa087DTIu5hO0fWzbL1zi4nw73O6oehlOM6bOVzda2gnml2ER1YWhhER2kglCfCfGRjswInBlfvzaGCydMIqbOtcA6cyvoLP32k3eQfOGXn-kRXndzUtPVNjfqtIcNttZv82OfD93PYjBdw4Bxfemt407"/>
+</div>
+</div>
+</header>
+<!-- Main Page Content -->
+<div class="p-margin-page space-y-xl">
+<!-- KPI Section - Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- KPI Card 1 -->
+<div class="glass-panel p-lg rounded-xl flex items-center justify-between hover:shadow-lg transition-shadow">
+<div>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider mb-xs">Total Call Volume</p>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">1,284</h3>
+<p class="flex items-center gap-1 font-body-sm text-body-sm text-tertiary mt-2">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                                +12.5% this month
+                            </p>
+</div>
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">call</span>
+</div>
+</div>
+<!-- KPI Card 2 -->
+<div class="glass-panel p-lg rounded-xl flex items-center justify-between hover:shadow-lg transition-shadow">
+<div>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider mb-xs">Avg. Sentiment</p>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">84/100</h3>
+<div class="w-32 h-2 bg-surface-container rounded-full mt-3">
+<div class="h-full bg-tertiary rounded-full" style="width: 84%"></div>
+</div>
+</div>
+<div class="w-12 h-12 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-3xl">sentiment_satisfied</span>
+</div>
+</div>
+<!-- KPI Card 3 -->
+<div class="glass-panel p-lg rounded-xl flex items-center justify-between hover:shadow-lg transition-shadow">
+<div>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider mb-xs">Top Competitor Mentioned</p>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">AcmeCorp</h3>
+<p class="font-body-sm text-body-sm text-error mt-2">Mentioned in 18% of calls</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-error-container/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-3xl">compare_arrows</span>
+</div>
+</div>
+</div>
+<!-- Meetings Table Section -->
+<div class="bg-surface rounded-xl border border-outline-variant overflow-hidden shadow-sm">
+<div class="px-lg py-md border-b border-outline-variant flex items-center justify-between bg-surface-container-lowest">
+<h4 class="font-headline-md text-headline-md font-semibold text-on-surface">Meetings Directory</h4>
+<div class="flex gap-sm">
+<button class="flex items-center gap-xs px-3 py-1.5 rounded-lg border border-outline-variant font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-md">filter_list</span>
+                                Filter
+                            </button>
+<button class="flex items-center gap-xs px-3 py-1.5 rounded-lg border border-outline-variant font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-md">download</span>
+                                Export
+                            </button>
+<button class="flex items-center gap-xs px-4 py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-md">add</span>
+                                Create Lead
+                            </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-lg py-4 font-label-sm text-label-sm text-outline uppercase tracking-wider">Meeting Name</th>
+<th class="px-lg py-4 font-label-sm text-label-sm text-outline uppercase tracking-wider">Date &amp; Time</th>
+<th class="px-lg py-4 font-label-sm text-label-sm text-outline uppercase tracking-wider">Representative</th>
+<th class="px-lg py-4 font-label-sm text-label-sm text-outline uppercase tracking-wider">Deal Value</th>
+<th class="px-lg py-4 font-label-sm text-label-sm text-outline uppercase tracking-wider text-center">Sentiment</th>
+<th class="px-lg py-4 font-label-sm text-label-sm text-outline uppercase tracking-wider">AI Insights</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-lg py-4">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Q4 Expansion Strategy</span>
+<span class="font-body-sm text-body-sm text-outline">Global Logistics Corp</span>
+</div>
+</td>
+<td class="px-lg py-4 font-body-sm text-body-sm text-on-surface-variant">
+                                        Oct 24, 2023 · 10:30 AM
+                                    </td>
+<td class="px-lg py-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up portrait of a professional man in his 30s with a clean-shaven face and neatly styled hair. He is wearing a minimalist white shirt and is captured against a soft, bright office background with light-colored furniture and large windows. The lighting is bright and airy, suggesting a modern and efficient work environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClP89AFlIXwYMQn75zYLY-y-8uv7YTUd5bA_GadlLFg3p3_dYoV2a78O8KHTFdkDvukC0i59NFTY4qDdbRN77glooKiwyDmLIbyB0b17h9ouPPSUXV9Zg9dHdkeke3giH3RXxdUk2x_2gEBIFQo8tAGvYhMuGq96_Oua9Yh_-49xKoyqY5A9RNUzFND9D8yPEYhpHjn-ocDkQWG4kNer_sixJVtmwOM039eyYqfCR0gt6mw0kxFkFQRMFkoc58P9w5agWfEmy0KMBC"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">David Chen</span>
+</div>
+</td>
+<td class="px-lg py-4 font-body-sm text-body-sm font-medium text-on-surface">
+                                        $240,000
+                                    </td>
+<td class="px-lg py-4 text-center">
+<div class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm border border-tertiary/20">
+                                            Positive (92)
+                                        </div>
+</td>
+<td class="px-lg py-4">
+<div class="flex flex-wrap gap-xs">
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm">High Intent</span>
+<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-sm text-label-sm">Decision Maker Present</span>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-lg py-4">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Initial Discovery Call</span>
+<span class="font-body-sm text-body-sm text-outline">Apex Systems Ltd</span>
+</div>
+</td>
+<td class="px-lg py-4 font-body-sm text-body-sm text-on-surface-variant">
+                                        Oct 23, 2023 · 2:00 PM
+                                    </td>
+<td class="px-lg py-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a young professional woman with glasses, smiling warmly at the camera. She is in a blurred office setting with warm wooden accents and soft lighting. The visual style is focused on clarity and professionalism, with a palette of warm neutrals and soft office blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAocNp6guW_pba-Y3Y5BDCw0AQH4uvR9l-TTAPHgvDYXvGwqQuZvFEeadAAcVzIKP_TGsZaYfY1j2u5XuHTfpVChWVzxhF75dDg2SqegduCvrC4g4N4hg0eVk1TiGd_Kl93A4Mfnxdac9-I-q4xzcj5vDVrq3_0bTxcZaR245YMFSfxxXZP1VxjXYjlN4rlymbzj9JH1jAlYCG3dMd0UPjxSxMgU-QjPc3hhyyuWrN3ZlWegqe4eAFvGZlISELNCYUKcDHJ8QwNp-w0"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">Sarah Miller</span>
+</div>
+</td>
+<td class="px-lg py-4 font-body-sm text-body-sm font-medium text-on-surface">
+                                        $45,000
+                                    </td>
+<td class="px-lg py-4 text-center">
+<div class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-on-surface-variant/10 text-on-surface-variant font-label-sm text-label-sm border border-outline-variant">
+                                            Neutral (54)
+                                        </div>
+</td>
+<td class="px-lg py-4">
+<div class="flex flex-wrap gap-xs">
+<span class="px-2 py-0.5 rounded bg-error/10 text-error font-label-sm text-label-sm">Competitor Mentioned</span>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-lg py-4">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Pricing Objection Follow-up</span>
+<span class="font-body-sm text-body-sm text-outline">Innova Tech</span>
+</div>
+</td>
+<td class="px-lg py-4 font-body-sm text-body-sm text-on-surface-variant">
+                                        Oct 23, 2023 · 9:15 AM
+                                    </td>
+<td class="px-lg py-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sharp, detailed portrait of an experienced male executive in his late 40s. He has salt-and-pepper hair and wears a professional grey sweater over a collared shirt. He is set against a blurred background of a sophisticated high-rise office with evening city lights. The aesthetic is authoritative and high-end." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4cCAxDg2qwybBhLppNBu2iZcge7HuX-Jo5TPlT33vCoS4kSCGUhXanHfmX1uH_kFiBXgJeL9aZYyFxqFFG5aU2Mglc5yghdFZR-M9JjI_6sBh9KWvU09njMLrL3lQjoG0Pa3jn3y7IBckiwpgUyKCTEHjU5-wvT0KRpOJ7OiE-4GxW3V2jFCrz5akRxneY1M2ILYODyHQfS5eOcfLPC8qwqBF7JZ33LxMDVTxHMNpsANr6i9Ae3KZD9ZVbVdofMFQeASlaVmnaR-T"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">Robert Blake</span>
+</div>
+</td>
+<td class="px-lg py-4 font-body-sm text-body-sm font-medium text-on-surface">
+                                        $112,500
+                                    </td>
+<td class="px-lg py-4 text-center">
+<div class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-error/10 text-error font-label-sm text-label-sm border border-error/20">
+                                            Critical (38)
+                                        </div>
+</td>
+<td class="px-lg py-4">
+<div class="flex flex-wrap gap-xs">
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-sm text-label-sm">Budget Risks</span>
+<span class="px-2 py-0.5 rounded bg-on-secondary-fixed-variant/10 text-on-secondary-fixed-variant font-label-sm text-label-sm">Technical Blockers</span>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-lg py-4">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Contract Review</span>
+<span class="font-body-sm text-body-sm text-outline">Stellar Blue Inc</span>
+</div>
+</td>
+<td class="px-lg py-4 font-body-sm text-body-sm text-on-surface-variant">
+                                        Oct 22, 2023 · 4:45 PM
+                                    </td>
+<td class="px-lg py-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a diverse woman in a bright, modern studio. She has a vibrant personality and is wearing a stylish terracotta-colored top. The lighting is soft and flattering, highlighting her features. The background is a crisp white with minimal plant accents, creating a fresh and professional SaaS vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQACMR9FROxwJF5V6zaBOn7nH0gotqve4WrdYuR7ixWOxRcArBrPx8ODIasRvh9gEIoeXGzx4Q8s6z0pveRYkUl27WRcvy7DI8AsxzChbH2WT5lU5dWQepvFemzca_cvknDaT3gz8OGxNegrfAiN1tDrTsPJWbczr9PmfVXenewWQDeWZe0nx5vrEMBkwOL4fyGcQR5qtw2dKkU7R22yAOiOs0ez0UleVxpKajipy_uIV9bteDJFr1euopFRfukM5eAEwFrt6VNhQx"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">Elena Rodriguez</span>
+</div>
+</td>
+<td class="px-lg py-4 font-body-sm text-body-sm font-medium text-on-surface">
+                                        $320,000
+                                    </td>
+<td class="px-lg py-4 text-center">
+<div class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm border border-tertiary/20">
+                                            Very Positive (98)
+                                        </div>
+</td>
+<td class="px-lg py-4">
+<div class="flex flex-wrap gap-xs">
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm shadow-sm">Ready to Sign</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-lg py-md border-t border-outline-variant flex items-center justify-between bg-surface-container-lowest">
+<p class="font-body-sm text-body-sm text-outline">Showing 4 of 284 meetings</p>
+<div class="flex gap-xs">
+<button class="px-3 py-1 rounded border border-outline-variant font-label-md text-label-md hover:bg-surface-container transition-colors disabled:opacity-50" disabled="">Previous</button>
+<button class="px-3 py-1 rounded bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors">Next</button>
+</div>
+</div>
+</div>
+<!-- Footer Stats Cluster -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter pt-xl border-t border-outline-variant">
+<div class="text-center md:text-left">
+<span class="font-label-sm text-label-sm text-outline uppercase">Active Reps</span>
+<p class="font-headline-md text-headline-md font-bold text-on-surface">42</p>
+</div>
+<div class="text-center md:text-left">
+<span class="font-label-sm text-label-sm text-outline uppercase">Avg. Call Duration</span>
+<p class="font-headline-md text-headline-md font-bold text-on-surface">24m 12s</p>
+</div>
+<div class="text-center md:text-left">
+<span class="font-label-sm text-label-sm text-outline uppercase">Success Rate</span>
+<p class="font-headline-md text-headline-md font-bold text-tertiary">78%</p>
+</div>
+<div class="text-center md:text-left">
+<span class="font-label-sm text-label-sm text-outline uppercase">AI Accuracy</span>
+<p class="font-headline-md text-headline-md font-bold text-secondary">99.2%</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('tr.cursor-pointer').forEach(row => {
+            row.addEventListener('click', () => {
+                const name = row.querySelector('.font-body-md').innerText;
+                // Add a visual 'selected' effect briefly
+                row.classList.add('bg-primary-container/10');
+                setTimeout(() => {
+                    row.classList.remove('bg-primary-container/10');
+                    console.log(`Opening details for: ${name}`);
+                }, 300);
+            });
+        });
+
+        // Search Bar Focus Effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-105');
+            searchInput.parentElement.style.transition = 'transform 0.2s ease-out';
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-105');
+        });
+    </script>
+</body></html>

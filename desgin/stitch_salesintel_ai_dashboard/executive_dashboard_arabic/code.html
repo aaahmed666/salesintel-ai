@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sales Intelligence AI - Executive Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "tertiary": "#00628d",
+                "tertiary-fixed": "#c9e6ff",
+                "surface-bright": "#f8f9ff",
+                "on-primary-fixed": "#07006c",
+                "on-error": "#ffffff",
+                "surface-container-low": "#eff4ff",
+                "on-secondary-container": "#fffbff",
+                "on-error-container": "#93000a",
+                "on-surface-variant": "#464554",
+                "on-secondary-fixed": "#23005c",
+                "surface-variant": "#d3e4fe",
+                "on-tertiary": "#ffffff",
+                "on-tertiary-fixed-variant": "#004c6e",
+                "error-container": "#ffdad6",
+                "outline": "#767586",
+                "background": "#f8f9ff",
+                "surface": "#f8f9ff",
+                "on-tertiary-container": "#fcfcff",
+                "tertiary-fixed-dim": "#89ceff",
+                "on-background": "#0b1c30",
+                "surface-container-lowest": "#ffffff",
+                "secondary-container": "#8455ef",
+                "on-primary": "#ffffff",
+                "error": "#ba1a1a",
+                "surface-dim": "#cbdbf5",
+                "primary-fixed-dim": "#c0c1ff",
+                "primary-container": "#6063ee",
+                "inverse-on-surface": "#eaf1ff",
+                "outline-variant": "#c7c4d7",
+                "inverse-surface": "#213145",
+                "surface-container-high": "#dce9ff",
+                "surface-container-highest": "#d3e4fe",
+                "on-surface": "#0b1c30",
+                "on-secondary-fixed-variant": "#5516be",
+                "on-primary-fixed-variant": "#2f2ebe",
+                "inverse-primary": "#c0c1ff",
+                "secondary-fixed": "#e9ddff",
+                "secondary-fixed-dim": "#d0bcff",
+                "on-secondary": "#ffffff",
+                "primary": "#4648d4",
+                "primary-fixed": "#e1e0ff",
+                "surface-container": "#e5eeff",
+                "secondary": "#6b38d4",
+                "tertiary-container": "#007cb1",
+                "surface-tint": "#494bd6",
+                "on-primary-container": "#fffbff",
+                "on-tertiary-fixed": "#001e2f"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "xl": "32px",
+                "xs": "8px",
+                "margin-page": "40px",
+                "base": "4px",
+                "sm": "12px",
+                "lg": "24px",
+                "gutter": "20px",
+                "md": "16px"
+            },
+            "fontFamily": {
+                "body-md": ["Inter"],
+                "headline-lg": ["Geist"],
+                "headline-md": ["Geist"],
+                "body-sm": ["Inter"],
+                "label-md": ["Geist"],
+                "label-sm": ["Geist"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      body {
+        background-color: #f8f9ff;
+        color: #0b1c30;
+        font-family: 'Inter', sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid #e2e8f0;
+      }
+      .chart-gradient {
+        background: linear-gradient(180deg, rgba(70, 72, 212, 0.1) 0%, rgba(70, 72, 212, 0) 100%);
+      }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar (Execution from JSON) -->
+<aside class="hidden md:flex flex-col h-screen w-64 border-l border-outline-variant bg-surface-container-low py-lg sticky top-0 z-50">
+<div class="px-lg mb-xl">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">insights</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">SalesForce AI</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">الفئة المؤسسية</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active Tab: Intelligence (الذكاء الاصطناعي) mapped to Home intent -->
+<a class="text-primary font-bold flex items-center gap-3 px-6 py-3 bg-surface-container-highest transition-transform scale-[0.98]" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-md text-label-md">الذكاء الاصطناعي</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-6 py-3 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-label-md text-label-md">العملاء المحتملون</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-6 py-3 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-label-md text-label-md">خطوط الأنابيب</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-6 py-3 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">reorder</span>
+<span class="font-label-md text-label-md">النشاط</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-6 py-3 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">التحليلات</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-6 py-3 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings_suggest</span>
+<span class="font-label-md text-label-md">الإعدادات</span>
+</a>
+</nav>
+<div class="px-lg mt-auto pt-lg border-t border-outline-variant space-y-2">
+<button class="w-full bg-primary text-on-primary py-2 px-4 rounded-xl font-label-md text-label-md shadow-sm hover:opacity-90 transition-all">
+                ترقية الخطة
+            </button>
+<div class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-primary cursor-pointer">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">مساعدة</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-error cursor-pointer">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">تسجيل الخروج</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 min-w-0 overflow-auto bg-background">
+<!-- TopNavBar (Execution from JSON) -->
+<header class="flex justify-between items-center w-full px-xl h-16 sticky top-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-outline-variant">
+<div class="flex items-center gap-xl">
+<span class="font-headline-md text-headline-md font-black text-on-surface">ذكاء المبيعات</span>
+<div class="hidden md:flex gap-lg">
+<a class="text-primary border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">لوحة القيادة</a>
+<a class="text-on-surface-variant pb-1 font-label-md text-label-md hover:text-primary transition-all" href="#">التقارير</a>
+<a class="text-on-surface-variant pb-1 font-label-md text-label-md hover:text-primary transition-all" href="#">التوقعات</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative group">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pr-10 pl-4 py-2 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary/20 w-64 text-body-sm font-body-sm" placeholder="البحث عن صفقات..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">history</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a Middle Eastern male executive in a modern business suit, captured in soft professional studio lighting with a neutral gray background. The style is sharp, corporate, and trustworthy, with a clean and professional appearance suitable for a high-end enterprise software interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkqqP_Ho4CypxHh1SeO5RM923y6vGqHAi6miMqaivH0rE6yHpPG3B0tauLoL3fPmcO_BjwD_zwOcg5mKyKoDSpc0X4vimLQAgnA39yNX6OWJZvKXVqLWMAV-SkNGGANrT1ioZgnnLeniN5EIswajzp45Z6aAFqx2_VMq-R6nwPCTv9v9l_OloGt_dLrcL_Z2d_KowOdVk5qKACvTx4PlYFsXT94dSiE3D_qtQsGpp5nYqtwtaDb6mDHDZ_jcBpp120A3X9xpzcBKt1"/>
+</div>
+</div>
+<button class="hidden lg:flex items-center gap-2 bg-secondary text-on-secondary px-4 py-2 rounded-xl font-label-md text-label-md hover:opacity-90 transition-all">
+<span>إنشاء عميل</span>
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</header>
+<div class="p-xl max-w-[1400px] mx-auto">
+<!-- Header Section -->
+<div class="mb-xl flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">ملخص التنفيذي</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">مرحباً بعودتك. إليك نظرة شاملة على أداء فريقك اليوم.</p>
+</div>
+<div class="flex gap-sm">
+<div class="flex bg-surface-container rounded-xl p-1">
+<button class="px-4 py-1.5 rounded-lg bg-surface-container-lowest shadow-sm font-label-sm text-label-sm">7 أيام</button>
+<button class="px-4 py-1.5 rounded-lg text-on-surface-variant font-label-sm text-label-sm">30 يوم</button>
+<button class="px-4 py-1.5 rounded-lg text-on-surface-variant font-label-sm text-label-sm">ربع سنوي</button>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 border border-outline-variant rounded-xl font-label-md text-label-md hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">download</span>
+<span>تصدير البيانات</span>
+</button>
+</div>
+</div>
+<!-- KPI Cards Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+<!-- KPI 1: Revenue -->
+<div class="glass-card p-lg rounded-xl">
+<div class="flex justify-between items-start mb-md">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="flex items-center gap-1 text-success text-label-sm font-label-sm bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                            12.5%
+                        </span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">إجمالي الإيرادات</p>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">4.2M ر.س</h3>
+<div class="mt-lg h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 72%"></div>
+</div>
+<p class="mt-sm font-body-sm text-body-sm text-on-surface-variant">72% من المستهدف الربع سنوي</p>
+</div>
+<!-- KPI 2: Win Rate -->
+<div class="glass-card p-lg rounded-xl">
+<div class="flex justify-between items-start mb-md">
+<div class="p-2 bg-secondary/10 rounded-lg text-secondary">
+<span class="material-symbols-outlined">military_tech</span>
+</div>
+<span class="flex items-center gap-1 text-label-sm font-label-sm bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                            3.2%
+                        </span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">معدل الفوز</p>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">64.8%</h3>
+<div class="mt-lg flex gap-1">
+<div class="h-4 flex-1 bg-secondary rounded-sm opacity-20"></div>
+<div class="h-4 flex-1 bg-secondary rounded-sm opacity-40"></div>
+<div class="h-4 flex-1 bg-secondary rounded-sm opacity-60"></div>
+<div class="h-4 flex-1 bg-secondary rounded-sm opacity-80"></div>
+<div class="h-4 flex-1 bg-secondary rounded-sm"></div>
+<div class="h-4 flex-1 bg-surface-container rounded-sm"></div>
+<div class="h-4 flex-1 bg-surface-container rounded-sm"></div>
+</div>
+<p class="mt-sm font-body-sm text-body-sm text-on-surface-variant">أعلى بنسبة 5% من الشهر الماضي</p>
+</div>
+<!-- KPI 3: Pipeline Value -->
+<div class="glass-card p-lg rounded-xl">
+<div class="flex justify-between items-start mb-md">
+<div class="p-2 bg-tertiary/10 rounded-lg text-tertiary">
+<span class="material-symbols-outlined">account_tree</span>
+</div>
+<span class="flex items-center gap-1 text-label-sm font-label-sm bg-red-100 text-red-700 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_down</span>
+                            1.4%
+                        </span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">قيمة خط الأنابيب</p>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">12.9M ر.س</h3>
+<div class="mt-lg h-1.5 w-full bg-surface-container rounded-full overflow-hidden flex">
+<div class="h-full bg-tertiary rounded-full" style="width: 45%"></div>
+<div class="h-full bg-tertiary-fixed rounded-full" style="width: 30%"></div>
+</div>
+<div class="mt-sm flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>مؤهل: 45%</span>
+<span>مفاوضة: 30%</span>
+</div>
+</div>
+</div>
+<!-- Revenue Forecast Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg mb-xl">
+<div class="lg:col-span-2 glass-card p-lg rounded-xl relative overflow-hidden">
+<div class="flex justify-between items-center mb-xl">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">توقعات الإيرادات</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">مقارنة بين النمو الفعلي والمتوقع بدعم الذكاء الاصطناعي</p>
+</div>
+<div class="flex gap-md">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">الفعلي</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full border-2 border-primary border-dashed bg-transparent"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">المتوقع</span>
+</div>
+</div>
+</div>
+<div class="h-[300px] w-full flex items-end justify-between gap-4 relative">
+<!-- Chart Mockup with CSS -->
+<div class="absolute inset-0 z-0">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<!-- Actual Line -->
+<path d="M0 80 Q 20 75, 40 60 T 60 45 L 60 100 L 0 100 Z" fill="url(#grad1)" opacity="0.3"></path>
+<path d="M0 80 Q 20 75, 40 60 T 60 45" fill="none" stroke="#4648d4" stroke-width="2"></path>
+<!-- Projected Line -->
+<path d="M60 45 Q 80 35, 100 20" fill="none" stroke="#4648d4" stroke-dasharray="4" stroke-width="2"></path>
+<defs>
+<lineargradient id="grad1" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#4648d4;stop-opacity:0.5"></stop>
+<stop offset="100%" style="stop-color:#4648d4;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+<!-- Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between opacity-10">
+<div class="w-full border-b border-outline"></div>
+<div class="w-full border-b border-outline"></div>
+<div class="w-full border-b border-outline"></div>
+<div class="w-full border-b border-outline"></div>
+<div class="w-full border-b border-outline"></div>
+</div>
+<!-- Labels -->
+<div class="z-10 w-full flex justify-between px-2 text-label-sm font-label-sm text-on-surface-variant absolute bottom-[-24px]">
+<span>يناير</span>
+<span>فبراير</span>
+<span>مارس</span>
+<span>أبريل</span>
+<span>مايو</span>
+<span>يونيو</span>
+</div>
+</div>
+<div class="mt-12 bg-primary/5 p-md rounded-xl flex items-start gap-md">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<p class="font-body-sm text-body-sm text-primary">توقعات الذكاء الاصطناعي: من المتوقع زيادة بنسبة 18% في الإغلاق بحلول شهر يونيو بناءً على مسار خط الأنابيب الحالي.</p>
+</div>
+</div>
+<!-- Team Leaderboard -->
+<div class="glass-card p-lg rounded-xl">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface">لوحة المتصدرين</h3>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">more_vert</span>
+</div>
+<div class="space-y-lg">
+<!-- Rep 1 -->
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-md">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="A close-up portrait of a professional female sales leader with a friendly expression. She is wearing a modern business-casual outfit against a soft-focus office background with warm lighting. The aesthetic is bright, high-density SaaS dashboard style with a focus on human connection and professional success." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJqRIjtLynhgAnu8vPZSEVIs40QdsDYCVCPdlr1LSAQYE7qZNc1SHhJ9gXUYvb5ME576WkirjuhzuUpycLOE4o6lJEx67XUNZ_4DnrdlRVCzoCbnF8hzQxK-mYUhiKjcDEuBVXkWIpAzzSePvJVN9kc8EV6p3byyRxYnfQ6EeCOPLwgaEkEm5t8p1hADKNXGI0mVj57QuEE43bDGIoyUHDCauz0IxFxNXvsENVy4s1jHxsHFYgIBEKZvojvfX1nGP-Uw6R19PRNPBE"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-primary text-on-primary w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold">1</div>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">سارة أحمد</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">مدير حسابات أول</p>
+</div>
+</div>
+<div class="text-left">
+<p class="font-label-md text-label-md text-on-surface">98/100</p>
+<div class="w-16 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-green-500" style="width: 98%"></div>
+</div>
+</div>
+</div>
+<!-- Rep 2 -->
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-md">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-transparent group-hover:border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Portrait of a young, ambitious male professional in a modern workspace. He is smiling slightly, wearing a minimalist black turtleneck, with clean lighting that emphasizes a high-tech, innovative atmosphere. The photo has a clean, airy feeling consistent with a premium enterprise AI tool." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwtwZ8bAfcqxikuI2lU1YR83nELO9OKWGjgjFRzL53yHd6wj7iGokg9sw7e6aKvjQzAAnB-S2yWd7iWJOhWGincB60H6SmbxMeP-D0S5snky3D-Mspqy41wPXtyhcN1dBcaOxGmq7FEAMVRCG4xgyFPhr3p_keWkhpxEkiiT43tghq22GHTgcrj4Qt_bcpjKmFsPIqix-4xe1NbTUctrx9Q4AhpmE8yCsszh0l-E23c1GhrxykhhbtUP44AW_cAludRf2oyT1-UONu"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-surface-dim text-on-surface w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold">2</div>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">خالد منصور</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">أخصائي مبيعات</p>
+</div>
+</div>
+<div class="text-left">
+<p class="font-label-md text-label-md text-on-surface">85/100</p>
+<div class="w-16 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 85%"></div>
+</div>
+</div>
+</div>
+<!-- Rep 3 -->
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-md">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a female executive with glasses, radiating intelligence and confidence. Set in a contemporary architectural space with large windows and soft daylight. The image should feel integrated into a corporate minimalist UI design, using a palette of blues and soft grays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOgaua3KblCRoOw-BMuPmZ5jDRTy9BmeQpWV7mSs0KsdTZ_wnuw-_z_VyU_pq3i83_4P0R5R1WSkQTATO7KVVO3DdE0GxDOndXULgBFbEwqj41JVu3XE1GZJiOvXQrPCx5urcKHvRFnVkBPgKJtQyM2oc2_KkmkUfMNHmQBktbS3EU5l9KIe6s_pRSldZ4GOwz0C2dpMCiEqRzGpnf_qFYXK62WJ_NY8wmZm--LB1oRPoKB_UcHUzL0KbBg2IIPuO0FdkoHNmFE_bR"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-surface-dim text-on-surface w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold">3</div>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">ليلى يوسف</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">تطوير أعمال</p>
+</div>
+</div>
+<div class="text-left">
+<p class="font-label-md text-label-md text-on-surface">79/100</p>
+<div class="w-16 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 79%"></div>
+</div>
+</div>
+</div>
+<!-- Rep 4 -->
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-md">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sharp, modern portrait of a Middle Eastern male professional with a trimmed beard, looking directly at the camera with a confident posture. Lighting is professional and balanced, creating a sophisticated corporate mood. The background is a blurred high-end office interior, fitting a luxury enterprise software aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbqSOoH-6su8_yXIPJRMjTfUNAH2LHljLMMqjPpKgOHrISw6gQgB522FslwImvEZFiYgLXFVAUBnO_j_bY0AuBVa8QAYOFuUmmNS5ezBVWWFP6QflZHiXD77Q5UiEHWMRnDZIm-xePToSR3nSm-Hfz3CJRPM9YQiHVWnM3003cnBEiBampwDxMH46ZwdMbFUSpGKhMvD8h-WoAYdjxOboLLQq9ZCE0LW04WamenoT7fDfM9Chlpoybm7-EHmuzHJgJnT2q17wUpMGW"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-surface-dim text-on-surface w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold">4</div>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">عمر فوزي</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">مدير حسابات</p>
+</div>
+</div>
+<div class="text-left">
+<p class="font-label-md text-label-md text-on-surface">72/100</p>
+<div class="w-16 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 72%"></div>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-xl py-3 text-primary font-label-md text-label-md hover:bg-primary/5 rounded-xl transition-colors">
+                        عرض جميع الموظفين
+                    </button>
+</div>
+</div>
+<!-- Insights Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="glass-card p-lg rounded-xl border-r-4 border-r-secondary">
+<div class="flex items-start gap-md">
+<div class="p-2 bg-secondary/10 rounded-lg text-secondary">
+<span class="material-symbols-outlined">auto_graph</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-xs">توصية الذكاء الاصطناعي</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">هناك 12 فرصة مبيعات في قطاع "التكنولوجيا" أظهرت تفاعلاً عالياً في الـ 48 ساعة الماضية. نقترح توجيه الفريق للتركيز على هذه الصفقات فوراً.</p>
+<button class="text-secondary font-label-sm text-label-sm flex items-center gap-1 hover:underline">
+                                عرض الفرص المستهدفة
+                                <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</div>
+<div class="glass-card p-lg rounded-xl border-r-4 border-r-tertiary">
+<div class="flex items-start gap-md">
+<div class="p-2 bg-tertiary/10 rounded-lg text-tertiary">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-xs">تنبيه المخاطر</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">انخفض حجم خط الأنابيب بنسبة 4% للمرحلة النهائية. يوصى بزيادة حملات التنقيب للعملاء الجدد لتعويض هذا النقص في الربع القادم.</p>
+<button class="text-tertiary font-label-sm text-label-sm flex items-center gap-1 hover:underline">
+                                تحليل الفجوات
+                                <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB Contextual) -->
+<button class="fixed bottom-xl left-xl w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform z-50">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+<script>
+        // Micro-interaction for hover states and layout responsiveness
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+                card.style.transition = 'all 0.3s ease';
+                card.style.boxShadow = '0 10px 25px -5px rgba(0, 0, 0, 0.05)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = 'none';
+            });
+        });
+
+        // Initialize any specific dashboard behaviors here
+        console.log('SalesForce AI Dashboard Initialized in Arabic');
+    </script>
+</body></html>

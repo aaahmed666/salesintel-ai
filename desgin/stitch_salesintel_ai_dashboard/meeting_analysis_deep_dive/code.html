@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Meeting Intelligence | SalesForce AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@500;600;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-subtle {
+            animation: pulse-subtle 3s ease-in-out infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#fcfcff",
+                        "outline": "#767586",
+                        "surface-tint": "#494bd6",
+                        "on-tertiary-fixed": "#001e2f",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "surface-container-high": "#dce9ff",
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "on-secondary-fixed": "#23005c",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#07006c",
+                        "surface-container-highest": "#d3e4fe",
+                        "primary-fixed": "#e1e0ff",
+                        "primary": "#4648d4",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#cbdbf5",
+                        "secondary-container": "#8455ef",
+                        "on-surface-variant": "#464554",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#fffbff",
+                        "surface-variant": "#d3e4fe",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f8f9ff",
+                        "inverse-primary": "#c0c1ff",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-primary-container": "#fffbff",
+                        "primary-container": "#6063ee",
+                        "outline-variant": "#c7c4d7",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "surface": "#f8f9ff",
+                        "tertiary-fixed": "#c9e6ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#007cb1",
+                        "tertiary": "#00628d",
+                        "secondary-fixed": "#e9ddff",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f8f9ff",
+                        "secondary": "#6b38d4",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container": "#e5eeff",
+                        "on-background": "#0b1c30",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#89ceff",
+                        "inverse-surface": "#213145"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "margin-page": "40px",
+                        "md": "16px",
+                        "gutter": "20px",
+                        "xs": "8px",
+                        "base": "4px",
+                        "sm": "12px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Geist"],
+                        "label-sm": ["Geist"],
+                        "label-md": ["Geist"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex">
+<!-- SideNavBar (Shared Component Identity) -->
+<aside class="hidden md:flex flex-col h-screen w-64 border-r border-outline-variant bg-surface-container-low py-lg sticky top-0">
+<div class="px-lg mb-xl">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">SalesForce AI</h1>
+<p class="font-label-sm text-on-surface-variant opacity-70">Enterprise Tier</p>
+</div>
+<nav class="flex-1 space-y-1 px-sm">
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-md text-label-md">Intelligence</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-label-md text-label-md">Leads</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-label-md text-label-md">Pipelines</span>
+</a>
+<a class="text-primary font-bold flex items-center gap-3 px-4 py-2 bg-surface-container-high rounded-lg active:scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">reorder</span>
+<span class="font-label-md text-label-md">Activity</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings_suggest</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="px-lg mt-auto pt-lg border-t border-outline-variant/30">
+<button class="w-full bg-primary-container text-on-primary-container font-label-md py-3 rounded-xl mb-md hover:opacity-90 transition-opacity">
+                Upgrade Plan
+            </button>
+<div class="space-y-1">
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-xl h-16 sticky top-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-outline-variant">
+<div class="flex items-center gap-lg">
+<h2 class="font-headline-md text-headline-md font-black text-on-surface">Sales Intelligence</h2>
+<nav class="hidden lg:flex items-center gap-xl ml-xl">
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-md pb-1" href="#">Dashboard</a>
+<a class="text-primary border-b-2 border-primary font-label-md pb-1" href="#">Reports</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-md pb-1" href="#">Forecasts</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden sm:flex items-center bg-surface-container px-3 py-1.5 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-outline text-[18px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48" placeholder="Search transcript..." type="text"/>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">history</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of a female executive with a warm smile, wearing business attire, against a soft blurred office background with natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChemTZLZ_rSrxUN0PMzl1EjrH-PDdaaNKFvs6wTYQAPspaWzgU-weoJXoNONQi0RDkw02ayCZgfW-qmG7laeEMv_pCxBLErY40pSCUmm9zmeSzaCvtsMCLmkr5BwWyYL_8dXeC8SIiObt0MiArV9MVmUOrcQCnKQL6mbXsLiOSTDrI_VedjaYBOwyXEO7elupiJotdI7HInZsFqYKPMdjRa36ROVYck102p-cxrwFnGDVHYo4iA4oUC2s085Bu9-cjszSxQc_DsYXa"/>
+</div>
+</div>
+</header>
+<!-- Meeting Header Sub-Bar -->
+<div class="px-xl py-lg bg-surface border-b border-outline-variant flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div>
+<div class="flex items-center gap-sm mb-1">
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Closed-Won Probability: 84%</span>
+<span class="text-on-surface-variant text-body-sm">• October 24, 2023</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Q4 Expansion Strategy: Acme Corp x SalesForce</h3>
+</div>
+<div class="flex gap-sm">
+<button class="px-4 py-2 rounded-lg border border-outline-variant font-label-md flex items-center gap-2 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">ios_share</span> Export
+                </button>
+<button class="px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md flex items-center gap-2 hover:opacity-90 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">add</span> Create Lead
+                </button>
+</div>
+</div>
+<!-- Split Layout Wrapper -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Left 2/3: Transcript & Highlights -->
+<section class="w-2/3 flex flex-col border-r border-outline-variant bg-white custom-scrollbar overflow-y-auto">
+<!-- AI Highlights Tab -->
+<div class="p-xl bg-surface-container-lowest border-b border-outline-variant">
+<h4 class="font-label-sm text-primary mb-md uppercase tracking-widest">AI Context Highlights</h4>
+<div class="grid grid-cols-3 gap-lg">
+<div class="p-md rounded-xl bg-error-container/20 border border-error/10">
+<div class="flex items-center gap-2 mb-2 text-error">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+<span class="font-label-md">Objections (3)</span>
+</div>
+<p class="text-body-sm text-on-surface-variant italic">"Implementation timeline seems tight for our Q1 goal."</p>
+</div>
+<div class="p-md rounded-xl bg-tertiary-container/10 border border-tertiary/10">
+<div class="flex items-center gap-2 mb-2 text-tertiary">
+<span class="material-symbols-outlined text-[20px]">radar</span>
+<span class="font-label-md">Competitors</span>
+</div>
+<div class="flex flex-wrap gap-xs">
+<span class="px-2 py-1 bg-white border border-outline-variant rounded text-[10px] font-bold">HUB SPOT</span>
+<span class="px-2 py-1 bg-white border border-outline-variant rounded text-[10px] font-bold">PIPEDRIVE</span>
+</div>
+</div>
+<div class="p-md rounded-xl bg-primary-container/10 border border-primary/10">
+<div class="flex items-center gap-2 mb-2 text-primary">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+<span class="font-label-md">Key Intent</span>
+</div>
+<p class="text-body-sm text-on-surface-variant italic">High interest in AI-driven lead scoring and automated pipeline workflows.</p>
+</div>
+</div>
+</div>
+<!-- Transcript -->
+<div class="p-xl space-y-xl">
+<!-- Speaker Block -->
+<div class="flex gap-lg">
+<div class="w-12 text-on-surface-variant font-label-sm pt-1 opacity-50">02:14</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-label-md text-on-surface font-bold">Sarah Chen</span>
+<span class="text-[10px] bg-secondary-fixed text-on-secondary-fixed px-1.5 py-0.5 rounded">Prospect</span>
+</div>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                                Our current process for lead distribution is fairly manual, which results in a 24-hour lag. We need something that can route inquiries instantly based on territory and vertical expertise. Does the enterprise tier handle complex conditional routing?
+                            </p>
+</div>
+</div>
+<!-- Speaker Block (You) -->
+<div class="flex gap-lg bg-surface-container-low/30 p-md -mx-md rounded-xl border border-outline-variant/20">
+<div class="w-12 text-primary font-label-sm pt-1">02:55</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-label-md text-primary font-bold">Alex Johnson (You)</span>
+<span class="text-[10px] bg-primary-fixed text-on-primary-fixed px-1.5 py-0.5 rounded">Sales Exec</span>
+</div>
+<p class="text-body-md text-on-surface leading-relaxed">
+                                Absolutely, Sarah. Our Intelligent Routing Engine was built precisely for that. You can define multi-layer logic. For example, 'North America' plus 'Healthcare' goes to specific reps, while 'Mid-Market' leads are round-robined. It typically reduces response time by 90% in the first week.
+                            </p>
+<div class="mt-md flex items-center gap-sm">
+<span class="text-[11px] font-bold text-tertiary flex items-center gap-1 bg-tertiary/5 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> FEATURE HIGHLIGHT
+                                </span>
+</div>
+</div>
+</div>
+<!-- Speaker Block -->
+<div class="flex gap-lg">
+<div class="w-12 text-on-surface-variant font-label-sm pt-1 opacity-50">03:42</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-label-md text-on-surface font-bold">Marcus Thorne</span>
+<span class="text-[10px] bg-secondary-fixed text-on-secondary-fixed px-1.5 py-0.5 rounded">Prospect</span>
+</div>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                                That sounds promising. My main concern is the data migration from HubSpot. We have five years of historical engagement data. I'm worried about losing that context during the transition. How robust is your importer for legacy activities?
+                            </p>
+<div class="mt-sm p-3 bg-error-container/20 border border-error/20 rounded-lg">
+<span class="text-[11px] font-bold text-error flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">warning</span> OBJECTION DETECTED
+                                </span>
+<p class="text-body-sm text-error/80">Competitor Mention: HubSpot. Risk: Migration complexity.</p>
+</div>
+</div>
+</div>
+<!-- Speaker Block -->
+<div class="flex gap-lg">
+<div class="w-12 text-on-surface-variant font-label-sm pt-1 opacity-50">05:10</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-label-md text-on-surface font-bold">Sarah Chen</span>
+</div>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                                Implementation timeline seems tight for our Q1 goal. We'd need to be fully operational by January 15th. Is that realistic given the migration Marcus mentioned?
+                            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Right 1/3: Sales Intelligence Panel -->
+<aside class="w-1/3 bg-surface-container-lowest custom-scrollbar overflow-y-auto p-lg flex flex-col gap-lg shadow-[-4px_0_24px_rgba(0,0,0,0.02)]">
+<!-- Deal Health Score -->
+<div class="p-lg rounded-2xl bg-gradient-to-br from-primary to-secondary text-white relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h5 class="font-label-sm uppercase opacity-80 mb-1">Deal Health Score</h5>
+<div class="text-headline-lg font-black">88<span class="text-lg opacity-60">/100</span></div>
+</div>
+<span class="material-symbols-outlined text-[40px] opacity-20">verified_user</span>
+</div>
+<div class="w-full bg-white/20 h-1.5 rounded-full mb-xs">
+<div class="bg-white h-full rounded-full" style="width: 88%"></div>
+</div>
+<p class="text-[11px] font-medium opacity-90">Trending +4% vs last week. Key influencers are engaged.</p>
+</div>
+<div class="absolute -right-4 -bottom-4 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+</div>
+<!-- Sentiment Timeline -->
+<div class="p-lg rounded-2xl border border-outline-variant bg-white shadow-sm">
+<div class="flex justify-between items-center mb-lg">
+<h5 class="font-label-md text-on-surface font-bold">Sentiment Timeline</h5>
+<span class="material-symbols-outlined text-outline text-[18px]">more_horiz</span>
+</div>
+<div class="flex items-end gap-1.5 h-24 mb-md">
+<!-- Bar Chart Mock -->
+<div class="flex-1 bg-error/40 h-1/4 rounded-t-sm" title="Min 0-10: Skeptical"></div>
+<div class="flex-1 bg-tertiary/40 h-2/4 rounded-t-sm" title="Min 10-20: Neutral"></div>
+<div class="flex-1 bg-primary h-3/4 rounded-t-sm" title="Min 20-30: Positive"></div>
+<div class="flex-1 bg-primary h-4/5 rounded-t-sm" title="Min 30-40: Positive"></div>
+<div class="flex-1 bg-error h-2/5 rounded-t-sm" title="Min 40-50: Conflict"></div>
+<div class="flex-1 bg-primary h-full rounded-t-sm" title="Min 50-60: High Sentiment"></div>
+</div>
+<div class="flex justify-between text-[10px] text-outline font-bold uppercase">
+<span>Start</span>
+<span>0:30</span>
+<span>End</span>
+</div>
+</div>
+<!-- Quality Score & Speaker Ratio -->
+<div class="grid grid-cols-2 gap-md">
+<div class="p-md rounded-2xl border border-outline-variant bg-white flex flex-col items-center text-center">
+<h5 class="font-label-sm text-outline mb-md">Quality Score</h5>
+<div class="relative w-20 h-20 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-high" cx="40" cy="40" fill="transparent" r="34" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-primary" cx="40" cy="40" fill="transparent" r="34" stroke="currentColor" stroke-dasharray="213.6" stroke-dashoffset="53.4" stroke-width="6"></circle>
+</svg>
+<span class="absolute font-headline-md text-on-surface">75%</span>
+</div>
+<p class="text-[10px] mt-md text-on-surface-variant">Strong value articulation</p>
+</div>
+<div class="p-md rounded-2xl border border-outline-variant bg-white">
+<h5 class="font-label-sm text-outline mb-md">Talk Ratio</h5>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-[10px] mb-1">
+<span class="font-bold">You</span>
+<span>42%</span>
+</div>
+<div class="h-1.5 bg-surface-container rounded-full">
+<div class="h-full bg-primary rounded-full" style="width: 42%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] mb-1">
+<span class="font-bold">Prospect</span>
+<span>58%</span>
+</div>
+<div class="h-1.5 bg-surface-container rounded-full">
+<div class="h-full bg-secondary-container rounded-full" style="width: 58%"></div>
+</div>
+</div>
+</div>
+<p class="text-[10px] mt-md text-on-surface-variant text-center">Healthy balance (Gong Gold Std.)</p>
+</div>
+</div>
+<!-- AI Recommendations & Next Action -->
+<div class="p-lg rounded-2xl bg-surface-container-low border border-primary/20">
+<div class="flex items-center gap-2 mb-lg">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h5 class="font-label-md text-on-surface font-bold">Next Best Action</h5>
+</div>
+<div class="space-y-md">
+<div class="p-md bg-white rounded-xl shadow-sm border border-outline-variant/30 group hover:border-primary transition-all cursor-pointer">
+<h6 class="font-label-md text-on-surface mb-1">Send Migration Whitepaper</h6>
+<p class="text-body-sm text-on-surface-variant mb-3">Address Marcus's concern about HubSpot data migration security.</p>
+<button class="text-primary font-label-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                                Generate Email <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="p-md bg-white rounded-xl shadow-sm border border-outline-variant/30 group hover:border-primary transition-all cursor-pointer">
+<h6 class="font-label-md text-on-surface mb-1">Confirm Q1 Implementation</h6>
+<p class="text-body-sm text-on-surface-variant mb-3">Verify resource availability for Sarah's January 15th go-live.</p>
+<button class="text-primary font-label-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                                Schedule Follow-up <span class="material-symbols-outlined text-sm">calendar_today</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Risk Prediction -->
+<div class="p-lg rounded-2xl border border-error/20 bg-error-container/5">
+<div class="flex items-center gap-2 mb-md">
+<span class="material-symbols-outlined text-error">gpp_maybe</span>
+<h5 class="font-label-md text-error font-bold">Risk Prediction</h5>
+</div>
+<div class="flex items-start gap-md">
+<div class="w-1 bg-error h-12 rounded-full"></div>
+<div>
+<p class="text-body-sm text-on-surface-variant">The tight timeline (Jan 15) vs migration volume suggests a <span class="text-error font-bold">High Risk</span> of onboarding friction if not addressed now.</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Contextual FAB (Hidden on detail pages as per instructions, but kept for global logic demonstration) -->
+<!-- <button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-50">
+        <span class="material-symbols-outlined">chat_bubble</span>
+    </button> -->
+<script>
+        // Simple micro-interaction for transcript scrolling highlighting
+        document.querySelector('section').addEventListener('scroll', function() {
+            // Future logic for syncing video/audio with transcript
+        });
+    </script>
+</body></html>
