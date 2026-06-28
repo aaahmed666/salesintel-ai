@@ -1,5 +1,6 @@
 {
   "name": "salesintel-ai",
+  "type": "module",
   "version": "1.0.0",
   "private": true,
   "description": "SalesForce AI - Enterprise Sales Intelligence Platform (Monorepo)",
