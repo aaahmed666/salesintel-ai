@@ -16,7 +16,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
     "typecheck": "npm run typecheck --workspaces --if-present",
-    "prepare": "husky"
+    "prepare": "if [ \"$VERCEL\" != \"1\" ]; then husky; fi"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.18.0",
